@@ -1,0 +1,214 @@
+<script type="text/javascript">
+	broadcastDataGet();
+	$('.sec').animate({
+      'margin-left':'80px'
+    })	
+    radio_start();
+</script>		
+<div id="station_radio">
+	 	<div class="sec radio_border_r">
+	 		<div class="left_icon radio_btn" onclick="Radio_BtnLeft('radio_border_r')"></div>
+	 		<div class="radio_top fix">
+	 			<div class="radio_top_search fix">
+	 				<span></span>
+	 				<span>
+	 					<img class="bcFilterLog" src="img/icon/channel/channel_search1.png" alt="">
+	 				</span>
+	 					<input type="text" placeholder="标题/成员/内容" class="radio_search_input fr" onkeyup="broadcastFuzzySearch()" />
+	 			</div>
+	 			<div class="radio_top_filter">
+	 				<span>
+	 					<img src="img/icon/pho_up.png" alt="">
+	 				</span>
+	 				<div class="bc_filter">
+	 					<div class="fix abc_btn">
+ 	 					<a>一周</a>
+							<a>两周</a>
+							<a>一个月</a>
+							<a style="margin:0;" class="bcTimeSelect" ><img src="img/icon/fence/fence_bg_date.png" /></a>
+	 					</div>
+	 					<div class="baTimeBox">
+ 	 					<div>开始时间<input type="text" class="bcFilterS" id="bcFilterS" readonly="true"/></div>
+ 	 					<div>结束时间<input type="text" class="bcFilterE" id="bcFilterE" readonly="true"/></div>
+	 					</div>     	 					
+	 				</div>
+	 				<div class="radio_top_searchdown" onclick="broadcastSearch()">
+	 					搜索
+	 				</div>
+	 			</div>
+
+	 		</div>
+	        <!--广播内容-->
+	        <div class="radio_main radio_main_height" onscroll="Pulley_radio()" id="Pulley_rid">
+	        	<ul id="broadcastUl" class="broadcastUl">	
+				<div class="loading">
+					<img src="img/loading.gif" />
+					<p>加载中，请稍等...</p>
+				</div>
+	        	</ul>
+	        	<ul id="broadcastUl2" class="broadcastUl" style="display:none;" ></ul>
+	        	<div class="broadcastPage" style="display:none;">
+                <span class="broadcastLoadmoreBtn" onclick="broadcastLoadmoreFn()">向下滑动加载更多</span>
+                <img style="display:none;" class="broadcastLoadmoreImg" src="img/loading.gif" alt="img" />
+				<!-- <a onclick="bcpageIndex()">首页</a>
+				<a onclick="bcpagePreve()">上一页</a>
+				<a onclick="bcpageNext()">下一页</a>
+				<a onclick="bcpageLast()">尾页</a>
+				第
+				<span class="bcpageNum"></span>页/共
+				<span class="bcpageTotal"></span>页 -->
+			</div>			
+        </div> 	
+        <!--底部内容-->
+    	<div class="radio_main_footer">
+    	  	<span class="create_broad_btn" >文字广播</span>
+    	  	<span class="fr broadcast_call_all">语音广播</span>
+    	  	<div class="radio_main_say">
+                <div id="radioTree">
+                    <p>
+                        已选用户 
+                        <i class="selectNumber">0</i> 人，还能选
+                        <i class="selectMore"></i> 人
+                     </p>
+                    <ul class="ztree" id="radio_tree"></ul>
+                    <!-- <div id="radioTreeCover" onclick="radioNocheck()"></div> -->
+                </div>
+                <div class="radioUserSelect">
+                    <span class="radioUserSelect_all" onclick="radioTreeHide()">全部成员</span>
+                    <span class="radioUserSelect_some" onclick="radioTreeApear()">部分成员</span>
+                    <span class="broadcast-recording-list">广播列表</span>
+                </div>
+	  			<p class="broadcast-call-title">点击对讲按钮开始广播呼叫</p>
+	  			<img src="img/icon/channel/channel_btn_msg.png" alt="" 
+	  			 class="radio_main_sayup">
+	  			<img src="img/icon/radio/radio_say_down.png" alt="" 
+	  			 class="radio_main_saydown">
+                <img src="img/icon/pho_down.png" class="radio_main_icon" alt="img" />
+    	  	</div>
+            <p class="radio_main_footer_btn">广播按钮加载中...</p>
+    	</div> 
+    	<div class="radio_main_footer_one">
+    	  	<span>创建广播</span>
+    	</div> 	        	
+	 	</div>
+    <!--二级菜单-->
+	<div class="radio_levle2 radio_radio">
+		 <div class="left_icon radio_btn2"></div>
+		 <div class="radio_level2_top">
+		 	<p><img class="onlineIcon" src="img/chat/online.png" alt="">&nbsp;<i class="brodcast_name"></i></p>
+		 	<p class="brodcast_time"></p>
+		 		<div class="radio_level2_me" style="display:none;">
+		 			<img id="broadcast_delimg" onclick="bcToDel()" src="img/icon/newicon/help_deleted.png" alt="" title="删除">
+		 			<i class="bcdelNum" style="display:none;"></i>
+		 			<div class="bcDelbox">
+		 				<img src="img/icon/pho_up.png" alt="pho"  />
+		 				<p>确定删除当前广播？</p>
+		 				<div>
+		 					<span class=" bcDelcancel">取消</span>
+		 					<span class="" onclick="broadcastDel()">确认</span>
+		 				</div>
+		 			</div>
+		 		</div>
+		 </div>
+		 
+		 <div class="radio_level2_footer">
+		 	<div>
+		 		<h3 class="broadcast_title"></h3>
+			 	<div id="box" class="broadcast_text"></div>
+		 	</div>
+		 </div>
+	</div>
+
+    <!--点击创建广播 二级菜单编辑器-->
+
+    <div class="radio_levle2 radio_border_r radio_write">
+		 <div class="radio_level3_top">
+		 	<p>广播标题</p>
+		 	<input type="text" class="bc-title" maxlength="100" placeholder="请输入标题">
+		 </div>
+		 
+		 <div class="radio_level3_footer">
+		    <div class="radio_level3_footer_top">
+		    	<ul class="fix">
+		    		<!-- <li class="radio_write_file">
+		    			<img src="img/icon/radio/radio_wrtie_img.png" alt="">
+		    		</li> -->
+		    		<li class="radio_write_add">
+		    			<img src="img/icon/radio/radio_write_add.png" alt="">
+		    		</li>
+		    		<li class="radio_write_minus">
+		    			<img src="img/icon/radio/radio_write_minus.png" alt="">
+		    		</li>
+		    		<li class="radio_write_blod">
+		    			<img src="img/icon/radio/radio_write_blod.png" alt="">
+		    		</li>
+		    		<li class="radio_write_color">
+		    			<img src="img/icon/radio/radio_write_color.png" alt="">
+                        <ul class="radio_wrtie_colorselect">
+                            <li>
+                                <img src="img/icon/radio/radio_write_color01.png" alt="">
+                            </li>
+                            <li>
+                                <img src="img/icon/radio/radio_write_color02.png" alt="">
+                            </li>
+                            <li>
+                                <img src="img/icon/radio/radio_write_color03.png" alt="">
+                            </li>
+                            <li>
+                                <img src="img/icon/radio/radio_write_color04.png" alt="">
+                            </li>
+                            <li>
+                                <img src="img/icon/radio/radio_write_color05.png" alt="">
+                            </li>
+                        </ul>
+		    		</li>
+		    		
+		    		<li class="radio_write_left">
+		    			<img src="img/icon/radio/radio_write_left.png" alt="">
+		    		</li>
+		    		<li class="radio_write_center">
+		    			<img src="img/icon/radio/radio_write_center.png" alt="">
+		    		</li>
+		    		<li class="radio_write_right">
+		    			<img src="img/icon/radio/radio_write_right.png" alt="">
+		    		</li>
+		    	</ul>
+		    </div>
+		    <div class="radio_level3_footer_write">
+                 <div contenteditable=true style="word-break:break-all;" class="radio_text bc_editor" id="Radio_text" onkeydown="Radio_text_height(event);">
+                    <i class="bc_editor_i">请输入广播内容</i>
+                 </div>
+		    </div> 
+		 </div>
+		 	<div class="radio_level3_footer_next">
+		    	<span class="btn-span">取消</span>
+		    	<!--<span class="radio_create btn-span" onclick="broadcastCreate()">确定创建</span>-->
+		    	<input type="button" class="radio_create btn-span button_c_h" onclick="broadcastCreate()" value="确定创建"/>
+		    </div>
+	</div>
+    <!-- 广播记录列表 -->
+    <div id="broadcastRecording">
+        <div class="brecording-content">
+            <div class="brecording-head fix">
+                <span class="fl">广播记录</span>
+                <!-- <span class="fr brecording-head-close">关闭</span> -->
+                <span class="fr brecording-head-close">
+                    <img src="img/icon/media/media_close.png" alt="" />
+                </span>
+
+            </div>
+            <div class="brecording-search">
+                <div class="brecording-time">开始时间<input type="text" class="brecording-text" id="brecording-start" readonly="true"/></div>
+                <div class="brecording-time">结束时间<input type="text" class="brecording-text" id="brecording-end" readonly="true"/></div>
+                <div class="brecording-btn">搜索</div>
+            </div>
+            <div class="brecording-list">
+                <ul id="bc_recording_list"></ul>
+                <div class="brecording-more">
+                    <span>点击加载更多</span>
+                    <img class="brecording-more-img" src="img/loading.gif" alt="img" />
+                </div>
+            </div>
+        </div>
+    </div>      
+</div>

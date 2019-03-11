@@ -1,0 +1,114 @@
+<script type="text/javascript" id="sptwarn">
+	warm();
+</script>
+ 
+<div id="station_warn">   
+    <div class="alert1 secContent ">
+
+    <!--一级菜单-->
+	  <div class="sec alert_border_r  warn_r alert_level">
+			<div class="left_icon warn_btn" onclick="Radio_BtnLeft('alert_level')"></div>
+        <!-- 告警头部 -->
+                <div class="alert_top_all">
+                   <div class="alert_top">
+                   		<div>
+                            <span id="warnAllSearch" class="alert_top_search fl">
+                                <img src="img/icon/alert/search.png" alt="" />
+                            </span>
+                            <span>
+                            	<img class="alert_choose_In_out" src="img/icon/channel/channel_search1.png"/>
+                            </span>
+                            <input type="text" placeholder="搜索" class="fl" id="warnAllFuzzySearch" onkeyup="warnAllFuzzySearch()"/>
+                            
+                           	<div class="alert_choose_In_out_div hide" >
+                           		<span><img src="img/icon/pho_up.png"/></span>
+                           		<div style="display: inline-block;">
+                           			<div class="alert_choose_In In_out">围栏禁入</div>
+                           			<div class="alert_choose_out In_out">围栏禁出</div>
+                           		</div>
+                           		<div class="alert_date"><img src="img/icon/alert/alert_date.png"/></div>
+                           		
+                           		<div class="alert_choose_date hide ">
+                            <!-- <div class="fence_date_choose" style="display: block;"> -->
+	                                <div class=" alert_choose_action">
+	                                    <div class="alert_action">
+	                                        <span>&nbsp;开始时间</span>
+	                                        <div class="date-up fr" >
+	                                            <input class="wallstart" id="wallstart" type="text" readonly="true"/>
+	                                            <i class="fr"></i>
+	                                        </div>
+	                                    </div>
+	                                </div>
+	                                <div class="alert_choose_end">
+	                                    <div class="alert_end">
+	                                        <span>&nbsp;结束时间</span>
+	                                        <div class="date-down fr">
+	                                            <input class="wallend" id="wallend" type="text" readonly="true" />
+	                                            <i class="fr"></i>
+	                                        </div>
+	                                    </div>
+	                                </div>
+	                            <!-- </div> -->
+	                                <!--<div onclick="warnAllSearch()" class="warn-search">搜索</div>-->
+                        		</div>
+                        		<div class="clear_div">
+                        			<div onclick="clear_In_out()" class="warn-search display_">重置</div>
+                        			<div onclick="warnAllSearch()" class="warn-search display_r">确定</div>
+                        		</div>
+                           	</div> 
+                        </div>  
+                        
+                   </div>
+                </div>  
+               <!-- <div class="line_warn_search"><span>搜索</span></div> -->
+        <!--告警内容-->
+                <div class="alert_main" onscroll="Pulley_warn()">
+                    <ul id="warnAllList" class="warnAllList">
+                    	<div class="loading">
+							<img src="img/loading.gif" />
+							<p>加载中，请稍等...</p>
+						</div>					
+                    </ul>
+                    <ul id="warnAllList2" class="warnAllList" style="display:none;"></ul>
+					<div class="warnPage" style="display:none;">
+						<!-- <a onclick="pagewarnIndex()">首页</a>
+						<a onclick="pagewarnPreve()">上一页</a>
+						<a onclick="pagewarnNext()">下一页</a>
+						<a onclick="pagewarnLast()">尾页</a>
+						第
+						<span class="wpageNum"></span>页/共
+						<span class="wpageTotal"></span>页 -->
+                        <span class="warnListLoadmoreBtn" onclick="warnListLoadmoreFn()">向下滑动加载更多</span>
+                        <img style="display:none;" class="warnListLoadmoreImg" src="img/loading.gif" alt="img" />
+					</div>	
+                </div>   
+        <!--底部内容-->
+                <div class="alert_main_footer">
+                    <span onclick="warnAllReaded()">全部标记为已读</span>        
+                </div>          
+      </div>
+		
+       
+    <!--二级菜单-->
+    		<div class="alert_levle2    alert_alert">
+    			<div class="left_icon warn2_btn" style="left:300px;"></div>
+    			<!--2级菜单头部-->
+    			 <div class="alert_level2_top">
+    			 		<p><i class="warn_level2_name"></i></p>
+    			 		<div class="alert_level2_me">
+    			 			<!--<img src="img/icon/alert/location_2.png" alt="">-->
+    			 		</div>
+    			 </div>
+    			 <!--2级菜单内容-->
+    			 <div class="alert_level2_main"></div>
+    			<!--2级菜单底部-->
+    			 	<div class="alert_main_footer2" >
+            	  		<span onclick="Warn_Go(this)">发起对讲</span>     	
+                    </div>	
+    		</div>		
+      </div>      		
+     	 	
+</div>     	 
+
+
+     

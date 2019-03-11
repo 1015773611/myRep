@@ -1,0 +1,198 @@
+
+<script type="text/javascript">
+	fence.init();
+</script>
+<div id="station_line">
+		<div class="sec Height fence" style="border-right:1px solid #ccc;">
+			<div class="left_icon fence_btn" onclick="Radio_BtnLeft('fence')"></div>
+			<div>
+				<ul class="fence-list">
+					<div class="loading">
+						<img src="img/loading.gif" />
+						<p>加载中，请稍等...</p>
+					</div>
+				</ul>
+				<div class="create-fence" style="display:none;">
+					<a class="btn-style" onclick="createLine()">创建围栏</a>
+				</div>
+			</div>
+		</div>
+<!--围栏添加成员-->
+		<div class="sec Height model addFence" style="margin-left:0;">
+			<div class="fence_top fence_border">
+				<span>创建新围栏&nbsp;&nbsp;(添加成员)</span>
+			</div>
+			<div class="fence-add-content">
+				<div class="fix top">
+					<span id="search-createFence" class="search fl"></span>
+					<input type="text" class="memSearch fl" placeholder="搜索" name="lineIN" onkeyup="OnKeySearch(this)">
+				</div>
+				<ul id="userAddtrees" class="ztree ul_ztree"></ul>
+				<ul id="userAddtree" class="ztree ul_ztree"></ul>
+				<ul id="penul" class="User_Alls"></ul>
+			</div>
+		</div>
+
+<!-- 已选成员 -->
+
+		<div class="Height model haveSec">
+			<div class="fence_top">
+				<div class="fence_top_border">
+					<span>已选中</span>
+				</div>
+			</div>
+			<div class="user-fenceSelect-list ht">
+				<ul id="fenceUsers"></ul>
+			</div>
+			<div class="user-fenceSelect-footer">
+				<div class="num1">
+					<input type="radio" class="noAllin" name="noAllin" onclick="noAllin(0)" /><span>全部禁入</span>
+					<input type="radio" class="noAllout" name="noAllout" onclick="noAllin(1)"  /><span>全部禁出</span>
+				</div>
+				<div class="num2">
+					<a class="num2-no" onclick="cancelCreateFence()">取消</a>
+					<a class="num2-yes btn-style">下一步</a>
+					<a class="num2-yes1 btn-style" onclick="fenceSpecifiedAdduser()" style="display:none;">确认</a>
+				</div>
+			</div>
+		</div>
+
+<!-- 围栏名称 -->
+
+		<div class="Height model1 nameCreate">
+			<div class="fence_top fence_border">
+				<span onclick="saveFenceLineInterface()">围栏设置</span>
+			</div>
+			<div class="fence-name-middle ht1">
+				<div class="hr"></div>
+				<div class="name-middle-top fix">
+					<span>围栏名称</span>
+					<input type="text" maxlength="15" class="nameInput"  />
+				</div>
+				<div class="com-mid fix fence-time">
+					开始时间
+					<div class="fr">
+						<span class="fenStime">00:00</span>
+						<ul class="hmTime1"></ul>
+					</div>
+				</div>
+				<div class="com-mid fix fence-time">
+					结束时间
+					<div class="fr">
+						<span class="fenEtime">12:00</span>
+						<ul class="hmTime1"></ul>
+					</div>
+				</div>
+			</div>
+			<div class="fence_name_footer">
+				<span class="footer-span1 btn-style">上一步</span>
+				<span class="footer-span2 btn-style" onclick="cancelCreateFence(0)">取消</span>
+				<input type="button" class="footer-span3 button_cs_a" onclick="saveFenceLineInterface()" value="确认创建"></input>
+				<input type="button" class="footer-span3 button_cs_s" value="确认创建"></input>
+			</div>
+		</div>
+		
+<!-- 具体围栏内容 -->
+
+		<div class="Height model fence_content">
+			<div class="left_icon fence_content_btn"></div>
+			<div class="content_top">
+				<div class="fix conT_top1">
+					<span class="fl fence-name2 only_one"></span>
+					<img class="fr conT_set" src="img/icon/newicon/channel_set.png"  />
+					<div class="conT_section">
+						<img class="pho_up" src="img/icon/pho_up.png"  />
+						<div class="conT_section1">
+							<div class="fix">
+								<span>围栏名称</span>
+								<input class="fen_newName" maxlength="15" type="text" />	
+							</div>
+							<span class="com-midlinespan">开始时间</span>
+							<div class="com-midline fix fence-timeline" style="padding-top: 0px;">
+								<div class="fr">
+									<span class="fenStime_x"></span>
+									<ul class="hmTime1"></ul>
+								</div>
+							</div>
+							<span class="com-midlinespan">结束时间</span>
+							<div class="com-midline fix fence-timeline" style="padding-top: 0px;">
+								<div class="fr">
+									<span class="fenEtime_x"></span>
+									<ul class="hmTime1"></ul>
+								</div>
+							</div>
+							<div>
+								<a class="del_fence com-midline-span" >删除围栏</a><a class="sav_fence com-midline-span" onclick="fenceNameModify()">保存</a>
+							</div>
+						</div>
+						<div class="conT_section2">
+							<p>确认删除电子围栏？</p>
+							<a class="noDelFence">取消</a>
+							<a class="yesDelFence" onclick="fenceDoDel()">确认</a>
+						</div>
+					</div>
+				</div>
+				<p><span class="wstart">2015-07-02 9:00</span> — <span class="wend">2015-07-10 9:00</span></p>
+				<ul class="fix">
+					<li><a onclick="fenceEdite()"><img src="img/icon/fence/fence_bg_edit.png"  title="编辑" /></a></li>
+					<li><a onclick="fenceAddUser()"><img src="img/icon/fence/fence_bg_add.png" title="添加成员" /></a></li>
+				</ul>
+			</div>
+			<div class="content_main ht2" onscroll="Pulley_line()">
+				<div class="con_main_search fix">
+					<span class="sear_btn"></span>
+					<input type="text" class="line-user-find" id="warnSearchBar" onkeyup="warnSearchBar()" placeholder="搜索" />
+					<img class="filter_img" src="img/icon/select.png"  />
+					<div class="filter">
+						<img src="img/icon/pho_up.png" class="filter_up" />
+						<a class="week-one">一周</a>
+						<a>两周</a>
+						<a>一个月</a>
+						<a class="fence_date"><img src="img/icon/fence/fence_bg_date.png" /></a>
+						<div class="fence_date_choose">
+							<div class="fix dt_choose">
+								<div class="fl d_start fix">
+									<span class="fl">开始时间</span><input id="fenceStartTime" class="date-s" readonly="true"  /><img id="fenceStartTime_bak" src="./img/icon/fence/fence_bg_downSmall.png" />
+									<!-- onclick="ShowCalendar(this.id)" -->
+								</div>
+								<div class="fr t_time1">
+									<span class="warntime_s">00:00</span>
+									<ul class="time-ul hmTime"></ul>
+								</div>
+							</div>
+							<div class="fix dt_choose">
+								<div class="fl d_end fix">
+									<span class="fl">结束时间</span><input id="fenceEndTime" class="date-e" readonly="true" /><img id="fenceStartTime_bak" src="./img/icon/fence/fence_bg_downSmall.png" />
+								</div>
+								<div class="fr t_time1">
+									<span class="warntime_e">12:00</span>
+									<ul class="time-ul hmTime"></ul>
+								</div>
+							</div>
+						</div>
+						<div class="line_warn_search">
+							<span onclick="warningSearch_cz()">重置</span>
+							<span class="sou_s" onclick="warningSearch()">搜索</span>
+						</div>
+					</div>
+				</div>
+				<div class="con_main_list">
+					<ul id="warnRecord"></ul>
+					<ul id="warnFuzzySearch" style="display:none;"></ul>
+					<div class="fencePage" style="display:none;">
+						<!-- <a onclick="pageIndex()">首页</a>
+						<a onclick="pagePreve()">上一页</a>
+						<a onclick="pageNext()">下一页</a>
+						<a onclick="pageLast()">尾页</a>
+						第
+						<span class="pageNum"></span>页/共
+						<span class="pageTotal"></span>页 -->
+						<span class="fenceListLoadmoreBtn" onclick="fenceListLoadmoreFn()">向下滑动加载更多</span>
+                        <img style="display:none;" class="fenceListLoadmoreImg" src="img/loading.gif" alt="img" />
+					</div>					
+				</div>
+
+				
+			</div>
+		</div>		
+</div>

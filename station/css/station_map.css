@@ -1,0 +1,353 @@
+.tracl {
+	display:none;
+	right:0;
+	top:0;
+    z-index:12!important;
+}
+.tracl_top {
+	height: 26px;
+    background: #F6F6F5;
+    padding: 0 14px;
+    border-bottom: 2px solid #D2CEC8;
+	padding-top:10px;
+	position:relative;
+}
+.tracl_top  img {
+	cursor:pointer;
+}
+.tracl_mid {
+	padding:0 14px;
+	margin:10px 0;
+}
+.tracl_point,.tracl_set_bar {
+    margin-top: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding:0 10px 0 5px;
+    height: 34px;
+    line-height: 34px;
+    position:relative;
+    cursor:pointer;
+}
+.tracl_point ul,.tracl_set_ul {
+	display:none;
+    position: absolute;
+    z-index: 2;
+    background: #fff;
+    width: 100%;
+    left: 0;
+    top: 30px;
+    border-radius: 4px;
+    border:1px solid #E9E7E5;
+}
+.tracl_point ul li,.tracl_set_ul li {
+    text-align: right;
+    padding-right: 25px;
+    cursor:pointer;
+    border-bottom:1px dashed #ccc;
+}
+.tracl_point  ul>li:last-child {
+	border:none;
+}
+.tracl_point  ul li:hover,.tracl_set_ul li:hover {
+    background: #FF8B00;
+    color:#fff;
+    
+}
+.tracl_point span,.tracl_set_bar span {
+	background:url(../img/icon/fence/fence_bg_downSmall.png) no-repeat right center;
+	float: right;
+    padding-right: 14px;
+}
+.tracl_do {
+    margin:10px 0;
+}
+.tracl_set_con {
+	margin-top:10px;
+}
+.tracl_do span,.tracl_set_con span {
+	height:34px;
+	line-height:34px;
+	text-align:center;
+	border:1px solid #FA7C01;
+	border-radius:4px;
+	width:100px;
+	display:inline-block;
+	cursor:pointer;
+}
+.tracl_do>span:first-child,.tracl_set_con>span:first-child {
+	margin-right:24px;
+}
+.tracl_do span:hover,.tracl_set_con span:hover {
+	background:#FA7C01;
+	color:#fff;
+}
+.tracl_ul {
+    width: 58px;
+    height: 240px;
+    display: none;
+    overflow-y: auto;
+    position: absolute;
+    background: #fff;
+    z-index: 5;
+    top: 30px;
+    left: 0px;
+    border: 1px solid #FF8C00;
+    border-radius: 4px;
+}
+.tracl_progess {
+    height: 34px;
+    line-height: 34px;
+    border: 1px solid #ccc;
+    border-radius: 4px;	
+}
+.tracl_footer {
+	padding:0 14px;
+	display:none;
+}
+.tracl_progess {
+	padding:0 5px;
+	height: 34px;
+    line-height: 34px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom:10px;
+}
+.tracl_progess span ,.tracl_progess img {
+	vertical-align:middle;
+}
+.tracl_progess img {
+	cursor:pointer;
+}
+.tracl_bar {
+    width: 130px;
+    height: 4px;
+    display: inline-block;
+    background: #ccc;
+    border-radius: 6px;
+}
+.tracl_bar i {
+	/*width:50px;*/
+	background:#FF8C00;
+	border-radius: 6px;
+	height:100%;
+	float: left;
+}
+#tracl_record {
+	overflow:auto;
+	height:260px;
+}
+#tracl_record li {
+	border-bottom:1px dashed #ccc;
+	height:28px;
+	line-height:28px;
+}
+.tracl_set {
+	position:absolute;
+	top:40px;
+	left:0;
+    background: #fff;
+    width: 232px;
+    z-index: 2;
+    border-top: 1px solid #FF8C00;
+    border-bottom: 1px solid #FF8C00;
+    padding: 10px 14px;
+}
+.tracl_set_ul {
+	display:none;
+}
+.tracl_set img {
+	position:absolute;
+	top:-8px;
+	left:230px;
+}
+.tracl_set_bar i{
+	display:inline-block;
+	width:16px;
+	height:16px;
+	vertical-align:middle;
+}
+.tracl_set_bar .c01 {
+	background:#F82815;
+}
+.tracl_set_bar .c02 {
+	background:#FEE728;
+}
+.tracl_set_bar .c03 {
+	background:#00C7E4;
+}
+.tracl_set_bar .c04 {
+	background:#00C35F;
+}
+.tracl_set_bar .c05 {
+	background:#C55CD9;
+}
+
+/*marker地图标注*/
+#markInfoMessage{
+	/*position: absolute;
+    left: 200px;
+    top: 200px;*/
+    width: 250px;
+    height: 28px;
+    background: #fff;
+    /*border-radius: 6px;*/
+    border-bottom:1px solid #ccc;
+}
+#markInfoMessage h4{
+    display:inline-block;
+    width:210px;
+    height:15px;
+    color:#555451;
+    overflow: hidden;
+    padding-left:6px;
+}
+/*#markInfoMessage .mark_ul1{
+	padding:0 20px;
+}*/
+/*#markInfoMessage .mark_ul1 li {*/
+.mark_ul1 {
+    margin-top:16px;
+}
+.mark_ul1 li {
+    line-height: 20px;
+    height: 20px;
+    /*border-bottom: 1px dashed #ccc;*/
+}
+/*#markInfoMessage .mark_ul2 {
+	border: 1px solid #D6D3CE;
+    width: 208px;
+    height: 40px;
+    border-radius: 4px;
+    margin: 12px 0 0 20px;
+    background:#FAFAF9;
+}*/
+.map_info{
+    margin-right:10px;
+}
+.mark_margin{
+    width:220px;
+    height:32px;
+    border:1px solid #F0F0F0;
+    border-radius:3px;
+    background:#FAFAFA;
+    margin-left:auto;
+    margin-right: auto;
+}
+.map_info .mark_ul2 li {
+    float:left;
+    width:33.33%;
+    height:100%;
+    cursor:pointer;
+}
+.mark_ul_li1 {
+	background:url(../img/icon/marker/mark_phone.png) no-repeat center center;
+}
+.mark_ul_li2 {
+	background:url(../img/icon/marker/mark_message.png) no-repeat center center;
+}
+.map_info .mark_ul2 .mark_ul_li3 {
+	background:url(../img/icon/marker/mark_tracl.png) no-repeat center center;
+	border:none;
+}
+.mark_ul1 span {
+	margin-left:10px;
+}
+#markInfoMessage .mark_ul1 .mark_ul1_last {
+	border:none;
+}
+
+
+/*****地图标注*****/
+.markerCreate {
+	width:218px;
+	padding-top:10px;
+}
+.markerName {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: inherit;
+    height: 30px;
+    line-height: 30px;
+    text-indent: 10px;
+    margin-bottom: 10px;
+}
+.markerText {
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    text-indent: 10px;
+    height: 120px;
+    margin-bottom: 10px;
+    padding-top:5px;
+}
+.markNo {
+	margin:0;
+	width:100px;
+}
+.markYes {
+	margin:0;
+	width:100px;
+}
+.markclick {
+	margin-top:-10px;
+}
+.markclick1 {
+    border-bottom: 1px solid #ccc;
+    height: 30px;
+    line-height: 30px;
+    padding-right:10px;
+}
+.markclick1 span{
+	margin-top:4px;
+}
+.markclick1 span img {
+	margin-right:20px;
+	cursor:pointer;
+}
+.markclick2{
+	width:220px;
+	height: 195px;
+	padding-top:5px;
+    overflow-y: auto;
+}
+.markclick1-title {
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    max-width: 140px;
+}
+.icon_attr12,.icon_attr4 {
+    width:16px;
+    height:16px;
+}
+#tcBtn,#tcWrap {
+    display:none;
+}
+.map-search-x {
+    position:absolute;
+    right:4px;
+    top:0px;
+    cursor:pointer;
+    background-color:#9B9B9B;
+    border-radius:10px;
+}
+.qzName-close{
+    position:absolute;
+    right:4px;
+    top:0px;
+    cursor:pointer;
+    background-color:#9B9B9B;
+    border-radius:10px;
+
+
+}
+.map-search-x>img{
+    vertical-align: middle;
+}
+.qzName-close>img{
+     display:inline-block;
+     width:15px;
+     vertical-align:text-top;
+}

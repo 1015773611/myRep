@@ -1,0 +1,225 @@
+ 
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<title>和对讲调度管理平台</title>
+  <link rel="Shortcut Icon" href="img/favicon.ico" type="img/x-ico" media="screen" />
+  <link type="text/css" rel="stylesheet" href="./css/station_loginInfo.css" />
+  <link rel="stylesheet" href="./css/station_login.css">
+</head>
+<body  onbeforeunload="inputdis()">
+  
+  <div class="login_shadow1">
+        <div class="login_oldver">
+            <h3>旧版调度台即将停服，确定继续进入旧版调度台么？</h3>
+            <button class="oldver">使用新版</button>
+            <button class="oldversure">进入旧版调度台</button>
+        </div>
+        <div class="login_set">
+            设置成功
+        </div>
+        <div class="login_timesure">
+            <p class="login_timepassword">登录密码剩余有效时间：<b>5天</b></p>
+            <p class="login_timepassworduser">请您及时修改登录密码！</p>
+            <button class="login_passwordbtn">确认</button>
+         </div>
+
+         <div class="login_writepassword">
+            <p class="login_losetitle">登录密码已失效，请您修改登录密码</p>
+            <span class="login_close" onclick="Write_close(this)"></span>
+            <div class="index_newpassword">
+               <div class="index_newpasswords">
+                  <input type="password" placeholder="输入旧密码" id="index_OldPwd">
+                  <span onclick="login_showpwd(this)"></span>
+               </div>
+               <p class="index_oldptitle"></p>
+            </div>
+             <div class="index_newpassword">
+               <div class="index_newpasswords">
+                  <input type="password" placeholder="输入新密码" id="index_NewPwd">
+                  <span onclick="login_showpwd(this)"></span>
+               </div>
+               <p class="index_newptitle">8-15位大小写字母、数字和字符（!@#$%^*）组合</p>
+            </div>
+            <div class="index_newpassword">
+               <div class="index_newpasswords">
+                  <input type="password" placeholder="再次输入新密码" id="index_NewPwdrd">
+                  <span onclick="login_showpwd(this)"></span>
+               </div>
+               <p class="index_newptitle">8-15位大小写字母、数字和字符（!@#$%^*）组合</p>
+            </div>
+             <!--<p class="login_specialreg">8-15位大小写字母、数字和字符（!@#$%^*）组合</p>-->
+             <!--<p class="login_special">(仅支持的特殊字符：!@#$%^*)</p>-->
+            
+            <button class="index_writepwdbtn">确认修改</button>
+         </div>
+
+      <div class="login_change">
+         <p class="login_title">找回密码</p>
+         <span class="login_close" onclick="Getlogin(this)"></span>
+         <div class="login_company">
+            <input type="text" placeholder="企业全称/根调度员账号" id="login_company">
+         </div>
+          
+         <div class="login_company mt">
+            <input type="text" placeholder="绑定手机号" id="login_phone" onkeyup="this.value=this.value.replace(/[^\d]/g,'')">
+         </div>
+         <p class="login_msg"></p>
+         <div class="index_sure" onclick="login_next(this)">
+             确认
+         </div>
+      </div>
+     <!--二级-->
+      <div class="login_level2">
+         <p class="login_level2_title">找回密码</p>
+         <span class="login_close" onclick="Getlogin(this)"></span>
+         <p class="index_username"> 测试名称</p>
+         <p class="index_userphone"></p>
+        
+         <div class="index_newpassword">
+            <div class="index_newpasswords">
+                <input type="password" placeholder="输入新密码" id="index_new" class='login_INput'>
+                <span onclick="login_changepps(this)"></span>
+            </div>
+            <p>8-15位大小写字母、数字和字符（!@#$%^*）组合</p>
+         </div>
+
+          <div class="index_newpassword">
+            <div class="index_newpasswords">
+                <input type="password" placeholder="再次输入新密码" id="index_news" class="login_INput">
+                <span onclick="login_changepps(this)"></span>
+            </div>
+            <p>8-15位大小写字母、数字和字符（!@#$%^*）组合</p>
+         </div>
+
+          <div class="index_newpassword">
+            <div class="index_newcode">
+                <input type="text" placeholder="验证码" id="index_code" class="login_INput">
+                <span onclick="GetCode(this)" class="logintimes">点击获取验证码</span>
+            </div>
+            <p>验证码输入有误</p>
+         </div>
+
+         <!--<p class="login_special">(仅支持的特殊字符：!@#$%^*)</p>-->
+         <div class="index_submits" onclick="GetINdex(this)">
+           确认修改
+         </div>
+      </div>
+  </div>
+  
+  <!--登陆界面-->
+  <div class="login_top"></div>
+
+  <div class="login_contaienr fix"> 
+     <div class="login_conleft">
+        <h3>尊敬的和对讲用户，您好：</h3>
+         <p>和对讲调度管理平台已全新改版升级</p> 
+         <p>后续不再对旧版调度台做维护更新</p>
+         <p>旧版调度台可继续使用到2018年12月31号</p>
+         <p class="login_oldversion">如需进入旧版调度台,请点击此处</p>
+     </div>
+  	 <div class="login_conright">
+  	    <div class="login_nameimg">
+  	    </div>
+  	    <div class="login_ricontaner">
+  	        <div class="login_riguser">
+	  	    	 <div class="login_riuser">
+	  	    		  <input type="text" placeholder="账号" value="" id="login_user" onkeyup="loginuser(this)" >
+
+	  	    	 </div>
+	  	    	  <p>账号输入有误</p>
+              <ul class="logn_rembernum">
+              </ul>
+  	      	</div>
+  	    	<div class="login_riguserpass">
+	  	    	<div class="login_riuser">
+	  	    		<input type="password" placeholder="密码" value="" id="login_userpassword" autocomplete="off" >
+              <span onclick="login_pwdlok(this)"></span>
+	  	    	</div>
+	  	    	<p>密码输入有误</p>
+  	    	</div>
+  	        <div class="login_rigusercode">
+	  	    	<div class="login_code">
+	  	    		<input type="text" placeholder="验证码" value=""  id="login_usercode">
+	  	    		 <div id="checkCode"  class="code" onclick="createCode()" >
+               </div>
+	  	    	</div>
+	  	    	<p>请输入验证码</p>
+  	    	</div>
+  	    	<div class="login_rember">
+  	    		 <span id="login_Rember"></span>
+  	    		  记住我
+              <i onclick="login_forget(this)">忘记密码?</i>
+  	    	</div>
+  	    	<div class="login_submit" id="loginBtn" >登录</div>
+  	    	<p class="login_down">
+  	    		<!-- <a>下载安卓手机版客户端</a> -->
+  	    	</p>
+  	    </div>
+  	 </div>
+  </div>
+
+  <div class="login_footer">
+       <div>
+          <ul>
+            <li>中国移动通信集团公司政企客户分公司 4001-10086-8</li> 
+            <li>和对讲专线 400-10086-33</li>
+          </ul>
+          <ul class="login_footerul">
+            <li>和对讲客服邮箱：poc_service@chinamobile.com</li>
+            <li>京ICP备05002571号|中国移动通信版权所有</li>
+          </ul>
+       </div>
+  </div>
+
+  <div class="cover"></div>
+
+  <div id="windowInfo" >
+    <div class="windowInfo-head">
+      <span class="fl">异常解决方案</span>
+      <span class="fr windowInfo-close">关闭</span>
+    </div>
+    <div class="windowInfo-body">
+      <h3>第一步：在浏览器的“工具”菜单中打开“Internet选项”，进入“安全”标签</h3><br />
+      <div>
+        <img src="./img/loginNote/step1.png" alt='img' />
+      </div><br />
+      <h3>第二步：选择“本地Intranet”，点击“站点”</h3><br />
+      <p>您可以按照下图所示的2种情况分别设置后确定，再对浏览器进行刷新尝试，看是否可以正常登录：</p><br />
+      <br/>
+      <p>第一种可能的情况（勾选“自动检测Intranet网络”）：</p><br />
+      <div>
+        <img src="./img/loginNote/step2.png" alt='img' />
+      </div><br />
+      <p>第二种可能的情况（不勾选“自动检测Intranet网络”，同时其下3项均不勾选）：</p><br />
+      <div>
+        <img src="./img/loginNote/step3.png" alt='img' />
+      </div>
+    </div>
+    <div class="windowInfo-foot"></div>
+  </div>
+
+  <script type="text/javascript" src="js/station_config.js"></script>
+  <script type="text/javascript" src="js/engine/testenv.js"></script>
+  <script type="text/javascript" src="js/entity/entity.js"></script>
+  <script type="text/javascript" src="js/lib/jquery-2.1.1.min.js"></script>
+  <script type="text/javascript" src="js/lib/jquery.cookie.js"></script>
+  <script type="text/javascript" src="js/login.js"></script>
+  <script type="text/javascript" src="js/lib/md5.js"></script>
+
+  <script type="text/javascript" src="js/common.js"></script>
+  <script type="text/javascript" src="js/CryptoJS v3.1.2/rollups/aes.js" ></script>
+  <script type="text/javascript" src="js/CryptoJS v3.1.2/components/mode-ecb.js" ></script>
+  <script type="text/javascript" src="js/CryptoJS v3.1.2/components/pad-zeropadding.js" ></script>
+  <script type="text/javascript" src="js/strUtil.js" ></script>
+  <script>
+      loginReady(); 
+      console.log('index');
+  </script>
+</body>
+</html>
+
+
+ 

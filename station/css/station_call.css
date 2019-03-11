@@ -1,0 +1,28 @@
+.call_coming {
+    position: absolute;
+    z-index: 11000;
+    left: 300px;
+    top: 400px;
+    background: #fff;
+    width: 200px;
+    height: 100px;
+    text-align: center;
+    padding: 30px 50px 30px 50px;
+}
+.call_coming .call_title {
+	padding:10px 0px 20px 0px;
+}
+.call_coming .caller {
+	font-weight:bold;
+	font-size:14px;
+	margin:0 auto;
+}
+.call_coming img {
+	cursor:pointer;
+}
+.call_img0 {
+	margin-right:8px;
+}
+/*.call_img1 {
+	margin-left:8px;
+}*/

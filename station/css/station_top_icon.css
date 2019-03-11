@@ -1,0 +1,676 @@
+/*右上角图标功能*/
+
+
+/*图标点击管理左右晃动*/
+.rotate{
+	z-index:1;
+}
+.r1{
+	/*高亮*/
+	/*-webkit-transition:border linear .2s,-webkit-box-shadow linear .5s; */
+	/*-webkit-box-shadow:0 0 5px rgba(255,255,255,3); */
+	/*background-color: #fff;*/
+	opacity:1; 
+	/*晃动动画*/
+	-webkit-transform:rotate(-5deg);
+	 -moz-transform:rotate(-5deg);  
+	-o-transform:rotate(-5deg);
+	transform:rotate(-5deg);
+}
+
+.r2{
+	
+
+	/*晃动动画*/
+	 -moz-transform:rotate(2deg);
+    -webkit-transform:rotate(2deg);
+	-o-transform:rotate(2deg);
+}
+.r3{
+	-moz-transform:rotate(0deg);
+    -webkit-transform:rotate(-0deg);
+	-o-transform:rotate(0deg);
+	transform:rotate(0deg);
+}
+.zhezhao{
+	height: 16px;
+	width: 16px;
+	background: #fff;
+	opacity: 0.6;	
+}
+
+/*ICON 下面UL列表的 border-radius*/
+#sortable2{
+	border-bottom-left-radius: 4px;
+}
+
+/*管理标注*/
+.monitor_label_user{position: absolute; right:0; top:0px;}
+
+.monitor_label_user .monitor_label_main ul {padding:5px 10px;}
+.monitor_label_main li {border-bottom:1px dashed #ccc; padding:6px 0;}
+.monitor_label_main li span { display: inline-block;}
+.monitor_label_main li span:last-child{color:#d3d1cd;}
+.monitor_label_main li input{margin-top: 3px;margin-right: 5px;vertical-align: text-bottom;}
+.monitor_label_main li p{color: #d3d1cd; margin-top: 5px;}
+
+.mon-add-top1 {height:46px; background:#F6F6F5; padding:0 14px; border-bottom:2px solid #D2CEC8; }
+.mon-add-top1 a { height:46px; line-height:46px; font-size:14px;}
+.mon-add-top1 .delete_all {font-size:10px;}
+
+.user-Cross-footerCont a {
+	background: #f9f9f9;
+}
+
+
+/*提示移动*/
+.topR div.itle_mobile{
+	height: 50px;
+}
+.itle_mobile img{
+	display: inline-block;
+	height: 30px;
+	width:140px;
+
+}
+.Mtop{
+	margin-top: 20px;
+}
+
+/*地图搜索位置名称*/
+
+.map_icon_choose_input{
+	height: 50px;
+	width: 371px;
+	position: absolute;
+	top:0px;
+	right: 0;
+	border: 1px solid #a5a19a;
+	padding:0 10px 0 0px;
+	border-radius: 3px;
+	background: #fff;
+}
+.map_icon_input{
+	height: 50px;
+    width: 352px;
+    padding-left: 30px;
+    background: url(../img/icon/search.png) no-repeat 10px center;
+}
+.map_icon_input::-ms-clear{
+	display: none;
+}
+.map_icon_input_close{
+	height: 15px;
+	line-height: 13px;
+	text-align: center;
+	width: 15px;
+	border-radius: 50%;
+	background: #a9a59e;
+	position: absolute;
+	top: 19px;
+	right: 12px;
+	cursor: pointer;
+
+}
+#searchResultPanel{
+	border:1px solid #C0C0C0;
+	width:150px;
+	height:auto;
+	display:none;
+	overflow:auto;
+}
+
+/*锁定位置*/
+
+/**/
+.map_icon_lock{
+	height:65px;
+	width: 90px;
+	border-radius: 8px;
+	position: absolute;
+	top: 58px;
+	right: -22px;	
+	text-align: center;
+	background: #fff;
+	z-index: 13;
+}
+.map_icon_lock ul{
+	padding: 0px 8px;
+}
+.map_icon_lock ul li{
+	cursor:pointer;
+	height: 30px;
+	line-height: 30px;
+	padding: 5px 0;
+}
+.map_icon_lock ul li:first-child{
+	border-bottom: 2px dotted #ddd;
+	z-index: 10;
+	vertical-align: middle;
+}
+/*三角*/
+.triangle{
+	position:absolute;
+	top: -6px;
+	right: 40px;
+	height: 12px;
+	width: 12px;
+	transform:rotate(45deg);	
+	-ms-transform:rotate(45deg); 	/* IE 9 */
+	-moz-transform:rotate(45deg); 	/* Firefox */
+	-webkit-transform:rotate(45deg); /* Safari 和 Chrome */
+	-o-transform:rotate(45deg); 	/* Opera */
+	background: #fff;
+	border-top-left-radius:5px; 
+
+}
+
+/*圈选图标hover*/
+.icon_attr3{
+
+}
+/*圈选完成后的显示列表     第一列*/
+.manage_circle,.manage_circle_talk{
+	height:100%;
+	width:240px;
+	background:#fff;
+	position:absolute;
+	top:0px;
+	right:0px;
+	z-index:10;
+}
+.manage_circle_top,.manage_circle_talk_top{
+	height:15px;
+	background: #f7f6f5;
+	padding:10px;
+	border-bottom: 2px solid #e2e1df;
+}
+.manage_circle_main,.manage_circle_talk_main{
+	padding:0 20px;
+    overflow-x:hidden;
+    overflow-y:auto;
+
+}
+.manage_circle_main ul li{
+	padding:10px 0px;
+	border-bottom: 1px dashed #eceaea;
+}
+.choBox{
+	margin-top: 2px;
+}
+.manage_circle_foot{
+	position: relative;
+	bottom:0px;
+	/*height: 66px;*/
+
+}
+.manage_circle_footCont{
+	padding: 0px 20px;
+}
+.circle_close,.circle_remove1{
+	height:30px;
+	width:90px;
+	border-radius: 5px;
+	line-height: 30px;
+	border: 1px solid #FA7C01;
+	background: #ffffff; 
+	text-align: center;
+	color: #FA7C01;
+}
+.circle_close:hover,.circle_remove1:hover{
+	background: #FA7C01;
+	color:#fff;
+}
+.circle_remove1{
+	background: #fff;
+}
+/*圈选完成后的显示列表   第二列*/
+/*会话列表*/
+
+.manage_circle_talk_foot2{
+	position: relative;
+	bottom:0px;
+	height: 76px;
+	position: absolute;
+	bottom: 0px;
+	padding: 10px 15px;
+
+
+}
+
+.circle_close2,.circle_remove2{
+	height:30px;
+	width:90px;
+	border-radius: 5px;
+	line-height: 30px;
+	border: 1px solid #FA7C01;
+	background: #ffffff; 
+	text-align: center;
+}
+.circle_close2:hover,.talkIsBegin:hover,.circle_remove2:hover,.circle_remove1:hover{
+	background: #FA7C01;
+}
+.circle_remove2{
+	background: #fafafa;	
+}
+.talkIsBegin{
+	display: inline-block;
+	height:30px;
+	width:207px;
+	border-radius: 5px;
+	line-height: 30px;
+	border: 1px solid #ebe9e9;
+	background: #fafafa; 
+	text-align: center;
+	position: relative;
+	top: 10px;
+	left: 0px;
+
+}
+/* 圈选后弹出创建会话后第二列 中间内容部分*/
+.manage_circle_talk_main{
+	padding: 10px 15px;
+}
+/* 二列中的输入框 频道会话名称*/
+.talk_name{
+	height: 30px;
+	width: 100px;
+	border:1px solid #ebe9e9;
+	border-radius: 4px;
+	padding-left: 100px;
+	padding-right: 10px;
+	text-align: right;
+
+}
+.talk_name::-ms-clear{
+	display: none;
+}
+.pd_name{
+	position: relative;
+	top: -25px;
+	left: 15px;
+	color: #c3c1bd;
+	
+}
+
+
+
+
+/***********地图打印生成图片*************/
+
+.black_overlay{
+	display:none;
+	position:absolute;
+	top:0%;
+	left:0%;
+	width:100%;
+	height:100%;
+	background-color:black;
+	z-index:601;
+	-moz-opacity:0.5;
+	opacity:.50;
+	filter:alpha(opacity=50);
+}
+.white_content{
+	display:none;
+	position:absolute;
+	margin: auto; 
+  	top: 0; left: 0; bottom: 0; right: 0;
+	width:855px;
+	height:560px;
+	border-radius:5px;
+	background-color:white;
+	z-index:602;
+	overflow:auto;
+}
+.stamp_top{
+  height: 30px;
+  background: #fafafa;
+  border-bottom: 1px solid #ddd;
+}
+.stamp_main{
+height: 460px;
+width: 855px;
+border-bottom: 1px solid #ddd;
+}
+.stamp_foot{
+  height: 46px;
+  background: #fafafa;
+  padding-top:14px ;
+  
+}
+.stampMap{
+  margin-left: 250px;
+}
+.makeImg{
+  margin-left: 150px;
+}
+.stamp_foot a {
+  display: inline-block;
+  height: 30px;
+  line-height: 30px;
+  width: 90px;
+  border-radius: 4px;
+  text-align: center;
+  background:#fff;
+  cursor: pointer;
+  color: #FA7C01;
+  border: 1px solid #FA7C01;	
+}
+.stamp_foot a:hover {
+	background:#FA7C01;
+	color:#fff;
+}
+.close_light{
+  display: block;
+  float: right;
+  margin-right: 10px;
+  margin-top: 3px;
+  cursor: pointer;
+}
+.bestSmall{
+   display: block;
+  float: right;
+  margin-right: 10px;
+  margin-top: 3px;
+  cursor: pointer;
+}
+
+/*************路线***************/
+/*列表*/
+#searchResultPanel2{
+	border:1px solid #C0C0C0;
+	width:150px;
+	height:auto;
+	display:none;
+	overflow:auto;
+	padding-left: 0px;
+	margin-left: 0px;
+}
+.qzName{
+	height:30px;
+    /*height:40px;*/
+	width:360px;
+	background:#fff;
+	border-radius:2px;
+	padding:14px 10px 10px 10px;
+	position:absolute;
+	top:0px;
+	right:3px;
+}
+.qdName{
+	height:26px;
+	line-height:26px;
+	width:165px;
+	border-radius:5px;
+	border:1px solid #e2e1df;
+	overflow:hidden;
+	/*white-space:nowrap;
+	-o-text-overflow: ellipsis;*/
+}
+
+.zdName{
+	position: absolute;
+    top: 14px;
+    right: 13px;
+	height:26px;
+	line-height:26px;
+	width:165px;
+	border-radius:5px;
+	border:1px solid #e2e1df;
+	overflow: hidden;
+}
+.qdImg{
+	height: 14px;
+    line-height: 14px;
+    width: 14px;
+    color: #fff;
+    background: #71d385;
+    border-radius: 50%;
+    font-size: 12px;
+    margin-top: 6px;
+    margin-left: 5px;
+    padding-left: 1px;
+    position: absolute;
+    top: 12px;
+    left: 12px;
+}
+.zdImg{
+	height: 14px;
+    line-height: 14px;
+    width: 14px;
+    color: #fff;
+    background: #e65b4f;
+    border-radius: 50%;
+    font-size: 12px;
+    margin-top: 6px;
+    margin-left: 5px;
+    padding-left: 1px;
+    position: absolute;
+    top: 12px;
+    left: 205px;
+   
+}
+.qdName_input::-ms-clear{
+	display: none;
+	width: 0;
+	height:0;
+}
+.zdName_input::-ms-clear{
+	display: none;
+	width: 0;
+	height:0;
+}
+#qdName_input{
+	width: 110px;
+	height:26px;
+	line-height: 26px;
+  	border: 0px solid #ddd;
+    outline-color: initial;
+    outline-style: none;
+    outline-width: initial;
+    position: absolute;
+    top: 14px;
+    left: 0px;
+    background: #fff;
+    padding-left: 35px;
+    padding-right: 236px;
+    padding-bottom: 13px;
+    background: url(../img/icon/map/qdImg.png) no-repeat 14px 4px ;
+}
+
+#zdName_input{
+	width: 110px;
+	height: 26px;
+	line-height: 26px;
+    border: 0px solid #ddd;
+    outline-color: initial;
+    outline-style: none;
+    outline-width: initial;
+    position: absolute;
+    top: 1px;
+    right: -14px;
+    background: #fff;
+    padding-left: 231px;
+    padding-right: 40px;
+    padding-bottom: 13px;
+    background: url(../img/icon/map/zdImg.png) no-repeat 208px 4px;
+   
+}
+
+
+.thName{
+	 
+    width: 24px;
+    height: 20px;
+    position: absolute;
+    top: 14px;
+    left: 177px;
+}
+.thName img{
+	margin-top:5px;
+	margin-left:2px;
+	cursor:pointer;
+	// z-index: 11;
+}
+
+/*.zdName_input{
+	width:110px;
+	position:relative;
+	top:-22px;
+	left:28px;
+	border:0px solid #ddd;
+	outline-color:initial;
+	outline-style:none;
+	outline-width: initial;
+	margin-top:7px;
+}*/
+.qdName_colse{
+	display: block;
+	height: 16px;
+    width: 16px;
+    line-height: 13px;
+    border-radius: 50%;
+    font-size: 15px;
+    background: #a9a59e;
+    color: #fff;
+    font-weight: bold;
+    text-align: center;
+    position: absolute;
+    top: 17px;
+    right: 210px;
+   /* margin-top: -19px;
+    margin-right: 3px;*/
+    cursor: pointer;
+    display: none;
+    // z-index: 5;
+	
+}
+.zdName_close{
+	display: block;
+	height: 16px;
+    width: 16px;
+    line-height: 13px;
+    border-radius: 50%;
+    font-size: 15px;
+    background: #a9a59e;
+    color: #fff;
+    font-weight: bold;
+    text-align: center;
+    position: absolute;
+    top: 6px;
+    right: 6px;
+   /* margin-top: -19px;
+    margin-right: 3px;*/
+    cursor: pointer;
+    display: none;
+    // z-index: 5;
+}
+/*路线下拉框*/
+#tangram-suggestion--TANGRAM__2k-main{
+	/*height: 100%;*/
+	height: auto;
+}
+
+/************公交驾车部分*/
+.gjjc{
+	height:300px;
+	width:380px;
+	border-radius:5px;
+	position:absolute;
+	top:50px;
+	right:0px;
+	background:#fff;
+
+}
+.gjjc_top{
+	height:30px;
+	width:380px;
+	border-top:2px solid #e2e1df;
+}
+.gjjc_top_gj{
+	height:30px;
+	width:190px;
+	line-height:30px;
+	text-align:center;
+	border-bottom:1px solid #fa8a0c;
+	cursor:pointer;
+	color:#fa8a0c;
+}
+.gjjc_top_jc{
+	 height:30px;
+	 width:190px;
+	 line-height:30px;
+	 text-align:center;
+	 border-bottom:1px solid #e2e1df;
+	 cursor:pointer;
+}
+.gjjc_main,.gjjc_DriveMain{
+	height:30px;
+}
+.tjLine,.DtjLine{
+	 height:30px;
+	 width:95px;
+	 line-height:30px;
+	 text-align:center;
+	 cursor:pointer;
+	 color: #fa8a0c;
+}
+.sjdLine,.DsjdLine{
+	height:30px;
+	width:95px;
+	line-height:30px;
+	text-align:center;
+	cursor:pointer;
+}
+.shcLine,.jldLine{
+	height:30px;
+	width:95px;
+	line-height:30px;
+	text-align:center;
+	cursor:pointer;
+}
+.sbxLine,.bkgsLine{
+	height:30px;
+	width:95px;
+	line-height:30px;
+	text-align:center;
+	cursor:pointer;
+}
+/*显示价格*/
+#taxi_Fare{
+	height:20px;
+	line-height:20px;
+	width:380px;
+	border:1px solid #ddd;
+	text-align:center;
+}
+/*公交驾车底部 选择面板*/
+.ajjc_foot{
+	height: 100%;
+	width: 380px;
+	overflow: auto;
+}
+.ajjc_foot table{
+	width:100%;
+	font-size:12px;
+}
+/*替换的文字css底边css*/
+/*.colorChange{
+	color: #fa8a0c;
+}*/
+.bottomColorChange{
+	color: #fa8a0c;
+	border-bottom: 1px solid #fa8a0c;
+}
+
+.activePos{
+	/*background:#F1F0EE;*/
+	color:#FF8C00;
+}
+.markerPage {
+	text-align:center;
+	cursor:pointer;
+	height:36px;
+	line-height:36px;
+}

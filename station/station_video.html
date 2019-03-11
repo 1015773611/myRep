@@ -1,0 +1,39 @@
+<script>
+	videoApply();
+</script>
+
+<div id="station_video">
+	<div id="videoStore" onscroll="videoStoreScroll()">
+	</div>
+	
+	<div id="videoChannel">
+		<div class="video_mid fix">
+			<span class="fl video_time"></span>
+			<span class="fr">
+				<img src="img/icon/video/video_quan.png" onclick="toallScreen()" class="allScreen" />
+				<img src="img/icon/video/video_zhuan.png" onclick="rotateScreen()"/>
+			</span>
+		</div>
+		<div class="video_bom fix">
+			<!--  onclick="Video_channelshow()" -->
+			<span class="Conversation fl" style="display:none;"></span>
+			<span class="video_imgclass fr">
+				<i title="锁定会话" class="video_lock" lock="0" onclick="veChatLock(this)"></i>
+				<i title="本地抓拍" class="video_Localcapture" onclick="veLocalcapture()"></i>
+				<i title="远程抓拍" class="video_Remotecapture" onclick="veRemotecapture()"></i>
+				<i title="环境音" class="video_audo" onclick="veMute()"></i>
+				<i title="视频转发" class="video_export" onclick="videoForward()"></i>
+			</span>
+			<div class="video_bom_div">
+				<span class="video_shoot_name"></span>
+				<img class="video_phone" onclick="v_close()" src="img/icon/video/video_phone.png" />
+				<img class="video_speak" src="img/icon/video/video_speak.png" onclick="veChatSpeaking()" alt="pic" />
+				<div style="display:inline-block;"><span class="video_statue">空闲中</span></div>
+			</div>
+		</div>	
+	</div>
+
+	<iframe id="veiframe" name="veiframe" src="station_iframe.html" frameborder="0" width="290" style="display:none;">
+		<p>Your browser does not support iframes.</p>
+	</iframe>
+</div>

@@ -1,0 +1,729 @@
+<script type="text/javascript">
+	orgUser._init();
+	orgUser.appear();
+	getDispatcher();
+</script>
+<div id="station_user">	
+<!--组织成员页面-->
+		
+		<div class="helpsec  user">
+			<div class="helpleft_icon  user_btn" onclick="small_btn('user')"></div>
+			<div>
+				<div class="user-column1">
+					<ul id="treeDemo" class="ztree user-tree"></ul>
+					<div class="userLoading">
+						<img src="img/loading.gif" />
+						<p>加载中，请稍等...</p>
+					</div>
+					<div id="addGroupNode" style="display:none;">
+						添加组织
+						<input type="text" class="OrgName" maxlength="30" placeholder="请输入组织名称" />
+						<input type="hidden" class="treeId_add" />
+						<!-- <span onclick="doAddGroup()">确认并添加成员</span> -->
+						<button onclick="doAddGroup()" disabled="true">确认并添加成员</button>
+						<img class="addGroup_img" src="img/icon/pho_up.png" />
+					</div>
+					<div id="editGroupName" style="display:none;" >
+						编辑组织名称
+						<input type="text" maxlength="30" class="OrgNewName" />
+						<input type="hidden" class="treeId_edit" />
+						<!-- <span onclick="doGroupEdit()">保存</span> -->
+						<button onclick="doGroupEdit()" class="btn-active">保存</button>
+						<img class="editGroup_img" src="img/icon/pho_up.png" />
+					</div>
+					<div id="sortGroupNode" style="display:none;" >
+						组织排序
+						<!-- <input type="hidden" class="treeId_edit" /> -->
+						<ul id="sortGroupNode-ul">
+							<!-- <li class="fix"><i class="fl">子节点</i><div class="fr sortGroupNode-logo"><i></i><i></i><i></i></div></li> -->
+						</ul>
+						<span onclick="doGroupSorting()">保存</span>
+						<img class="sortGroup_img" src="img/icon/pho_up.png" />
+					</div>
+				</div>
+				<div class="user-Cross-Enterprise" style="display:none; height:10px;">
+					<a>跨企业调度</a>
+				</div>
+			</div>
+		</div>
+		
+<!--跨企业调度页面-->
+		
+		<div class="usr-Cross mode">
+			<div class="user-Cross-top">
+				<div class="user-Cross-list">
+					<a>跨企业调度</a>
+				</div>
+			</div>
+			<div class="user-Cross-middle ht2">
+				<div class="user-Cross-middleCont">
+					<ul>
+						<li>
+							<a class="user-Cross-relative1">
+								<div class="fix">
+									<span class="fl"><img src="img/chat/online.png" alt="img" /></span>
+									<h3 class="fl user-Cross-middleCont-name">公司三名称</h3>
+								</div>
+								<p class="fix">
+									<span class="fl">10086</span>
+									<span class="fr">已关联</span>
+								</p>
+							</a>
+						</li>
+						<li>
+							<a class="user-Cross-relative2">
+								<div class="fix">
+									<span class="fl"><img src="img/icon/user_cross_applying.png" alt="img" /></span>
+									<h3 class="fl user-Cross-middleCont-name">公司三名称</h3>
+								</div>
+								<p class="fix">
+									<span class="fl">10086</span>
+									<span class="fr">申请中</span>
+								</p>
+							</a>
+						</li>
+						<li>
+							<a class="user-Cross-relative3">
+								<div class="fix">
+									<span class="fl"><img src="img/icon/user_cross_refuse.png" alt="img" /></span>
+									<h3 class="fl user-Cross-middleCont-name">公司三名称</h3>
+								</div>
+								<p class="fix">
+									<span class="fl">10086</span>
+									<span class="fr">被拒绝</span>
+								</p>
+							</a>
+						</li>
+						<li>
+							<a class="user-Cross-relative4" onmouseover="userImgDeleteShow()" onmouseout="userImgDeleteHide()">
+								<div class="fix">
+									<span class="fl"><img src="img/icon/user_cross_refuse.png" alt="img" /></span>
+									<h3 class="fl user-Cross-middleCont-name">公司三名称</h3>
+									<span class="fr user-delete" style="display:none;" onclick="userImgDelete()"><img src="img/icon/user_delete.png" alt="img"/></span>
+								</div>
+								<p class="fix">
+									<span class="fl">10086</span>
+									<span class="fr">已解除</span>
+								</p>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="user-Cross-footer">
+				<a class="user-apply-info">申请跨企业调度</a>
+			</div>
+		</div>
+
+<!--申请企业信息验证页面-->
+		
+		<div class="cus-apply mode">
+			<div class="user-Cross-top">
+				<div class="user-Cross-apply">
+					<a>跨企业调度</a>
+				</div>
+			</div>
+			<div class="user-Cross-middle ht2">
+				<div class="user-Cross-middleItem">
+					<div class="user-Cross-info">
+						<a>申请企业信息验证</a>
+					</div>
+					<ul class="userCustomerlist" id="userCustomerlist">
+						<li>
+							<div>
+								<span class="user-Cross-cusName">企业1</span>
+								<input type="text" name="" placeholder="输入企业ID" />
+								<input type="text" name="" placeholder="输入企业全称" />
+							</div>
+						</li>
+					</ul>
+					<div class="user-Cross-addCus">
+						<span><a><img onclick="userAddCustomer()" src="img/icon/user_addCus.png" alt="img" /></a></span>
+						<span>添加关联企业</span>
+					</div>
+				</div>
+			</div>
+			<div class="user-Cross-footer">
+				<div class="user-Cross-footerCont">
+					<a class="user-cancel">取消</a>
+					<a class="user-next">下一步</a>
+				</div>
+			</div>
+		</div>
+
+<!--添加我方成员-->
+		
+		<div class="cus-addMine mode">
+			<div class="user-Cross-top">
+				<div class="user-Cross-addUser">
+					<a>添加我方成员</a>
+				</div>
+			</div>
+			<div class="user-Cross-middle ht2">
+				<div class="user-Cross-users">
+					<div class="fix user-Cross-addSearch ">
+						<span class="search fl"></span>
+						<input type="text" class="search-con fl" placeholder="搜索成员">
+					</div>
+					<ul id="myTree" class="ztree"></ul>
+				</div>
+			</div>
+		</div>
+
+<!-- 已选成员 -->
+
+		<div class="user-selected Height mode">
+			<div class="user-Cross-top">
+				<div class="user-Cross-addUser">
+					<a>已选成员</a>
+				</div>
+			</div>
+			<div class="user-Cross-userSelect user-Cross-middle ht2">
+				<ul>
+					<li class="fix">
+						<span class="fl">赵大海</span>
+						<span><img class="fr" src="img/icon/user_cross_delete.png" alt="img"  /></span>
+					</li>
+					<li class="fix">
+						<span class="fl">赵大海</span>
+						<span><img class="fr" src="img/icon/user_cross_delete.png" alt="img"  /></span>
+					</li>
+				</ul>
+			</div>
+			<div class="user-Cross-footer">
+				<div class="user-Cross-footerCont">
+					<a class="user-prev">上一步</a>
+					<a>提交申请</a>
+				</div>
+			</div>
+		</div>
+		
+<!--已关联企业成员-->
+
+		<div class="user-Cross4 Height mode">
+			<div class="user-Cross-top">
+				<div class="cus-relation">
+					<a class="ourList">我方成员</a>
+					<a class="otherList">对方成员</a>
+				</div>
+			</div>
+			<div class="user-Cross-userSelect user-Cross-middle ht2">
+				<ul class="ul-our">
+					<li class="fix">
+						<span class="fl">赵大海</span>
+						<span><img class="fr" src="img/icon/user_cross_delete.png" alt="img"  /></span>
+					</li>
+					<li class="fix">
+						<span class="fl">王琳琳</span>
+						<span><img class="fr" src="img/icon/user_cross_delete.png" alt="img"  /></span>
+					</li>
+				</ul>
+				<ul class="ul-other" style="display:none;">
+					<li class="fix">
+						<span class="fl">李海亮</span>
+						<span><img class="fr" src="img/icon/user_cross_delete.png" alt="img"  /></span>
+					</li>
+					<li class="fix">
+						<span class="fl">王果冻</span>
+						<span><img class="fr" src="img/icon/user_cross_delete.png" alt="img"  /></span>
+					</li>
+					
+				</ul>
+			</div>
+			<div class="user-Cross-footer">
+				<div class="user-Cross-footerCont">
+					<div class="ul-our">
+						<a class="user-cancel">取消关联</a>
+						<a>添加成员</a>	
+					</div>
+					<div class="ul-other" style="display:none;">
+						<a class="user-cancel user-cancel2">取消关联</a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+<!-- 申请中企业我方申请成员页面 -->
+
+		<div class="user-Cross5 mode Height">
+			<div class="user-Cross-top">
+				<div class="user-Cross-applyUser">
+					<a>我方申请成员</a>
+				</div>
+			</div>
+			<div class="user-Cross-userSelect user-Cross-middle ht2">
+				<ul>
+					<li class="fix">
+						<span class="fl">赵大海</span>
+						<span><img class="fr" src="img/icon/user_cross_delete.png" alt="img"  /></span>
+					</li>
+					<li class="fix">
+						<span class="fl">赵大海</span>
+						<span><img class="fr" src="img/icon/user_cross_delete.png" alt="img"  /></span>
+					</li>
+				</ul>
+			</div>
+			<div class="user-Cross-footer">
+			</div>
+		</div>
+
+<!-- 申请中企业对方申请成员页面 -->
+
+		<div class="user-Cross6 Height mode">
+			<div class="user-Cross-top">
+				<div class="user-Cross-applyUser">
+					<a>对方中申请成员</a>
+				</div>
+			</div>
+			<div class="user-Cross-userSelect user-Cross-middle ht2">
+				<ul>
+					<li class="fix">
+						<span class="fl">赵大海</span>
+					</li>
+					<li class="fix">
+						<span class="fl">赵大海</span>
+					</li>
+					<li class="fix">
+						<span class="fl">赵大海</span>
+					</li>
+				</ul>
+			</div>
+			<div class="user-Cross-footer">
+				<div class="user-Cross-footerCont">
+					<a class="user-prev">拒绝</a>
+					<a>同意</a>
+				</div>
+			</div>
+		</div>
+		
+<!-- 组织成员明细页面 -->		
+		<div class="Height1 mode1 user-list">
+			<div class="left_icon orge_btn"></div>
+			<div class="org-top">
+				<div class="fix org-top-con">
+					<span class="fl cus-name" id="User_level2top"></span>
+					<img class="fr set-logo" src="img/icon/newicon/channel_set.png"/>
+					<div class="set-div">
+						<img src="img/icon/pho_up.png" class="set-div-img" />
+						<div class="part1">
+							<span class="org-Sort" onclick="userSort()">更改成员排序</span>
+							<span class="org-Dissolute">解散组织</span>
+						</div>
+						<div class="part2">
+							<p>确定解散当前组织？</p>
+							<div>
+								<img class="set-up" src="img/icon/pho_up.png"  />
+								<span class="marR" onclick="cancelGroup()">取消</span>
+								<span class="confirm-to" onclick="orgGroupDelete()">确认</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="org-mid">
+				<div class="org-mid-search">
+					<input class="userSearch foucstyle" type="text" placeholder="输入成员备注名/账号" onkeyup="userValueSearch()" />
+					<input type="hidden" class="treenode-only" />
+				</div>
+				<div class="edited" style="position:relative;">
+					<div class="edited-concent window-user">
+						<img src="img/icon/pho_up.png" /> 
+						<span>用户资料</span>
+						<div>
+							<div class="fix user-ID">
+								<span class="fl">用户ID</span>
+								<span class="fr userID"></span>
+							</div>
+							<input type="text" class="editUserName" placeholder="备注名" maxlength="15" />
+							<input type="text" onkeyup="this.value=this.value.replace(/\D/g, '')" class="editUserPhone" placeholder="手机号"  maxlength="13" />
+							<input type="text" class="editUserEmail" placeholder="邮箱" maxlength="63" />
+						</div>
+						<div class="edited-footer"><span onclick="userDetailsaveInfo()" class="save editSave">保存</span></div><!-- -->
+						<div>
+							<span>修改密码</span>
+							<input type="password" class="editUserPwd" placeholder="新密码"  />
+							<input type="password" class="editUserPwdnew" placeholder="确认密码"  />
+							<span class="error"></span>
+							
+						</div>
+						<div>
+							<p>应答状态：<span class="isMian"></span></p>
+							<p>应答模式：<span class="isShou"></span></p>
+						</div>
+						<span class="pwdReset" id="pwd_baocun" onclick="userPasswordSave()">保存密码</span>
+						<span class="pwdReset" id="pwd_chongzhi" onclick="userDetailspwdReset()">重置密码</span>
+					</div>
+				</div>
+				<div class="over" style="position:relative;">
+					<div class="user-close window-user" >
+						<img src="img/icon/pho_up.png"  /> 
+						<div class="bar">
+							<div class="xianzhi-yaobi">
+								<!-- <input type="checkbox" class="remotectl" /> -->
+								<div class="squaredbox">
+								  <input type="checkbox" onclick="userCloseInput()" class="remotectl"  id="user-close-yaobi" />
+								  <label for="user-close-yaobi"></label>
+								</div>
+								<span>遥毙</span>
+							</div>
+						</div>
+						<div class="bar">
+							<div>
+								<!-- <input type="checkbox" class="dispatcherCheck" /> -->
+								<div class="squaredbox">
+								  <input type="checkbox" onclick="userCloseInput()" class="dispatcherCheck"  id="user-close-quanxian" />
+								  <label for="user-close-quanxian"></label>
+								</div>
+								<span>子调度员权限</span>
+							</div>
+							<!--<div class="bar1">
+								<input type="checkbox" />
+								<span>跨企业调度权限</span>
+							</div>-->
+							<!--class="bar1"-->
+							<div>
+								<!-- <input type="checkbox" class="bccallList" /> -->
+								<div class="squaredbox">
+								  <input type="checkbox" onclick="userCloseInput()" class="bccallList"  id="user-close-guangbo" />
+								  <label for="user-close-guangbo"></label>
+								</div>
+								<span>广播呼叫权限</span>
+							</div>
+						</div>
+						<div class="bar xianzhi-bar" style="border:none;">
+							<div>
+								<!-- <input type="checkbox" class="velimit" /> -->
+								<div class="squaredbox">
+								  <input type="checkbox" onclick="userCloseInput()" class="velimit"  id="user-close-shipin" />
+								  <label for="user-close-shipin"></label>
+								</div>
+								<span>限制查看实时视频</span>
+							</div>
+							<div>
+								<!-- <input type="checkbox" class="limitcallIn" /> -->
+								<div class="squaredbox">
+								  <input type="checkbox" onclick="userCloseInput()" class="limitcallIn"  id="user-close-lincall" />
+								  <label for="user-close-lincall"></label>
+								</div>
+								<span>限制临时呼叫呼入</span>
+							</div>
+							<div>
+								<!-- <input type="checkbox" class="limitcallout" /> -->
+								<div class="squaredbox">
+								  <input type="checkbox" onclick="userCloseInput()" class="limitcallout"  id="user-close-linout" />
+								  <label for="user-close-linout"></label>
+								</div>
+								<span>限制临时呼叫呼出</span>
+							</div>
+							<div>
+								<!-- <input type="checkbox" class="lcchannel" /> -->
+								<div class="squaredbox">
+								  <input type="checkbox" onclick="userCloseInput()" class="lcchannel"  id="user-close-call" />
+								  <label for="user-close-call"></label>
+								</div>
+								<span>限制频道呼叫</span>
+							</div>
+						</div>
+						<div>
+							<span id="userInfo-save-btn" class="save" onclick="saveAuthority()">保存</span>
+						</div>
+					</div>
+				</div>
+				<div class="uremove" style="position:relative;">
+					<div class="user-remove window-user">
+						<img src="img/icon/pho_up.png" />
+						<div>
+							<p class="remove-p">确认移除成员？</p>
+							<div>
+								<span class="remove-l" onclick="removeCancelUser()">取消</span>
+								<span class="remove-r" onclick="removeDidUser()">确认</span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="name-id">
+					<div class="squaredbox">
+						<input type="checkbox" id="name_Id" />
+						<label for="name_Id"></label>
+					</div>
+					显示备注名/账号
+				</div>				
+				<div class="org-no">本组成员</div>
+				<ul id="org-no-list" class="org-no-list"></ul>
+				<ul id="searchUl1" class="org-no-list" style="display:none;"></ul>
+				<div class="org-hav">子组成员</div>
+				<ul id="org-listing" class="org-hav-list"></ul>
+				<ul id="searchUl2" class="org-hav-list" style="display:none;"></ul>
+			</div>
+			<div class="org-btm">
+				<div class="org-btm-con1">
+					<!-- <input type="checkbox" class="checkstyle checkstyle3" name="listAll" /> -->
+					<div class="squaredbox" id="user_nomohu">
+					  <input type="checkbox" class="checkstyle checkstyle3"  id="squaredAll" name="userListAll" />
+					  <label for="squaredAll"></label>
+					</div>
+					<div class="squaredbox" id="user_mohu" style="display:none;">
+					  <input type="checkbox" class="checkstyle checkstyle3"  id="squaredAllMohu" name="listAllMohu" />
+					  <label for="squaredAllMohu"></label>
+					</div>
+					<span>全选</span>
+					<span>共选择
+						<strong class="total">0</strong>
+						<strong class="totalMohu" style="display:none;">0</strong>
+						人
+					</span>
+				</div>
+				<div class="org-btm-con2">
+					<button disabled="true" onclick="userMoving()">移动成员</button>
+					<button disabled="true" onclick="orgCreateChannel()">创建频道</button>
+					<button disabled="true" onclick="orgCreateConversation()">创建会话</button>
+				</div>
+			</div>
+		</div>
+
+<!-- 组织成员排序 -->		
+		<div class="Height1 mode user-sort">
+			<div class="left_icon user-sort_btn"></div>
+			<div class="org-top">
+				<div class="fix org-top-con">
+					<span class="fl cus-name"></span>
+					<img class="fr set-logo" src="img/icon/newicon/channel_set.png"/>
+					<div class="set-div">
+						<div class="part1">
+							<span class="org-Dissolute">解散组织</span>
+						</div>
+						<div class="part2">
+							<p>确定解散当前组织？</p>
+							<div>
+								<img class="set-up" src="img/icon/pho_up.png"  />
+								<span class="marR" onclick="cancelGroup()">取消</span>
+								<span class="confirm-to" onclick="orgGroupDelete()">确认</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="orgMid">
+				<div class="org-mid1">
+					<span class="org-mid1-name">本组成员</span>
+					<ul id="user-sort-ul1">
+						<!--<li>
+							<div class="fix">
+								<span class="fl">孙大海</span>
+								<a class="fr color-bar">
+									<span></span><span></span><span></span>
+								</a>
+							</div>
+						</li>-->
+					</ul>
+				</div>
+				<div class="org-mid2">
+					<span class="org-mid2-name">子组成员</span>
+					<ul id="user-sort-ul2">
+					</ul>
+				</div>
+			</div>
+			<div class="org-btm">
+				<a class="save1" onclick="userSortSave()">保存</a>
+			</div>
+		</div>
+		
+<!--添加组织成员 -->		
+		<div class="Height1 mode groupAddUsers" id="id-groupAddUsers">
+			<div class="org-top">
+				<div class="fix org-top-con">
+					<span class="fl addedGroupName only_one" style="max-width:170px;"></span>&nbsp;(添加成员)
+				</div>
+			</div>
+			<div class="org-mid">
+				<div class="org-mid-search"><input type="text" class="addOrguserFuzz foucstyle" placeholder="输入成员备注名" onkeyup="addOrguserFuzzSearch()" /><input type="hidden" id="groupNewId" /></div>
+				<div class="org-no">未分组成员</div>
+				<ul id="newGroup-userlist" class="org-no-list"></ul>
+				<ul id="newGroup-userlist2" class="org-no-list"></ul>
+			</div>
+			<div class="org-btm">
+				<div class="org-btm-con1">
+					<!-- <input type="checkbox" class="checkstyle checkstyle2" name="listUserAll" /> -->
+					<div class="squaredbox" id="addnoMohu">
+						<input type="checkbox" id="squaredthat" class="checkstyle checkstyle2" name="listUserAll" />
+					    <label for="squaredthat"></label>
+					</div>
+					<div class="squaredbox" id="addMohu" style="display:none;">
+						<input type="checkbox" id="squaredthat1" class="checkstyle checkstyle2" name="listUserAllMohu" />
+					    <label for="squaredthat1"></label>
+					</div>
+					<span>全选</span>
+					<span>
+						共选择
+						<strong class="totalUsers">0</strong>
+						<strong class="totalUsersMohu" style="display:none;">0</strong>
+						人
+					</span>
+				</div>
+				<div class="org-btm-con2">
+					<span class="btn-span" onclick="groupAddUsersHide()">取消</span>
+					<span class="btn-span" onclick="usersBelong()">确认</span>
+				</div>
+			</div>
+		</div>
+<!-- 创建会话 -->
+
+		<div class="user-conversation Height1 mode">
+			<div class="user-Cross-top">
+				<div class="user-Cross-addUser">
+					<a>创建会话</a>
+				</div>
+			</div>
+			<div class="user-Cross-userSelect user-Cross-middle ht2">
+				<span class="conver-title">已选中</span>
+				<ul id="conversation-user-list"></ul>
+			</div>
+			<div class="user-Cross-footer">
+				<div class="user-Cross-footerCont">
+					<a class="btn-span createConCancel" onclick="canceled('user-conversation')">取消</a>
+					<a class="btn-span" onclick="user_CreatTell()">呼叫</a>
+				</div>
+			</div>
+		</div>
+				<div class="Height1 mode user_channel">
+		   <div class="user_channeltop">
+		      会话名称
+		   </div>
+		    <div class="user_addchanneltellname">
+		      <span>会话名称</span>
+		       <input type="text" value="" id="user_Addtellname" maxlength="20" placeholder="最大长度为20个字符">
+		    </div>
+		    <!--中部-->
+		    <div class="user_addchanneltellcenter">
+		    	
+		    </div>
+		    <!--底部-->
+		    <div class="user_addchanneltellbtn">
+		    	<div class="user_addchanneltellprev" onclick="usertellprev(this)">
+		    		上一步
+		    	</div>
+		    	<div class="user_addchanneltellselect">
+		    		<span onclick="user_addtellcannel(this)">取消</span>
+		    		<span class="fr" onclick="user_CreatTell(this)">确认</span>
+		    	</div>
+		    </div>
+		</div>	
+<!-- 创建频道 -->
+
+		<div class="user-channel Height1 mode">
+			<div class="user-Cross-top">
+				<div class="user-Cross-addUser">
+					<a>创建频道</a>
+				</div>
+			</div>
+			<div class="user-Cross-userSelect user-Cross-middle ht2">
+				<span class="conver-title">已选中</span>
+				<ul id="channel-user-list"></ul>
+			</div>
+			<div class="user-Cross-footer">
+				<div class="user-Cross-footerCont">
+					<a class="btn-span createChlCancel" onclick="canceled('user-channel')">取消</a>
+					<a class="btn-span" onclick="doCreateChannel()">下一步</a>
+				</div>
+			</div>
+		</div>
+		<div class="mode Height1 user_channelsure">
+			<div class="user_addchanneltop"> 
+				频道设置
+			</div>
+			<div class="user_addchannelmain">
+				<div class="user_addchannelname">
+					<span>频道名称</span>
+					<input type="text" value="" id="user_channelname" maxlength="30" placeholder="最大长度为30个字符">
+				</div>
+			    <div class="user_addchannellevel" onclick="userchannelselect(this)">
+				    <i>优先级</i>
+				    <img src="img/icon/channel/channel_select1.png" alt="">
+				    <span class="fr" id="user_channlevel">高级</span>
+					<div class="user_addchannellevels">
+						<ul>
+							<li>
+								<span>高级</span>
+							</li>
+							<li>
+								<span>中级</span>
+							</li>
+							<li>
+								<span>低级</span>
+							</li>
+						</ul>
+					</div>
+			    </div>
+			    <div class="user_addchannellevel" onclick="userchannelselect(this)">
+				    <i>最大发言时长</i>
+				    <img src="img/icon/channel/channel_select1.png" alt="">
+				    <span class="fr" id="user_channelsaytime">60s</span>
+					<div class="user_addchannellevels">
+						<ul>
+							<li>
+								<span>30秒</span>
+							</li>
+							<li>
+								<span>60秒</span>
+							</li>
+							<li>
+								<span>120秒</span>
+							</li>
+							<li>
+								<span>无限制</span>
+							</li>
+						</ul>
+					</div>
+			    </div>
+			    <div class="user_addchannellevel" onclick="userchannelselect(this)">
+				    <i>最大排队人数</i>
+				    <img src="img/icon/channel/channel_select1.png" alt="">
+				    <span class="fr" id="user_channelwaiter">无排队</span>
+					<div class="user_addchannellevels">
+						<ul>
+							<li>
+								<span>无排队</span>
+							</li>
+							<li>
+								<span>5人</span>
+							</li>
+							<li>
+								<span>10人</span>
+							</li>
+						</ul>
+					</div>
+			    </div>
+			    <p>描述(内容长度为120字符以内)</p>
+			    <textarea name="" id="user_channelmsg" maxlength="120" placeholder="点击可添加描述信息"></textarea>
+			</div>
+			<div class="user_addchannelfooter">
+				<div class="user_addchannelsetprev" onclick="usertellprev(this)">
+					上一步
+				</div>
+				<div class="user_addchannelcanel">
+					<span onclick="user_Createcannel(this)" >取消</span>
+					<span class="fr" onclick="user_Createchannel(this)">确认</span>
+				</div>
+			</div>
+		
+		</div>
+<!-- 移动成员组织树 -->
+		<div class="user-move Height1 mode" id="id-userMoving">
+			<div class="mon-add-top">
+				<a>移动成员到</a>
+			</div>
+			<div class="middle_box">
+				<div class="user-Cross-users">
+					<ul id="moveUserTree" class="ztree"></ul>
+				</div>
+			</div>
+			<div class="user-Cross-footer">
+				<div class="user-Cross-footerCont">
+					<a class="btn-span" onclick="canceled('user-move')">取消</a>
+					<a class="btn-span doMove" onclick="doMoveUser()">确认移动</a>
+				</div>
+			</div>					
+		</div>
+
+</div>
+

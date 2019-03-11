@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<!-- <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"  /> -->
+		<meta http-equiv="Access-Control-Allow-Origin" content="*">
+		<title>和对讲调度管理平台</title>
+		<link rel="Shortcut Icon" href="img/favicon.ico" type="img/x-ico" media="screen" />
+		<script type="text/javascript" src="js/lib/jquery-2.1.1.min.js"></script>
+		<script type="text/javascript" src="js/lib/jquery.cookie.js"></script>
+		<script type="text/javascript" src="./js/common.js"></script>
+		<script type="text/javascript" src="js/CryptoJS v3.1.2/rollups/aes.js" ></script>
+        <script type="text/javascript" src="js/CryptoJS v3.1.2/components/mode-ecb.js" ></script>
+        <script type="text/javascript" src="js/CryptoJS v3.1.2/components/pad-zeropadding.js"></script>
+        <script type="text/javascript" src="js/strUtil.js"></script>
+		<script type="text/javascript">
+
+
+			sessionId = sessionStorage.getItem('SessionId');
+	
+			loginId = getDAes($.cookie('loginId'));
+			HelploginId = getDAes( $.cookie('loginId'));
+			loginIdPsd = getDAes($.cookie('userpassword'));
+			loginName =  getDAes ($.cookie('loginName'));
+            console.log("loginName: "+loginName);
+			if (!sessionId || sessionId === 'null') {
+				window.location.href='index.html';
+			}
+		</script>
+		
+		<script type="text/javascript" src="./js/station_import.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function() {
+				communicate_init(); //全局配置
+				common._select();
+				common._leftmore();
+				iconTop();
+				hmTime('tracl_ul');
+				$('#company_name').html(loginName);
+				orgGetGroup(getGroupNodes, aNodes);
+				account_login(loginId,loginIdPsd);
+				setTimeout(getAllMarksData, 500);
+				getAllConversations();
+				getAllChannels();
+	            fenceDataGet(fenceShow);
+                LoadingImg();
+                MainUser_listTop();
+                mainGetuser_list();
+                help11411numread();
+                Getcode11400Top();
+                // Media_topFintleft();
+                // setTimeout(bgTwinklemedia(),30000)
+			})
+			
+		</script>
+	</head>
+	
+  
+	<body onload="javascript:history.forward();">
+	    <a href=""><span id="Down_load">down</span></a>
+		<div id="hiddenMessageTell">
+			<p></p>
+			<p></p>
+		</div>
+ 
+		<div class="wrap">
+			<div class="header fix">
+				<div class="fl topL">
+					<img class="logoImg" src="img/icon/logo.png" alt="logo" />
+					<!-- <span class="title">和对讲调度管理平台</span> -->
+					<ul class="fl main_ulcompany">
+						<li>
+							<i>和对讲调度管理平台</i>
+						</li>
+						<li class="main_companyname">
+							<i></i>
+						</li>
+					</ul>
+					<span class="welcome"><span class="welcomeId" onclick="doPushUserNameChanged()" >欢迎您，</span><strong onclick="doPushUserNameChanged()" id="company_name"></strong></span>
+					<span class="main_linkstate">
+						<img src="img/icon/onlineerror.png" alt="" />
+						<i>离线</i>
+					</span>
+					<span class="logout" onclick="station_loginout()" >退出</span>
+				</div>
+				<div class="fr topR" id="saveicon">
+	                <!-- 点击下拉工具栏 -->
+	                <div class="icon_more">
+	                    <img class="icon_more_img icon_attr5 " src="img/icon/map/map_down.png" alt="icon" />
+	                    <ul class="connectedSortable " id="sortable2">
+	                        <li class="annotate ">
+	                            <img class="annotate_logo rotate icon_attr6" title="标注" src="img/icon/map/map_Annotate.png" alt="icon" />
+	                            <div class="annotate_div">
+	                                <img class="map_arrow1 rotate icon_attr7" src="img/icon/map/map_arrow.png" alt="icon">
+	                                <div class="biaozhu">
+	                                    <a class=" monitor_label1" id="addMapTag" onclick="createMarker()"><span class="monitor_online"  >创建标注</span></a>
+	                                    <a class=" monitor_label2 " onclick="getAllMarksData()"><span class="showMark">隐藏标注</span></a>
+	                                    <a class="noBorder monitor_label3" onclick="manageMarker()"><span>管理标注</span></a>
+	                                </div>
+	                            </div>
+	                        </li>
+	                        <!-- 功能图标 -->
+	                        <!-- 功能图标Test -->
+	                        <!-- 搜索 -->
+	                        <li onclick="baiduMapSearch()"><img src="img/icon/map/map_search.png" title="搜索" class="rotate icon_attr8" alt="icon"  /></li>
+	                        <!-- 测距 -->
+	                        <li onclick="mapDistance();"><img src="img/icon/map/map_distance.png" title="测距" class="rotate icon_attr9 cj"  alt="icon" /></li>
+	                        <!-- 测面积 -->
+	                        <li onclick="baiduMeasureArea()"><img src="img/icon/map/map_area.png" title="测算面积" class="rotate icon_attr10 cmj"  alt="icon" /></li>
+	                        <!-- 起终点路线 -->
+	                        <li onclick="lxNameShow()"><img src="img/icon/map/map_line.png" title="路线规划" class="rotate icon_attr11 qzdlx" alt="icon"  /></li>
+	                        <!-- 路况信息 -->
+	                        <li onclick="mapTrafficControl()" ><img src="img/icon/map/map_traffic.png" title="路况" class="rotate icon_attr12 lkxx" alt="icon" /></li>
+	                        <!-- 打印 -->
+	                        <li onclick="dygn()"><img src="img/icon/map/map_print.png" title="打印" class="rotate icon_attr13 dy" id="stamp" alt="icon"  /></li>
+	                    </ul>
+	                    <div class="icon_manage fr hide">管理</div>
+	                </div>					
+					<ul class="fix container1 connectedSortable fr" id="sortable1">
+						<li class="map_monitor">
+							<img class="monitor_img rotate icon_attr1" title="监控" src="img/icon/map/map_monitor1.png" alt="img0" />
+							<div class="monitor_div">
+								  <div class="map_arrow rotate icon_attr2"  alt="icon"></div>
+								<div>
+									<a class="activePos"><span class="monitor_online appearUserOnline">显示在线用户</span></a>
+									<a class="monitorAppear"><span>显示监控用户</span></a>
+									<a class="noBorder monitor_manage"><span>管理监控用户</span></a>
+								</div>	
+							</div>
+						</li>
+						<li onclick="circle_talk()">
+							<img src="img/icon/title1.png" alt="icon" title="圈选" class="rotate  icon_attr3"  />
+						</li>
+						<li class="top-map-lock " style="position:relative;">
+							<img src="img/icon/lock.png" alt="icon" title="地图锁定" class="rotate icon_attr4"/>
+							<div class="map_icon_lock  hide">
+				                <ul>
+				                    <li class="savemap" onclick="saveMap()">锁定当前位置</li>
+				                    <li class="centermap" onclick="centerMap()">回到锁定位置</li>
+				                    <div class="triangle"></div>
+				                    <!-- 三角 -->
+				                </ul>
+				            </div>
+						</li>
+					</ul>
+					<!-- 提示可移动 -->
+					<div class="title_mobile fr hide"> <img src="img/icon/map/map_icon_mobile.png" alt="" class="Mtop"></div>
+				</div>
+				<div class="mian_downuserbook">
+					<a href="user_book.rar">下载用户使用手册</a>
+				</div>
+				<div class="mian_userAskcall">
+					 <span></span>
+				</div>
+			</div>
+			<div class="content Height">
+				<div id="conLeft" class="left-side fl Height">
+					<ul class="leftNav">
+						<li>
+							<b href="station_helper.html" onclick="Close_window()">
+								<img src="img/icon/helpers.png" alt="helper">
+								<span>和助手</span>
+							</b>
+							<span class="helpnumsbg"></span>		
+						</li>
+						<li>
+							<b href="station_user.html" onclick="Close_window()">
+								<img src="img/icon/members.png" alt="member">
+								<span>组织成员</span>
+							</b>
+						</li>
+						<li>
+							<b href="station_channel.html" onclick="Close_window()">
+								<img src="img/icon/chats.png" alt="chat">
+								<span>频道会话</span>
+							</b>
+						</li>
+						<li>
+							<b href="station_video.html" onclick="Close_window();onVideoViewListen()" >
+								<img src="img/icon/vedios.png" alt="vedio">
+								<span>实时视频</span>
+							</b>
+						</li>
+						<li>
+							<b href="station_media.html" onclick="Close_window()">
+								<img src="img/icon/medias.png" alt="media">
+								<span>媒体记录</span>
+							</b>
+						</li>
+						<li>
+							<b href="station_task.html" onclick="Close_window()">
+								<img src="img/icon/medias.png" alt="media">
+								<span>案件管理</span>
+							</b>
+						</li>
+					</ul>
+					
+					<div class="radio_footer">
+						<div class="radio_footer_more">
+							更多
+						</div>
+						<div class="radio_footer_set" id="show_p">
+							<ul>
+								<li>
+									<!-- <a href="station_radio.html">广播</a> -->
+									<b href="station_radio.html" onclick="l_lose()">广播</b>
+
+								</li>
+								<li>
+									<!-- <a href="station_line.html">电子围栏</a> -->
+									<b href="station_line.html" onclick="l_lose()">电子围栏</b>
+
+								</li>
+								<li>
+									<!-- <a href="station_warn.html">告警</a> -->
+									<b href="station_warn.html" onclick="l_lose()">告警</b>
+
+								</li>
+
+								<!--<li class="Case_magerlist">
+								<b href="station_task.html" onclick="l_lose()">案件管理</b>
+								</li>-->
+
+								<li>
+									<!-- <a href="station_set.html" >设置</a> -->
+									<b href="station_set.html" onclick="l_lose()">设置</b>
+
+								</li>
+							</ul>
+							<span>
+					   	  	 	<img src="img/icon/radio/radio_down.png" alt="" />
+							</span>
+						</div>
+					</div>
+					
+				</div>
+				
+				<div id="sideBar"></div>
+				
+				<div class="right-side">
+					<div id="allmap"></div>
+				</div>
+				
+				<div class="mode manage_monite_user">
+					<div class="mon-add-top fix">
+						<a class="fl">管理监控用户</a>
+						<a class="fr delete_all">清除全部</a>
+					</div>
+					<div class="manage_monitor middle_box">
+						<ul id="manage_monitor_userlist"></ul>
+					</div>
+					<div class="user-Cross-footer">
+						<div class="user-Cross-footerCont">
+							<a class="sp mon_close">关闭</a>
+							<a class="mon_add">添加</a>
+						</div>
+					</div>
+				</div>
+				
+				<div class="add_monitor_user mode">
+					<div class="mon-add-top">
+						<a>添加监控成员</a>
+					</div>
+					<div class="middle_box">
+						<div class="user-Cross-users">
+							<div class="fix user-Cross-addSearch ">
+								<span class="search fl"></span>
+								<input type="text" class="search-con fl maptopss" placeholder="搜索" onkeyup="MapSearchs(this)" name="mapIN">
+							</div>
+							<ul id="jiankong" class="ztree ul_ztree"></ul>
+							<ul class="User_Alls" id="MapUserall"></ul>
+						</div>
+					</div>
+					<div class="user-Cross-footer">
+						<div class="user-Cross-footerCont">
+							<a class="sp goBacd">返回</a>
+							<a class="mon_addyes">确认</a>
+						</div>
+					</div>					
+				</div>
+				<!-- 圈选暂时弹出会话 -->
+            <!-- 地图圈选显示在线不在线人数 -->
+	            <div class="manage_circle hide" style="">
+	                <p class="manage_circle_top">创建会话</p>
+	                <div class="manage_circle_main circlemiddle_box ">
+	                    <ul class="manage_circle_mainUl">
+	                    	
+	                        <!--<li>
+	                        <input class="choBox fl" type="checkbox">
+	                            <span class="fl">李1</span>
+	                            <span>(122223333)</span>
+	                        </li>-->
+	                    </ul>
+	                </div>
+	                <div class="itemCount">
+	                  <div class="Top_inputdivall" onclick="Top_circleInputAll(this)"></div>
+	                  <span>全选</span>
+	                  <span>已选中<i class="Topcircle_total">0</i>条</span>
+	                	
+	                </div>
+	                <div class="manage_circle_foot fix">
+	                    <div class="manage_circle_footCont">
+	                        <a class="fl circle_close" onclick=" circle_close()">取消</a>
+	                        <a class="fr circle_remove1" onclick="circleCreateChat()">呼叫</a>
+	                    </div>
+	                </div>
+	            </div>
+	            <!-- 全选后选中 创建会话 -->
+	            <div id="" class="manage_circle_talk hide ">
+	                <p class="manage_circle_talk_top">会话名称</p>
+	                <div class="manage_circle_talk_main">
+	                   <input class="talk_name" type="text" >
+	                   <span class="pd_name">频道名称</span>
+	                </div>
+	                <div class="manage_circle_talk_foot2">
+	                    <div class="manage_circle_footCont2">
+	                        <a class="fl circle_close2" onclick="circle_close2();">取消</a>
+	                        <a class="fr circle_remove2" onclick="circle_last()">上一步</a>
+	                        <a class="talkIsBegin" onclick="circleCreateChat()">确认</a>
+	                    </div>
+	                </div>
+	            </div>
+
+				<!-- 管理标注 -->
+				<div class="mode monitor_label_user">
+					<div class="mon-add-top1 fix">
+						<a>管理标注</a>
+					</div>
+					<div class="monitor_label_main" onscroll="Pulley_map()">
+						<ul id="markList"></ul>
+						<div class="markerPage" style="display:none;">
+							<span class="markerListLoadmoreBtn" onclick="markerListLoadmoreFn()">向下滑动加载更多</span>
+                        	<img style="display:none;" class="markerListLoadmoreImg" src="img/loading.gif" alt="img" />
+						</div>	
+					</div>
+					<div class="user-Cross-footer">
+						<div class="user-Cross-footerCont">
+							<a class="sp mgCancel" onclick="manageMarkerCel()">取消</a>
+							<a class="mon_remove1" onclick="manageMarkerDel()">删除</a>
+						</div>
+					</div>
+				</div>
+
+	            <!-- 管理用户 -->
+	            <!-- 地图工具创建的各项功能 -->
+	            <div class="map_icon_choose_input hide">
+	                <!--<img src="img/icon/search.png" class="" alt="">-->
+	                <span class="map-search-x" titie="关闭" onclick="map_search_close()"><img src="img/icon/media/media_close.png" alt="" /></span>
+	                <input class="map_icon_input" type="text" value="" id="suggestId" placeholder="输入地点">
+	            </div>
+	            <!-- 地图锁定 -->
+	            
+	            <!--搜索  -->
+	            <div id="searchResultPanel"></div>
+				<!-- 路线搜索 -->
+            	<div id="searchResultPanel2" ></div>
+	            <!-- 路线 -->
+	            <div class="qzName hide">
+	            	<!-- <span class="qzName-close" title="关闭" onclick="luxianCloseFn()">X</span> -->
+	            	<span class="qzName-close" title="关闭" onclick="luxianCloseFn()">
+	            		<img src="img/icon/media/media_close.png" alt="" />
+	            	</span>
+	                <div class="qdName fl">
+	                    <!-- 起点 -->
+	                    <input class="qdName_input " id="qdName_input" type="text" placeholder="请输入起点" autocomplete="off"  maxlength="16" size="8">
+	                    <span class="qdName_colse " onclick="close_qdName()">x</span>
+	                </div>
+	                <!-- 替换起点终点名称 -->
+	                <div class="thName " onclick="thName_click();">
+	                    <img src="img/icon/map/tihuan.png" alt="">
+	                </div>
+	                <!-- 终点 -->
+	                <div class="zdName ">
+	                    <!-- <span class="zdImg">终</span> -->
+	                    <input class="zdName_input" id="zdName_input" type="text" placeholder="请输入终点" autocomplete="off" maxlength="16" size="8">
+	                    <span class="zdName_close" onclick="close_zdName()" >x</span>
+	                </div>
+	                <!-- 驾车公交部分 -->
+	                <div class="gjjc hide">
+	                    <div class="gjjc_top">
+	                        <div class="gjjc_top_gj fl" onclick="gjjc_gj_click()">公交</div>
+	                        <div class="gjjc_top_jc fl" onclick="gijc_jc_click()">驾车</div>
+	                    </div>
+	                    <div class="gjjc_main">
+	                        <div class="tjLine fl " value="0" onclick="tjLine_click()">推荐</div>
+	                        <div class="sjdLine fl" value="1" onclick="sjdLine_click()">时间短</div>
+	                        <div class="shcLine fl" value="2" onclick="shcLine_click()">少换乘</div>
+	                        <div class="sbxLine fl" value="3" onclick=" sbxLine_click()">少步行</div>
+	                    </div>
+	                    <div class="gjjc_DriveMain hide">
+	                        <div class="DtjLine fl " value="0" onclick="DtjLine_click()">推荐</div>
+	                        <div class="DsjdLine fl" value="1" onclick="DsjdLine_click()">时间短</div>
+	                        <div class="jldLine fl"  value="2" onclick="jldLine_click()">距离短</div>
+	                        <div class="bkgsLine fl" value="3" onclick="bkgsLine_click()">避开高速</div>
+	                    </div>
+	                    <div id="taxi_Fare"></div>
+	                    <div class="ajjc_foot" id="ajjc_foot"> 
+	                    </div>
+                	</div>
+            	</div>
+				<!-- 打印部分 -->
+                <div id="light" class="white_content">
+                	<div class="stamp_top">
+                    	<span class="close_light">X</span>
+                	</div>
+                
+                	<div class="stamp_main" id="allmap1"></div>
+               
+                	<div class="stamp_foot">
+                    	<!--<a class="stampMap" onclick='preview(1)'>打印</a>
+                    	<a class="makeImg" >生成图片</a>-->
+                	</div>
+
+            	</div>
+            			<!-- 遮罩层 -->
+            		<div id="fade" class="black_overlay"></div>
+				<div class="mode tracl">
+					<div class="tracl_top fix">
+						<a class="fl">获取轨迹</a>
+						<img class="fr tracl_set_img" src="img/icon/newicon/channel_set.png" />
+						<div class="tracl_set" style="display:none;">
+							<img src="img/icon/pho_up.png" />
+							<div class="tracl_set_bar">
+								播放速度
+								<span class="tracl_speed">0.1s</span>
+								<ul class="tracl_set_ul">
+									<li>0.1s</li>
+									<li>0.3s</li>
+									<li>0.5s</li>
+									<li>2s</li>
+									<li>3s</li>
+									<li>5s</li>
+								</ul>
+							</div>
+							<div class="tracl_set_bar">
+								轨迹线宽度
+								<span class="tracl_px">2像素</span>
+								<ul class="tracl_set_ul">
+									<li>1像素</li>
+									<li>2像素</li>
+									<li>3像素</li>
+									<li>4像素</li>
+									<li>5像素</li>
+								</ul>
+							</div>
+							<div class="tracl_set_bar">
+								轨迹线颜色
+								<span  class="tracl_color"><i class="c01"></i></span>
+								<ul class="tracl_set_ul">
+									<li><i class="c01"></i></li>
+									<li><i class="c02"></i></li>
+									<li><i class="c03"></i></li>
+									<li><i class="c04"></i></li>
+									<li><i class="c05"></i></li>
+								</ul>
+							</div>
+							<div class="tracl_set_con">
+								<span onclick="traclReset()">重置</span>
+								<span onclick="traclStatusSave()">保存</span>
+							</div>
+						</div>
+					</div>
+					<div class="tracl_mid">
+						<div class="fix dt_choose">
+							<div class="fl d_start fix">
+								<span class="fl">开始时间</span><input id="traclStartTime" class="date-s fr" readonly="true"/>
+							</div>
+							<div class="fr t_time">
+								<span class="tracl_shm">08:00</span>
+								<ul class="tracl_ul"></ul>
+							</div>
+						</div>
+						<div class="fix dt_choose">
+							<div class="fl d_end fix">
+								<span class="fl">结束时间</span><input id="traclEndTime" class="date-e fr" readonly="true" />
+							</div>
+							<div class="fr t_time">
+								<span class="tracl_ehm">18:00</span>
+								<ul class="tracl_ul"></ul>
+							</div>
+						</div>
+						<div class="tracl_point">
+							坐标上报方式
+							<span class="tracl_point_type">全部</span>
+							<ul class="tracl_ul2">
+								<li>全部</li>
+								<li>GPS</li>
+								<li>基站定位</li>
+							</ul>
+						</div>
+						<div class="tracl_do">
+							<span onclick="traclCancel()" class="tracl_cancel">取消</span>
+							<span onclick="traclGetData()">获取轨迹</span>
+						</div>
+					</div>
+					<div class="tracl_footer">
+						<div class="tracl_progess">
+							<img class="tracl_playimg" onclick="traclPlay()" src="img/icon/marker/tracl_close.png"  />
+							<span class="playStime"><i class="pS1">00</i>:<i class="pS2">00</i></span>
+							<span class="tracl_bar">
+								<i></i>
+							</span>
+							<span class="playEtime"><i class="pE1"></i>:<i class="pE2"></i></span>
+						</div>
+						<ul id="tracl_record">
+							<li class="fix">
+								<span class="fl">2017-04-01 10:23:23</span>
+								<span class="fr">基站</span>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			
+
+		</div>
+		
+		<div id="broadcast_notice">
+			<span class="broadcast_speaker only_one"></span>&nbsp;&nbsp;
+			<i>正在广播</i>
+		</div>
+		<div id="Media_Topmsg">
+			媒体记录124
+		</div>
+		<div id="video_notice" onclick="veTopBarClick()" style="display:none;">
+			<img src="img/icon/video/video_apply.png"/>
+			<span class="video_applyer"></span><i></i>路&nbsp;&nbsp;实时视频中
+		</div>
+		<div id="video_notice_leave" style="display:none;">
+			<img src="img/icon/video/video_red.png"/>
+			<span class="video_applyer_leave"></span>&nbsp;&nbsp;实时视频已结束
+		</div>
+		<div class="video_applying" style="display:none;">
+			<p class="video_applying_name"></p>
+			<p>实时视频申请...</p>
+			<div><span class="video_look1 video_fontsize" onclick="watchLater()">稍后观看</span><span class="video_look2 video_fontsize" onclick="watchNow()">现在观看</span></div>
+		</div>
+		<div class="call_coming" style="display:none;">
+			<p class="caller only_one"></p>
+			<p class="call_title">正在呼叫中心...</p>
+			<div>
+				<img class="call_img0" onclick="call_comingHangup()" src="img/icon/call/bg_hangup.png" alt="pic" />
+				<img class="call_img1" onclick="call_comingAccept()" src="img/icon/call/bg_phoneaccept.png" alt="pic"  />
+			</div>
+		</div>		
+		<div id="coverBox">
+			<div class="cover-text"> </div>
+		</div>
+		<div id="Box_c">
+			<span class="button_sapn">是否确定要删除</span>
+			<input type="button" class="button_on Box_yes_no"  value="确定"/>
+			<input type="button" class="button_off Box_yes_no"  value="取消"/>
+		</div>
+	   <div class="media_selectremove">
+	      <h3>确认删除已选记录？</h3>	
+		  <div class="media_popremove" >
+		  	 <span>取消</span>
+		  	 <span class="fr" onclick="MediaSelectR(this)">确认</span>
+		  	 <span class="fr" onclick="MediaDownSure(this)">确认</span>
+		  </div>
+ 
+		  <div class="channel_popremove" >
+		  	 <span>取消</span>
+		  	 <span class="fr" onclick="Channel_Cancelsure()">确认</span>
+		  </div>
+	    </div>
+	    <div class="warn_selectremove">
+	      <h3 class="meidadwn">确认修改电子围栏？</h3>	
+		  <div class="warn_popremove" >
+		  	 <span class="warn_cancel">取消</span>
+		  	 <span class="fr" onclick="fenceDoModified()">确认</span>
+		  </div>
+	    </div>
+		<div id="specialCover"></div>
+		<div id="bg-color"></div>
+		<div class="cover_loading">
+           <img src="img/icon/newicon/a08.gif" alt="">
+        </div>
+        <div class="mian_userasklist">
+        <span class="mian_useraskclose">
+        	<img src="img/icon/media/media_close.png" alt="" />
+        </span>
+        	<h3>关联用户请求</h3> 
+        	<div class="main_tableuser">
+        		<table border="1" bordercolor="#a0c6e5" style="border-collapse:collapse;" class="main_usertable">
+        		<tr>
+        			<th>原企业</th>
+        			<th>新企业</th>
+        			<th>账号</th>
+        			<th>时间</th>
+        			<th>状态</th>
+        			<th>操作</th>
+        		</tr>
+        		<tr>
+        			<td>1002</td>
+        			<td>第二 企业</td>
+        			<td>100210002</td>
+        			<td>2018 03-28 07:09:00</td>
+        			<td>未处理</td>
+                    <td>
+                        <span>同意</span>
+                        <span>拒绝</span>
+                    </td>
+        		</tr>
+        		<tr>
+        			<td>1002</td>
+        			<td>第二 企业</td>
+        			<td>100210002</td>
+        			<td>2018 03-28 07:09:00</td>
+        			<td>未处理</td>
+                    <td>
+                        <span>同意</span>
+                        <span>拒绝</span>
+                    </td>
+        		</tr>
+        		<tr>
+        			<td>1002</td>
+        			<td>第二 企业</td>
+        			<td>100210002</td>
+        			<td>2018 03-28 07:09:00</td>
+        			<td>未处理</td>
+                    <td>
+                        <span>同意</span>
+                        <span>拒绝</span>
+                    </td>
+        		</tr>
+        		<tr>
+        			<td>1002</td>
+        			<td>第二 企业</td>
+        			<td>100210002</td>
+        			<td>2018 03-28 07:09:00</td>
+        			<td>未处理</td>
+                    <td>
+                        <span>同意</span>
+                        <span>拒绝</span>
+                    </td>
+        		</tr>
+        		<tr>
+        			<td>1002</td>
+        			<td>第二 企业</td>
+        			<td>100210002</td>
+        			<td>2018 03-28 07:09:00</td>
+        			<td>未处理</td>
+                    <td>
+                        <span>同意</span>
+                        <span>拒绝</span>
+                    </td>
+        		</tr>
+        		<tr>
+        			<td>1002</td>
+        			<td>第二 企业</td>
+        			<td>100210002</td>
+        			<td>2018 03-28 07:09:00</td>
+        			<td>未处理</td>
+                    <td>
+                        <span>同意</span>
+                        <span>拒绝</span>
+                    </td>
+        		</tr>
+        		<tr>
+        			<td>1002</td>
+        			<td>第二 企业</td>
+        			<td>100210002</td>
+        			<td>2018 03-28 07:09:00</td>
+        			<td>未处理</td>
+                    <td>
+                        <span>同意</span>
+                        <span>拒绝</span>
+                    </td>
+        		</tr>
+        		<tr>
+        			<td>1002</td>
+        			<td>第二 企业</td>
+        			<td>100210002</td>
+        			<td>2018 03-28 07:09:00</td>
+        			<td>未处理</td>
+                    <td>
+                        <span>同意</span>
+                        <span>拒绝</span>
+                    </td>
+        		</tr>
+        		<tr>
+        			<td>1002</td>
+        			<td>第二 企业</td>
+        			<td>100210002</td>
+        			<td>2018 03-28 07:09:00</td>
+        			<td>未处理</td>
+                    <td>
+                        <span>同意</span>
+                        <span>拒绝</span>
+                    </td>
+        		</tr>
+        		<tr>
+        			<td>1002</td>
+        			<td>第二 企业</td>
+        			<td>100210002</td>
+        			<td>2018 03-28 07:09:00</td>
+        			<td>未处理</td>
+                    <td>
+                        <span>同意</span>
+                        <span>拒绝</span>
+                    </td>
+        		</tr>
+        		<tr>
+        			<td>1002</td>
+        			<td>第二 企业</td>
+        			<td>100210002</td>
+        			<td>2018 03-28 07:09:00</td>
+        			<td>未处理</td>
+                    <td>
+                        <span>同意</span>
+                        <span>拒绝</span>
+                    </td>
+        		</tr>
+        	 </table>
+        	</div>
+        	<!-- <button>点击加载更多</button> -->
+        </div>
+	</body>
+
+	<script type="text/javascript">
+		toTheVideo();//视频
+		usersGetAll(usersMap);
+		stationMap();
+		var comanyname=decodeURIComponent($.cookie('GroupName'),'UTF-8');
+			$('.main_companyname').children('i').html(comanyname);
+	</script>
+
+</html>

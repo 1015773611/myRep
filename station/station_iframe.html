@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link href="css/station_iframe.css" rel="stylesheet" type="text/css">
+		<link href="css/zTreeStyle.css" rel="stylesheet" type="text/css">
+		<link rel="stylesheet" href="css/station_helper.css">
+		<script src="js/lib/jquery-2.1.1.min.js"></script>
+		<script type="text/javascript" src="js/zTree/jquery.ztree.core.js"></script>
+		<script type="text/javascript" src="js/zTree/jquery.ztree.excheck.js"></script>
+		<script src="js/lib/jquery.cookie.js"></script>
+		<script type="text/javascript" src="js/zTree/jquery.ztree.exedit.js"></script>
+ 
+	    <script src="js/station_media.js"></script>
+		<script src="js/station_helper.js"></script>
+		<script type="text/javascript" src="js/station_tree.js"></script>
+		<script type="text/javascript" src="js/station_iframe.js"></script>
+		
+		<script type="text/javascript" src="js/CryptoJS v3.1.2/rollups/aes.js" ></script>
+        <script type="text/javascript" src="js/CryptoJS v3.1.2/components/mode-ecb.js" ></script>
+        <script type="text/javascript" src="js/CryptoJS v3.1.2/components/pad-zeropadding.js"></script>
+        <script type="text/javascript" src="js/strUtil.js"></script>
+	
+		
+
+	</head>
+	<body>
+		<div class="media_transmit">
+			<div class="media_transmittop">
+				转发实时视频
+			</div>
+			<div class="media_transmitselect">
+				<div class="media_transmitselect1 fix">
+					<span class="meidia_transmitbg">频道</span>
+					<span>会话</span>
+					<span class="media_transmitselect1member">成员</span>
+				</div>
+			</div>
+			<div class="media_transmitsearchbox fix Video_transmit">
+				<span class="fl media_transmitsearchs"></span>
+				<input type="text" placeholder="搜索" class="fl media_transmitsearch " onkeyup="videokeyse(this)" name="videoIN">
+			</div>
+			<div class="media_transmitcontaienr">
+				<!--频道-->
+				<div class="media_channelmain" id="videochannel">
+					<ul class="media_channelmainul1" id="veZhuanpin">
+						<li>
+							<ul class="media_channelmainul2"></ul>
+						</li>
+					</ul>
+					<div class="media_channelmianfooter">
+						<span onclick="Video_cancel(this)">取消</span>
+						<span class="fr" onclick="ve_transmitsure('veZhuanpin', 'media_transmit')">确定</span>
+					</div>
+				</div>
+				<!--会话-->
+				<div class="media_channeltellmain" id="videotellchannel">
+					<ul class="media_channeltellmainul1" id="veZhuanlin">
+						<li>
+							<div onclick="mediatellchannellevel2(this)">
+								<input type="checkbox" class="media_channelmainul1pop" name="media_transmit1">
+								<i class="media_channelmainul1name"></i>
+								<div class="mediachannelul1level  fr">
+									<img src="img/icon/channel/channel_select.png" class="fr" alt="">
+								</div>
+							</div>
+							<ul class="media_channelmainul2">
+								<!-- <li>
+									<div>
+										<img src="img/chat/online.png" alt="">
+										<i>晓明</i>
+									</div>
+								</li> -->
+							</ul>
+						</li>
+					</ul>
+					<div class="media_tellchannelmianfooter">
+						<span onclick="Video_cancel(this)">取消</span>
+						<span class="fr" onclick="ve_transmitsure('veZhuanlin', 'media_transmit1')">确定</span>
+					</div>
+				</div>
+				<!--成员-->
+				<div class="media_member" id="videotreec">
+					<ul id="tramitvideo" class="ztree ul_ztree"></ul>
+					<ul id="VideosAllman" class="User_Alls"></ul>
+				</div>
+			</div>
+		</div>
+		<!--成员选中显示-->
+		<div class="media_memberselect">
+			<div>
+				已选中
+			</div>
+			<ul class="media_memberselect1" id="media_memberselect2">
+		
+			</ul>
+			<div class="media_memberselectfooter">
+				<span class="veTouserCannel" onclick="video_manmay()">取消</span>
+				<span class="fr" onclick="videoTousers()">确定</span>
+			</div>
+		</div>
+		<!--频道设置-->
+		<div class="Video_channel">
+			<div class="left_icon vech_btn" onclick="vech_btnmove()"></div>
+			<div class="Video_channeltop">
+				当前视频所在会话
+			</div>
+			<div class="Video_channelName">
+				<i></i>
+			</div>
+			<div class="Video_channelUl">
+				<ul>
+					<!--<li class="fix">
+						<div class="Video_channelUlname">
+							<img src="img/chat/online.png" alt="">
+							<i>100110063</i>
+							<img src="img/icon/channel/channel_manlevel.png" alt="">
+							<img src="img/icon/video/video_shipin.png" class="fr" alt="">
+						</div>
+						<div class="Video_channelUlshow">
+							<span></span>
+							<img src="img/icon/channel/channel_phone.png" alt="">
+							<img src="img/icon/channel/channel_nav.png" alt="">
+							<img src="img/icon/channel/channel_video.png" alt="">
+							<img src="img/icon/channel/channel_write.png" alt="">
+							<img src="img/icon/channel/channel_busy.png" alt="" onclick="Video_Channelc(this)">
+						</div>
+						<div class="Video_channelUllast">
+							<span class="Video_channelUlimg">
+		  	 		  	 	<img src="img/icon/pho_up.png" alt="">
+		  	 		  	 </span>
+							<ul class="Video_channelsetUl">
+								<li class="Video_channelborder">
+									<input type="checkbox"> 遥毙
+								</li>
+								<li class="Video_channelborder">
+									<input type="checkbox"> 子调度员权限
+									<ul class="Video_channelsetUl2">
+										<li>
+											<input type="checkbox" disabled=""> 跨企业调度权限
+										</li>
+										<li>
+											<input type="checkbox" disabled=""> 广播呼叫权限
+										</li>
+									</ul>
+								</li>
+								<li>
+									<input type="checkbox"> 限时查看实时视频
+								</li>
+								<li>
+									<input type="checkbox"> 限制临时呼叫呼入
+								</li>
+								<li>
+									<input type="checkbox"> 限制临时呼叫呼出
+								</li>
+								<li>
+									<input type="checkbox"> 限制频道呼叫
+								</li>
+							</ul>
+							
+							<div class="Video_channelUllastkeep">
+								保存
+							</div>
+						</div>
+					</li>-->
+				</ul>
+			</div>
+			<div class="Video_channelfooters">
+				<!--<div onclick="Video_Tellchannel(this)">
+		  	 	 	进入会话
+		  	 	</div>-->
+			</div>
+		</div>
+		<!--进入会话-->
+		<div class="Video_tellchannel">
+			<div class="Video_tellchannelset">
+				<div class="Video_tellchannelsettop fix">
+					<span class="Video_tellchannelname"></span>
+					<i>
+					  <img src="img/icon/channel/channel_set.png" alt="">
+					</i>
+					<p>4/9</p>
+					<ul class="Video_tellchannelLI">
+						<li>
+							<img src="img/icon/video/video_location.png" alt="">
+						</li>
+						<li>
+							<img src="img/icon/video/video_addman.png" alt="">
+						</li>
+						<li>
+							<img src="img/icon/video/video_download.png" alt="">
+						</li>
+					</ul>
+				</div>
+			</div>
+			<!--消息内容-->
+			<div class="Video_tellchannelcontainer">
+		
+			</div>
+			<div class="Video_tellchannelfooters">
+				<div class="fix">
+					<span class="fr">
+	          	 	 	<img src="img/icon/channel/channel_add.png" alt="">
+	          	 	 	<img src="img/icon/channel/channel_btns.png" alt="">
+	          	 	 </span>
+				</div>
+				<textarea name="" id="" placeholder="请输入"></textarea>
+				<div class="Video_tellchannelspend">
+					<span class="Video_tellchannelspends">
+	          	 		<i>
+	          	 			<img src="img/icon/video/video_mai.png" alt="">
+	          	 		</i>
+	          	 		点击或空格留言
+	          	 	</span>
+					<span class="Video_tellchannelenter">
+	          	 		发送
+	          	 	</span>
+				</div>
+			</div>
+		</div>	
+	</body>
+	<script type="text/javascript">
+		var sessionId = window.parent.sessionId;
+		var STATION_URL = window.parent.STATION_URL;
+		var aNodes = window.parent.aNodes;
+		var showAlert = window.parent.showAlert;
+		var videoSessionList = window.parent.videoSessionList;
+		var HelpMansArrays = window.parent.HelpManArrays;
+		var userAddOnlineInfo = window.parent.userAddOnlineInfo;
+		// var userAddOnlineInfo = window.parent.loginId;
+		iframeready();
+	</script>
+</html>

@@ -1,0 +1,1102 @@
+ 
+   <script src="js/lib/mootools-1.2.4-core-yc.txt"></script>
+		<script type="text/javascript">
+		GetChannel();
+     // HelpCodes10115();
+		</script>
+   	<!--监听列表详情-->
+    
+<div id="station_channel"> 	  
+    <div class="channel_list_details ">       
+          <div class="channel_details_top">
+                <span>正在监听<i></i>路频道</span>
+                <img src="img/icon/channel/channel_listen_up.png" alt="11">
+           </div>
+              <div class="channel_details_main" >
+                <ul>
+                    <!--<li class="channel_details_active">
+                        <p>交通一队 
+                           <img src="img/icon/channel/channel_details1.png" alt="" class="channel_details1">
+                        </p>
+                        <p class="channel_details_mains">
+                            <img src="img/chat/online.png" alt="">空闲中
+                            <img src="img/icon/channel/channel_details.png" alt="" class="channel_details2">
+                        </p>
+                         <img src="img/icon/channel/channel_details2.png" alt="" class="channel_details3">
+                    </li>-->
+                </ul>
+            </div>
+            <div class="channel_details_bgcolor"></div>
+       </div>
+   
+   	    <!--频道会话-->           
+   	  				<div class="sec channel_border_r channel_left1">
+              <div class="channel_left channel_right1"></div>
+					 <div class="secContent channel_location_first">
+					    <div class="channel_top">
+					    	<div class="channel_topcenter fix">
+					    		<span class="channel_color" onclick="ChannelSel(this)">频道</span>
+					    		<span class="toChat" onclick="ChannelSels(this)">会话</span>
+					    	</div>
+					    </div>
+						<div class="channel_searchbox fix">
+							<span class="search fl"></span>
+							<input type="text" class="channel_search fl" placeholder="搜索" onkeyup="chansearch(this)" id="chansearch">
+              <input type="text" class="channel_search fl" placeholder="搜索" onkeyup="chantellsearch(this)" id="chantellsearch">
+						</div>
+              <!--所在频道-->
+                        <div class="channel_main channel_main1" id="">
+                        	<div class="channel_title">
+                        		所在频道
+                        	</div>
+                        	<ul class="channel_level1" id="channel_ul">
+                        	</ul>
+                          <ul class="channel_other_level1" id="channel_otherul">
+                          </ul>
+                          <div class="channel_title">
+                            其他频道
+                          </div>
+                          <ul class="channel_noneleve1" id="channel_otheruls"> 
+                          </ul>
+                        </div>
+              <!--会话-->
+                        <div class="channel_main_tell channel_main1">
+                            <div class="channel_title">
+                               所在会话
+                            </div>
+                             <ul class="channel_level1" id="chantell_ul">
+                             </ul>
+     <!--其他会话-->
+                            <ul class="channel_other_level1" id="chantell_otherul"></ul>
+                        </div>         
+						<div class="channel_footer">
+							<div class="channel_found">
+								创建频道
+							</div>
+              <div class="channel_found_tell">
+                创建会话
+              </div>
+						</div>
+					</div>
+				</div>
+	<!--频道会话一级结束-->
+	<!--频道会话二级菜单-->
+	          <div class="channel_border_r channel_box2" id="">
+              <div class="channel2_left channel_left"></div>
+	          	 <div class="channel_listenset">
+		          	 	<div class="channel_listenset_top fix">
+		          	 		   <span class="channel_level2name fix"><i class="fl"></i><strong class="c_connec_status fl"></strong></span>
+		          	 		    <i><img src="img/icon/newicon/channel_set.png" alt="" class="channel_listen_setshow"></i>
+		          	 		    <p><i class="celonline"></i>/<i class="celtotal"></i></p>
+		          	 		 <ul class="channel_listenset_topli fix">
+  		          	 		<!--   	<li > 
+  		          	 		 		   <img onclick="channel_map_monitor('channelSelectedonly')" src="img/icon/newicon/help_location1.png" alt="" title="添加监控">
+  		          	 		 	  </li> -->
+  		          	 		 	  <li class="channel-add-members" onclick="channel_addman(this)">
+  		          	 		 		   <img src="img/icon/newicon/help_add.png" alt="" title="添加成员">
+  		          	 		  	</li>
+  		          	 		 	  <li onclick="channel_downlists(this)">
+  		          	 		 		  <img src="img/icon/newicon/help_download.png" alt="" title="下载">
+  		          	 		 	  </li>
+		          	 		 </ul>
+		          	 	</div>
+ <!--交通一队下载-->
+        <div class="channel_listen_downs channel_listens1">
+                  <div class="channel_listen_downstop fix">
+                      <span class="channel_listen_pho">
+                        <img src="img/icon/pho_up.png" alt="">
+                      </span>
+                      <div class="channel_listen_search fix">
+                          <span class="channel_listen_logo"></span>
+                          <input type="text" id="CHannelDOwnInput" name="CHannelDOwn" placeholder="备注名/账号" onkeyup="OnHKeyMSearch(this)" >
+                          <span class="channel_listen_logos fr"></span>
+                      </div>
+                      <div class="channel_listen_filter fix">
+                         <ul class="fix channel_listentype">
+                             <li>
+                                录音
+                             </li>
+                             <li>
+                                PTT
+                             </li>
+                             <li>
+                               图片
+                             </li>
+                             <li>
+                               视频
+                             </li>
+                         </ul>
+                         <ul class="fix channel_listentimes">
+                           <li>
+                             今天
+                           </li>
+                           <li>
+                             一周
+                           </li>
+                           <li>
+                             两周
+                           </li>
+                           <li class="channel_Date">
+                             <img src="img/icon/date.png" alt="">
+                           </li>
+                         </ul>
+                         <div class="channel_listentimecenter">
+                            <div class="channel_listentimeval">
+                               <span class="fl">开始时间</span>
+                                <i>
+                                   <img src="img/icon/media/media_down.png" alt="">
+                                </i>
+                                <input type="text" id="Channel_Timeval" readonly="readonly" value="2015-08-28" >
+                            </div>
+                            <div class="channel_listentimevals" onclick="channel_hour(this)">
+                               <span id="ChannelDetailed">08:00</span>
+                                <i>
+                                   <img src="img/icon/media/media_down.png" alt="">
+                                </i>
+                                <div>
+                                   <ul>
+                                      <li>00:00</li>
+                                      <li>01:00</li>
+                                      <li>02:00</li>
+                                      <li>03:00</li>
+                                      <li>04:00</li>
+                                      <li>05:00</li>
+                                      <li>06:00</li>
+                                      <li>07:00</li>
+                                      <li>08:00</li>
+                                      <li>09:00</li>
+                                      <li>10:00</li>
+                                      <li>11:00</li>
+                                      <li>12:00</li>
+                                      <li>13:00</li>
+                                      <li>14:00</li>
+                                      <li>15:00</li>
+                                      <li>16:00</li>
+                                      <li>17:00</li>
+                                      <li>18:00</li>
+                                      <li>19:00</li>
+                                      <li>20:00</li>
+                                      <li>21:00</li>
+                                      <li>22:00</li>
+                                      <li>23:00</li>
+                                   </ul>
+                                </div>
+                            </div>
+                         </div>
+                         <div class="channel_listentimecenters">
+                            <div class="channel_listentimeval">
+                               <span class="fl">结束时间</span>
+                                <i>
+                                   <img src="img/icon/media/media_down.png" alt="">
+                                </i>
+                                <input type="text" id="Channel_Timevals"  readonly="readonly" value="2015-08-28">
+                            </div>
+                            <div class="channel_listentimevals" onclick="channel_hour(this)">
+                               <span id="ChannelDetaileds">17:00</span>
+                                <i>
+                                   <img src="img/icon/media/media_down.png" alt="">
+                                </i>
+                                <div>
+                                   <ul>
+                                      <li>00:00</li>
+                                      <li>01:00</li>
+                                      <li>02:00</li>
+                                      <li>03:00</li>
+                                      <li>04:00</li>
+                                      <li>05:00</li>
+                                      <li>06:00</li>
+                                      <li>07:00</li>
+                                      <li>08:00</li>
+                                      <li>09:00</li>
+                                      <li>10:00</li>
+                                      <li>11:00</li>
+                                      <li>12:00</li>
+                                      <li>13:00</li>
+                                      <li>14:00</li>
+                                      <li>15:00</li>
+                                      <li>16:00</li>
+                                      <li>17:00</li>
+                                      <li>18:00</li>
+                                      <li>19:00</li>
+                                      <li>20:00</li>
+                                      <li>21:00</li>
+                                      <li>22:00</li>
+                                      <li>23:00</li>
+                                   </ul>
+                                </div>
+                            </div>
+                         </div>
+                          <div class="channel_btnsearch" onclick="ChanneldownSearch(data)">
+                            搜索
+                          </div>
+                      </div>
+                  </div>
+<!--下载内容-->
+               <div class="channel_listen_downmain  channel_listens2" onscroll="channel_listens_tellall_pulley()">
+                     <!-- <div class="channel_listen_data">
+                            <div>
+                               7月21日
+                            </div>
+                            <ul>
+                                <li class="fix">
+                                     <div class="channel_listen_datal fl">
+                                        <input type="checkbox" name="">
+                                        <img src="img/icon/channel/channel_4.png" alt="">
+                                     </div>
+                                      <div class="channel_listen_datar fl">
+                                         <p>
+                                           <span>小百合</span>
+                                           <span class="fr">9:33</span>
+                                         </p>
+                                           <span>54"</span>
+                                     </div>
+                                </li>
+                                <li class="fix">
+                                     <div class="channel_listen_datal fl">
+                                        <input type="checkbox" name="">
+                                        <img src="img/icon/channel/channel_down2.png" alt="">
+                                     </div>
+                                      <div class="channel_listen_datar fl">
+                                         <p>
+                                           <span>小百合</span>
+                                           <span class="fr">9:33</span>
+                                         </p>
+                                           <span>54"</span>
+                                     </div>
+                                </li>
+                                <li class="fix">
+                                       <div class="channel_listen_datal fl">
+                                          <input type="checkbox" name="">
+                                          <img src="img/icon/channel/channel_down1.png" alt="">
+                                       </div>
+                                        <div class="channel_listen_datar fl">
+                                           <p>
+                                             <span>小百合</span>
+                                             <span class="fr">9:33</span>
+                                           </p>
+                                             <span>54"</span>
+                                       </div>
+                                </li>
+                            </ul>
+                     </div> -->
+                    <!--       <div class="channel_listen_data">
+                            <div>
+                               7月21日
+                            </div>
+                            <ul>
+                                <li class="fix">
+                                     <div class="channel_listen_datal fl">
+                                        <input type="checkbox" name="">
+                                        <img src="img/icon/channel/channel_4.png" alt="">
+                                     </div>
+                                      <div class="channel_listen_datar fl">
+                                         <p>
+                                           <span>小百合</span>
+                                           <span class="fr">9:33</span>
+                                         </p>
+                                           <span>54"</span>
+                                     </div>
+                                </li>
+                                <li class="fix">
+                                     <div class="channel_listen_datal fl">
+                                        <input type="checkbox" name="">
+                                        <img src="img/icon/channel/channel_down2.png" alt="">
+                                     </div>
+                                      <div class="channel_listen_datar fl">
+                                         <p>
+                                           <span>小百合</span>
+                                           <span class="fr">9:33</span>
+                                         </p>
+                                           <span>54"</span>
+                                     </div>
+                                </li>
+                                <li class="fix">
+                                       <div class="channel_listen_datal fl">
+                                          <input type="checkbox" name="">
+                                          <img src="img/icon/channel/channel_down1.png" alt="">
+                                       </div>
+                                        <div class="channel_listen_datar fl">
+                                           <p>
+                                             <span>小百合</span>
+                                             <span class="fr">9:33</span>
+                                           </p>
+                                             <span>54"</span>
+                                       </div>
+                                </li>
+                            </ul>
+                     </div> -->
+                       <!--    <div class="channel_listen_data">
+                            <div>
+                               7月21日
+                            </div>
+                            <ul>
+                                <li class="fix">
+                                     <div class="channel_listen_datal fl">
+                                        <input type="checkbox" name="">
+                                        <img src="img/icon/channel/channel_4.png" alt="">
+                                     </div>
+                                      <div class="channel_listen_datar fl">
+                                         <p>
+                                           <span>小百合</span>
+                                           <span class="fr">9:33</span>
+                                         </p>
+                                           <span>54"</span>
+                                     </div>
+                                </li>
+                                <li class="fix">
+                                     <div class="channel_listen_datal fl">
+                                        <input type="checkbox" name="">
+                                        <img src="img/icon/channel/channel_down2.png" alt="">
+                                     </div>
+                                      <div class="channel_listen_datar fl">
+                                         <p>
+                                           <span>小百合</span>
+                                           <span class="fr">9:33</span>
+                                         </p>
+                                           <span>54"</span>
+                                     </div>
+                                </li>
+                            </ul>
+                     </div> -->
+               </div>
+<!--下载内容底部-->
+                  <div class="channel_listen_downfooter">
+                       <p>
+                        <!-- <input type="checkbox" name="channellistall" onclick="channelAllist(this)"> -->
+
+                        <div class="channel_Inputall"  onclick="channelAllist(this)"></div> 全选 已选中<i class="channtlTotal">0</i>条
+                       </p>
+                       <button onclick="CHANNELDOWN()" disabled="disabled">
+                         下载
+                       </button>
+                  </div>
+        </div>                 
+<!--交通设置-->
+        <div class="channel_listen_write">
+          <div class="channel-set-box2">
+            成员排序
+            <ul id="c-sort-ul"></ul>
+            <span class="c-sort-save" onclick="channelSortSave()" style="margin-top:20px;">保存</span>
+            <img src="img/icon/pho_up.png" class="sort-up-img"  alt="img" />
+          </div>
+          <div class="channel-set-box1">
+    	          	 	   <span class="channel_adimg">
+    	          	 	   		<img src="img/icon/pho_up.png"  alt="">	 	
+    	          	 	   </span>
+                       <div class="c-sortdiv">
+                         <span class="btn-style" onclick="channelMemberSort()">更改成员排序</span>
+                       </div>
+    	          	 	   <div class="channel_listen_name">
+    	          	 	   	 <span>频道名称</span>
+    	          	 	   	 <input type="text" id="channel_listen_name" value="" name="" maxlength="30" placeholder="最大长度为30个字符">
+    	          	 	   </div>
+
+	          	 	   <div class="channel_listen_grade">
+	          	 	   	   <i>优先级</i>
+	          	 	   	  <img src="img/icon/channel/channel_select1.png" alt="">
+	          	 	   	 <span class="fr channel_listen_val">高级</span>
+	          	 	   	 <div class="channel_listen_gradeval">
+	          	 	   	 	<ul>
+	          	 	   	 	<!-- 	<li>
+	          	 	   	 			<span>最高</span>
+	          	 	   	 		</li> -->
+	          	 	   	 		<li>
+	          	 	   	 			<span>高级</span>
+	          	 	   	 		</li>
+	          	 	   	 		<li>
+	          	 	   	 			<span>中级</span>
+	          	 	   	 		</li>
+	          	 	   	 		<li>
+	          	 	   	 			<span>低级</span>
+	          	 	   	 		</li>
+                      <!--   <li>
+                          <span>最低</span>
+                        </li> -->
+	          	 	   	 	</ul>
+	          	 	   	 </div>
+	          	 	   </div>
+
+    	          	 	  <div class="channel_listen_time">
+    	          	 	   	    <i>最大发言时长</i>
+    	          	 	   	   <img src="img/icon/channel/channel_select1.png" alt="">
+    	          	 	   	    <span class="fr channel_listentime_val">60s</span>
+        	          	 	   	 <div class="channel_listen_timeval">
+            	          	 	   	 	<ul>
+                	          	 	   	 		<li>
+                	          	 	   	 			<span>30秒</span>
+                	          	 	   	 		</li>
+                	          	 	   	 		<li>
+                	          	 	   	 			<span>60秒</span>
+                	          	 	   	 		</li>
+                	          	 	   	 		<li>
+                	          	 	   	 			<span>120秒</span>
+                	          	 	   	 		</li>
+                	          	 	   	 		<li>
+                	          	 	   	 			<span>无限制</span>
+                	          	 	   	 		</li>
+            	          	 	   	 	</ul>
+        	          	 	   	 </div>
+    	          	 	   </div>
+
+    	          	 	   <div class="channel_listen_list">
+    	          	 	   	  <i>最大排队人数</i>
+    	          	 	   	  <img src="img/icon/channel/channel_select1.png" alt="">
+    	          	 	   	    <span class="fr channel_listenlist_val">无排队</span>
+          	          	 	   	 <div class="channel_listen_listval">
+              	          	 	   	 	<ul>
+                	          	 	   	 		<li>
+                	          	 	   	 			<span>无排队</span>
+                	          	 	   	 		</li>
+                	          	 	   	 		<li>
+                	          	 	   	 			<span>5人</span>
+                	          	 	   	 		</li>
+                	          	 	   	 		<li>
+                	          	 	   	 			<span>10人</span>
+                	          	 	   	 		</li>
+                	          	 	   	 		
+              	          	 	   	 	</ul>
+          	          	 	   	 </div>
+    	          	 	   </div>
+	          	 	      <p class="channelKeepcond">描述(内容长度为120字符以内)</p>
+  	          	 	   <textarea name="" id="" cols="30" rows="5"  maxlength="120"></textarea>
+  	          	 	   
+  	          	 	   <div class="channel_listenfooters">
+  	          	 	   	 <span>解散频道</span>
+  	          	 	   	 <span class="fr">保存</span>
+  	          	 	   </div>
+                     <div class="channel_listenfooter">
+                      <span>锁定频道</span> 
+                      <span class="channel_listenfooterauto" lock="0">
+                        <div></div>
+                      </span>
+                     </div>
+            </div>           
+	        </div>
+         <!--解散频道-->
+                <div class="channel_listen_removes">
+                	    <span class="channel_adimgs">
+	          	 	   		<img src="img/icon/pho_up.png"  alt="">	 	
+	          	 	   </span>
+	          	 	 <p>确认解散该频道？</p>
+	          	 	 <div class="channel_listen_removeselect">
+	          	 	 	 <span class="channel_listen1">取消</span>
+	          	 	 	 <span class="fr">确定</span>
+	          	 	 </div>
+                </div>
+
+                <div class="channel_listen_keeps">
+                	 <span class="channel_adimgs">
+	          	 	   		<img src="img/icon/pho_up.png"  alt="">	 	
+	          	 	   </span>
+	          	 	 <p>您确定修改频道属性？</p>
+	          	 	 <div class="channel_listen_keepselect">
+	          	 	 	 <span>取消</span>
+	          	 	 	 <span class="fr" onclick="CHannel10302(this)">确定</span>
+	          	 	 </div>
+                </div>
+	          	 </div>
+	          	 <!--监听中间内容-->
+	          	  <div id="im_list" class="channel_listenset_main channel_main2">
+	          	 	  <p class="channel_listenset_noread">
+	          	 		   <!--<span onclick="IMessageShowAdd()"><i>12</i>条未读信息</span>-->
+	          	 		   <span onclick="IMessageShowAdd()">点击查看历史消息</span>
+	          	 	  </p>
+	          	 	  <ul id="IM_channel"></ul>
+	          	  </div>
+                  <div class="channel_listen_footer fix">
+                    <div class="fix channel_listen_footer_div01">
+                      <form id="channelForm" class="fl file_input_box" method="post" enctype="multipart/form-data">
+                        <span class="file_input_text">
+                          <img src="./img/chat/select_pic.png" alt="img" />
+                        </span>
+                        <input name="loadpic" type="file" accept="image/png,image/jpg,image/jpeg,video/mp4" class="loadpic1" onchange="channel_send_pic('loadpic1')" value="asd" />
+                      </form>
+                      <!-- <form id="form2" method="post" enctype="multipart/form-data" >
+                        <input id="upload" name="upload" type="file"  onchange="uploadImage(this.value)"  value="asd"/>
+                      </form>  -->
+                      <span class="fr">
+                        <!--<img src="img/icon/channel/channel_add.png" alt="" class="channel_listenadd">-->
+                        <div class="channel_listen_select">
+                           <span>点击切换到消息</span>
+                           <div></div>
+                        </div>
+                      </span>
+                    </div>
+
+                       <div class="channel_listensay">
+                            <div class="channel_listensay_cue">
+                                <!--<p class="channel_listensay_cue01">点击按钮进行连接</p>-->
+                                <p class="channel_listensay_cue02">连接中...</p>   
+                                <p class="channel_listensay_cue03">
+                                  <img src="img/chat/online.png" alt="">
+									<span>点击对讲按钮开始对讲</span>
+                                 </p>
+                            </div>
+                            <div class="channel_btn_msg">
+                              <img src="img/icon/channel/channel_btn_msg.png" onclick="chlSpeakapply()" alt="pho">
+                            </div>
+                       </div>
+                       <div class="channel_listenwrite">
+                          <textarea name="" id="channel_listenwrite_text" placeholder="请输入"></textarea>
+                          <div class="channel_listenwritespend fix">
+                             <span class="channel_listenwritespends">
+                               <i>
+                                 <img src="img/icon/video/video_mai.png" alt="">
+                               </i>
+                               <strong>点击录音</strong>
+                             </span>
+                             <span class="channel_listenwritenter" onclick="chnSentIM(0)">
+                               发送
+                             </span>
+                          </div>
+                       </div>
+                  </div>
+	        </div>  
+<!--会话弹出窗口-->
+       <div class="channel_border_r channel_tellall" id="" >
+         <div class="channel_left channel_right2"></div>
+         <div class="channel_tellallset">
+            <div class="channel_tellallsettop fix">
+               <span class="channel_telllevel2name fix"><i class="fl">会话名字</i><strong></strong></span>
+               <i>
+                  <img src="img/icon/newicon/channel_set.png" alt="" class="channel_tellallsetshow">
+               </i>
+            <!--    <p>5/6</p> -->
+               <ul class="channel_tellallsetli fix">
+                <!--    <li>
+                     <img onclick="chat_map_monitor('chatOpenOnly')" src="img/icon/newicon/help_location1.png" alt="" title="添加监控">
+                   </li> -->
+                 
+                  <li onclick="channel_codeadd10309(this)">
+                    <img src="img/icon/newicon/help_add.png" alt="" title="添加成员">
+                  </li>
+                  <li>
+                    <img src="img/icon/newicon/help_download.png" alt="" title="下载">
+                  </li>
+               </ul>
+            </div>
+ 
+                  
+  <!--会话名字修改-->
+            <div class="channel_telllisten_write">
+               <span class="channel_telladming">
+                 <img src="img/icon/pho_up.png" alt="">
+               </span>
+               <div class="channel_telllisten_name">
+                   <span>会话名称</span>
+                  <input type="text" value="" id="channel_telllistenname" maxlength="20" placeholder="最大长度为20个字符">
+               </div>
+               <span class="channel_telldisbanded">解散会话</span>
+               <span class="channel_tellkeepname">保存</span>
+            </div> 
+  <!--解散频道确定取消-->
+            <div class="channel_telllisten_removes">
+               <span class="channel_telladming">
+                 <img src="img/icon/pho_up.png" alt="">
+               </span>
+               <p>确认解散该会话？</p>
+               <div class="channel_telllisten_removeselect">
+                  <span class="channel_telllisten1">取消</span>
+                  <span class="fr">确认</span>
+               </div>
+            </div>                   
+<!--会话下载-->
+            <div class="channel_tellsetdown channel_tellall1">
+                <div class="channel_tellsetdown_top fix">
+                   <span class="channel_tell_pho">
+                     <img src="img/icon/pho_up.png" alt="">
+                   </span>
+                   <div class="channel_tellall_search  fix">
+                      <span class="channel_tell_logo"></span>
+                      <input type="text" id="ChTelldownINput" placeholder="备注名/账号" name="ChTelldown" onkeyup="OnHKeyMSearch(this)">
+                      <span class="channel_tell_logos fr"></span>
+                   </div>
+                   <div class="channel_tell_filter fix">  
+                      <ul class="fix channel_tell_filtertype">
+                          <li>
+                            录音
+                          </li>
+                          <li>
+                            PTT
+                          </li>
+                          <li>
+                            图片
+                          </li>
+                          <li>
+                            视频
+                          </li>
+                      </ul>
+                      <ul class="fix channel_telltimeselect">
+                         <li>
+                           今天
+                         </li>
+                         <li>
+                           一周
+                         </li>
+                         <li>
+                           两周
+                         </li>
+                         <li class="channel_tellDate">
+                           <img src="img/icon/date.png" alt="">
+                         </li>
+                      </ul>
+                      <div class="channel_Timetotal">
+                         <div class="channel_TimeStart">
+                           <div class="channel_TimeStartdate">
+                             <span class="fl">开始时间</span>
+                             <i>
+                               <img src="img/icon/media/media_down.png" alt="">
+                             </i>
+                             <input type="text" value="2015-09-18" readonly="readonly" id="channel_TimeStartdate">
+                           </div>
+                           <div class="channel_TimeStarthour" onclick="channel_hour(this)">
+                              <span id="channel_TimeStarthours">08:00</span>
+                              <i>
+                                <img src="img/icon/media/media_down.png" alt="">
+                              </i>
+                              <div>
+                                 <ul>
+                                      <li>00:00</li>
+                                      <li>01:00</li>
+                                      <li>02:00</li>
+                                      <li>03:00</li>
+                                      <li>04:00</li>
+                                      <li>05:00</li>
+                                      <li>06:00</li>
+                                      <li>07:00</li>
+                                      <li>08:00</li>
+                                      <li>09:00</li>
+                                      <li>10:00</li>
+                                      <li>11:00</li>
+                                      <li>12:00</li>
+                                      <li>13:00</li>
+                                      <li>14:00</li>
+                                      <li>15:00</li>
+                                      <li>16:00</li>
+                                      <li>17:00</li>
+                                      <li>18:00</li>
+                                      <li>19:00</li>
+                                      <li>20:00</li>
+                                      <li>21:00</li>
+                                      <li>22:00</li>
+                                      <li>23:00</li>
+                                 </ul>
+                              </div>
+                           </div>
+                         </div>
+                         <div class="channel_TimeOver">
+                            <div class="channel_TimeOverdate">
+                               <span class="fl">结束时间</span>
+                               <i>
+                                 <img src="img/icon/media/media_down.png" alt="">
+                               </i>
+                               <input type="text" value="2015-09-18" readonly="readonly" id="channel_TimeOverdate">
+                            </div>
+                            <div class="channel_TimeOverhour" onclick="channel_hour(this)">
+                               <span id="channel_TimeOverhours">17:00</span>
+                                <i>
+                                  <img src="img/icon/media/media_down.png" alt="">
+                                </i>
+                                <div>
+                                 <ul>
+                                      <li>00:00</li>
+                                      <li>01:00</li>
+                                      <li>02:00</li>
+                                      <li>03:00</li>
+                                      <li>04:00</li>
+                                      <li>05:00</li>
+                                      <li>06:00</li>
+                                      <li>07:00</li>
+                                      <li>08:00</li>
+                                      <li>09:00</li>
+                                      <li>10:00</li>
+                                      <li>11:00</li>
+                                      <li>12:00</li>
+                                      <li>13:00</li>
+                                      <li>14:00</li>
+                                      <li>15:00</li>
+                                      <li>16:00</li>
+                                      <li>17:00</li>
+                                      <li>18:00</li>
+                                      <li>19:00</li>
+                                      <li>20:00</li>
+                                      <li>21:00</li>
+                                      <li>22:00</li>
+                                      <li>23:00</li>
+                                 </ul>
+                              </div>
+                            </div>
+                         </div>
+                      </div>
+                      <div class="channel_tellsrsubmit" onclick="ChanneldowntellSearch(this)"> 
+                         搜索
+                      </div>
+                   </div>
+                </div>
+                <!--下载内容-->
+                <div class="channel_tellmain channel_tellall2" onscroll="channel_listens_tellall_pulley()">
+                  <!--  <div class="channel_tell_data">
+                      <div>
+                         5月4号
+                      </div>
+                      <ul>
+                        <li>
+                           <div class="channel_tell_datal ">
+                             <input type="checkbox" name="">
+                             <img src="img/icon/channel/channel_4.png" alt="">
+                           </div>
+                           <div class="channel_tell_datar">
+                             <p>
+                               <span>小百合</span>
+                               <span class="fr">9:33</span>
+                             </p>
+                             <span>54"</span>
+                           </div>
+                        </li>
+                        <li>
+                           <div class="channel_tell_datal ">
+                             <input type="checkbox" name="">
+                             <img src="img/icon/channel/channel_4.png" alt="">
+                           </div>
+                           <div class="channel_tell_datar">
+                             <p>
+                               <span>小百合</span>
+                               <span class="fr">9:33</span>
+                             </p>
+                             <span>54"</span>
+                           </div>
+                        </li>
+                        <li>
+                           <div class="channel_tell_datal ">
+                             <input type="checkbox" name="">
+                             <img src="img/icon/channel/channel_4.png" alt="">
+                           </div>
+                           <div class="channel_tell_datar">
+                             <p>
+                               <span>小百合</span>
+                               <span class="fr">9:33</span>
+                             </p>
+                             <span>54"</span>
+                           </div>
+                        </li>
+                      </ul>
+                   </div>
+                   <div class="channel_tell_data">
+                      <div>
+                        5月10号
+                      </div>
+                      <ul>
+                        <li>
+                           <div class="channel_tell_datal ">
+                             <input type="checkbox" name="">
+                             <img src="img/icon/channel/channel_4.png" alt="">
+                           </div>
+                           <div class="channel_tell_datar">
+                             <p>
+                               <span>小百合</span>
+                               <span class="fr">9:33</span>
+                             </p>
+                             <span>54"</span>
+                           </div>
+                        </li>
+                        <li>
+                           <div class="channel_tell_datal ">
+                             <input type="checkbox" name="">
+                             <img src="img/icon/channel/channel_4.png" alt="">
+                           </div>
+                           <div class="channel_tell_datar">
+                             <p>
+                               <span>小百合</span>
+                               <span class="fr">9:33</span>
+                             </p>
+                             <span>54"</span>
+                           </div>
+                        </li>
+                        <li>
+                           <div class="channel_tell_datal ">
+                             <input type="checkbox" name="">
+                             <img src="img/icon/channel/channel_4.png" alt="">
+                           </div>
+                           <div class="channel_tell_datar">
+                             <p>
+                               <span>小百合</span>
+                               <span class="fr">9:33</span>
+                             </p>
+                             <span>54"</span>
+                           </div>
+                        </li> 
+                        <li>
+                           <div class="channel_tell_datal ">
+                             <input type="checkbox" name="">
+                             <img src="img/icon/channel/channel_4.png" alt="">
+                           </div>
+                           <div class="channel_tell_datar">
+                             <p>
+                               <span>小百合</span>
+                               <span class="fr">9:33</span>
+                             </p>
+                             <span>54"</span>
+                           </div>
+                        </li> 
+                      </ul>
+                   </div>    -->
+                </div>
+                  <div class="channel_tell_downfooter">
+                    <p>
+                      <!-- <input type="checkbox" name="channeltelllistall" onclick="channeltellAllist(this)"> -->
+                      <div class="chtellinputall" onclick="channeltellAllist(this)"></div>
+                      全选 已选中<i class="channeltellltotal">0</i>条
+                    </p>
+                    <button onclick="CHanneltellDown(this)" disabled="disabled">
+                      下载
+                    </button>
+                 </div>            
+            </div>
+         </div>
+     <!--会话聊天框-->     
+         <div class="channel_tellchat" id="chatIMparent">
+            <p class="channel_tellchat_noread">
+              <span onclick="chatIMgetMore()">
+              	点击查看历史消息
+              </span>
+            </p>
+            <ul id="chatIMessage"></ul>
+          </div>  
+ <!--会话底部-->
+           <div class="channel_tellchatfooter fix">
+              <div class="fix">
+                <form id="channelForm1" class="fl file_input_box1" method="post" enctype="multipart/form-data">
+                  <span class="file_input_text">
+                    <img src="./img/chat/select_pic.png" alt="img" />
+                  </span>
+                  <input name="loadpic" type="file" accept="image/png,image/jpg,image/jpeg,video/mp4" class="loadpic" onchange="channel_send_pic('loadpic')" value="asd" />
+                </form>
+                 <span class="fr">
+                    <!--<img src="img/icon/channel/channel_add.png" alt="">-->
+                     <div class="channel_telllisten_select">
+                        <span>点击切换到消息</span>
+                        <div></div>
+                     </div>
+                 </span>
+              </div>
+              <div class="channel_telllistensay">
+                <div class="channel_telllistensay_cue">
+                  <p class="channel_telllistensay_cue01">点击按钮进行连接</p>
+                  <p class="channel_telllistensay_cue02">连接中...</p>   
+                  <p class="channel_telllistensay_cue03">
+                    <img id="channel_img1" src="img/chat/online1.png" alt="" style="display: none;">
+                    <img id="channel_img" src="img/chat/online.png" alt="">
+                    <span>点击对讲按钮开始对讲</span>
+                  </p>
+                </div>
+                <div class="channel_tellbtn_msg">
+                  <img id="chatBegincallBtn" src="img/icon/channel/channel_line01.png" onclick="snapChatStartConnect()" alt="pic">
+                  <img src="img/icon/channel/channel_line03.png" style="display:none;" alt="pic">
+                  <img src="img/icon/channel/channel_btn_msg.png" style="display:none;" onclick="snapChatBegin()" alt="pic">
+                  <img src="img/icon/channel/channel_btn_msg_stop.png" style="display:none;" onclick="snapChatStopConnect()" alt="pic">
+                </div>
+              </div>
+              <div class="channel_telllistenwrite">
+                <textarea id="imChatImport" placeholder="请输入" ></textarea>
+                <div class="channel_telllistenwritespend  fix">
+                   <span class="channel_telllistenwritespends">
+                     <i>
+                       <img src="img/icon/video/video_mai.png" alt="">
+                     </i>
+                     <strong>点击录音</strong>
+                   </span>
+                   <span class="channel_telllistenwritenter" onclick="chnSentIM(1)">发送</span>
+                </div>
+              </div>
+           </div>
+
+       </div>
+ <!--创建频道-->
+
+
+      
+        <div class="channel_coverleft">
+          
+        </div>
+        
+      <div class="channel_creat">
+        <div class="channel_creattop">
+         创建新会话（添加成员）
+        </div>
+        <div class="channel_creattopadd">
+         添加成员
+        </div>
+        <div class="channel_searchbox">
+             <span class="search fl"></span>
+             <input type="text" class="channel_search fl" id="Channel_AddInput" placeholder="备注名/账号" name="tellIN" onkeyup="OnKeySearch(this)">
+             <span class="channel_delete"></span>
+        </div>
+        <div class="channel_container">
+           <ul id="channerAddtrees" class="ztree ul_ztree"></ul>
+           <ul id="channerAddtree" class="ztree ul_ztree"></ul>
+           <ul id="ChannelAdduser" class="User_Alls"></ul>
+        </div>
+      </div>
+      <div class="channel_creatselect">
+           <div>已选中</div>
+         <ul class="channel_addlist " id="channel_addlist">
+        
+         </ul>
+         <div class="channel_addfooter">
+          <span>取消</span>
+          <span class='fr'>下一步</span>
+          <span id="channel_addman">完成</span>
+         </div>
+      </div>
+<!--下一步 频道设置-->
+            <div class="channel_addchannel">
+              <div class="channel_addchanneltop">
+                频道设置
+              </div>
+              <div class="channel_addchannelfooter">
+                <div class="channel_addchannelname">
+                  <span>频道名称</span>
+                  <input type="text" value="" id="channelcreatname" placeholder="最大长度为30个字符" maxlength="30">
+                </div>
+                <div class="channel_addchannellevel">
+                  <i>优先级</i>
+                  <img src="img/icon/channel/channel_select1.png" alt="">
+                  <span class="fr" id="channelcreatlevel">低级</span>
+                  <div class="channel_addchannellevels">
+                    <ul>
+                    <!--   <li>
+                        <span>最高</span>
+                      </li> -->
+                      <li>
+                        <span>高级</span>
+                      </li>
+                      <li>
+                        <span>中级</span>
+                      </li>
+                      <li>
+                        <span>低级</span>
+                      </li>
+                     <!--  <li>
+                        <span>最低</span>
+                      </li> -->
+                    </ul>
+                  </div>
+                </div>
+                <div class="channel_addchannelleves">
+                  <i>最大发言时长</i>
+                  <img src="img/icon/channel/channel_select1.png" alt="">
+                  <span class="fr" id="channelcreatsay">60秒</span>
+                  <div class="channel_addchannellevels">
+                    <ul>
+                      <li>
+                        <span>30秒</span>
+                      </li>
+                      <li>
+                        <span>60秒</span>
+                      </li>
+                      <li>
+                        <span>120秒</span>
+                      </li>
+                      <li class="channel_topborder">
+                        <span>无限制</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="channel_addchannellevess">
+                  <i>最大排队人数</i>
+                  <img src="img/icon/channel/channel_select1.png" alt="">
+                  <span class="fr" id="channelcreatwaite">无排队</span>
+                  <div class="channel_addchannellevels">
+                    <ul>
+                      <li>
+                        <span>无排队</span>
+                      </li>
+                      <li>
+                        <span>5人</span>
+                      </li>
+                      <li>
+                        <span>10人</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                 <p>描述(内容长度为120字符以内)</p>
+                <textarea name="" id="channelbewrite" cols="30" rows="10"  placeholder="点击可添加描述信息" maxlength="120"></textarea>
+              </div>
+              <div class="channel_addchannelset">
+                <div class="channel_addchannelsetprev">
+                  上一步
+                </div>
+                    <div class="channel_addchannelsetsure">
+                      <span>取消</span>
+                      <input type="button" class="creat_channel" onclick="creat_channel()" value="确定" disabled="true"/>
+                    </div>
+              </div>
+            </div>
+    <!-- </div> -->
+  
+  <!--创建会话-->
+
+    <div class="channel_tellcreat">
+       <div class="channel_tellcreattop">
+          创建新会话（添加成员）
+       </div>
+       <div class="channel_tellcreattopadd">
+          添加成员
+       </div>
+       <div class="channel_tellsearchbox">
+          <span class="search fl"></span>
+          <input type="text" class="channel_tellsearch fl" placeholder="备注名/账号" name="channelIN" onkeyup="OnKeySearch(this)">
+          <span class="channel_tellsearchdel"></span>
+       </div>
+       <div class="channel_tellcontainer">
+          <ul id="channeltellAddtree" class="ztree  ul_ztree"></ul>
+          <ul id="ChannelTellAdduser" class="User_Alls"></ul>
+       </div>
+    </div> 
+<!--显示已经选中的成员-->
+   <div class="channel_tellcreatselect"> 
+     <div>已选中</div>
+     <ul class="channel_addlist" id="channel_telladdlist">
+        <!-- <li><i>王大晓</i><span></span></li> -->
+     </ul>
+     <div class="channel_telladdfooter">
+       <span>取消</span>
+       <span class="fr">下一步</span>
+       <span id="channel_telladdman">完成</span>
+     </div>
+   </div>
+  <!--创建会话下一步--> 
+  <div class="channel_telladdchannel">
+     <div class="channel_telladdchanneltop">
+       会话设置
+     </div>
+     <div class="channel_telladdchannelname">
+       <span>会话名称</span>
+       <input type="text" onkeyup="channel_onkeyup()" onblur="channel_blur()" value="" id="channel_tellname" placeholder="最大长度为20个字符" maxlength="20">
+     </div>
+      <div class="channel_telladdul"></div>
+      <!--底部要求-->
+       <div class="channel_telladdchannelset">
+          <div class="channel_telladdchannelsetprev">
+             上一步
+          </div>
+           <div class="channel_telladdchannelsetsure">
+                  <span>取消</span>
+                  <span class="fr">确认</span>
+            </div>
+       </div>
+  </div>
+    <div class="channel_video" id="channel_videoflash">
+      <span onclick="channel_imgclose(this)">
+          <img src="img/icon/media/media_close.png" alt="">
+      </span>
+        <div class="Channel_lookimgpt">
+           <img src="" alt="">
+        </div>
+      <div id="Channelplayvideo"></div>
+    </div> 
+</div> 
+
+

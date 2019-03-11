@@ -1,0 +1,388 @@
+<script src="js/lib/mootools-1.2.4-core-yc.txt"></script>
+ <div id="station_task">
+ 	 <div class="task_first task_height">
+ 	 	  <div class="task_leftbtn">
+ 	    </div>
+      <div class="task_searchtop">
+          <div class="task_searchlist">
+             <span class="fl">搜索</span>
+             <input type="text" / id="task_listval" placeholder='成员/案件名称/描述'>
+          </div>
+           <div class="task_searchlist task_matop">
+             <span class="fl">开始时间</span>
+             <input type="text" / id="task_liststtime" readonly="readonly">
+          </div>
+           <div class="task_searchlist task_matop">
+             <span class="fl">结束时间</span>
+             <input type="text" / id="task_listovertime" readonly="readonly">
+          </div>
+           <div class="task_searchlistbtn task_matop">
+              <span >搜索</span>
+          </div>
+      </div>
+ 	    <ul class="task_ulmenu" onscroll="Pulley_task()"></ul>
+ 	    <div class="task_creatbtn">
+ 	    	创建案件
+ 	    </div>
+ 	 </div>
+ <!--详情-->
+     <div class="task_details task_height">
+     	<div class="task_detailsbtn"></div>
+     	<div class="task_detailstop">
+     		<span class="task_detailstopname">这是一个案件名称</span>
+     		<img src="img/icon/newicon/channel_set.png"  alt="">
+        <span class="task_Bale">打包案件</span>
+     		<p class="Task_creatuser">10021004</p>
+     		<p class="Task_creattime">2345</p>
+     		<div class="task_writename">
+     			<span></span>
+     			 <div class="task_writenameinval">
+	     			<div class="task_writenamein fix">
+	     				<span>案件名称</span>
+	     				<input type="text" id="Task_Name" maxlength="15">
+	     			</div>
+	     			<div class="task_writetext">
+	     			    <p>案件描述</p>
+	     				<textarea name="" id="Task_deswrite" maxlength="100"></textarea>
+	     			</div>
+	     			<div class="task_removename">
+	     				<span>删除案件</span>
+	     				<span class="fr" onclick="Task_keeptask()">保存</span>
+	     			</div>
+	     		 </div>
+	     		 <div class="task_removetask">
+	     		 	<p>确认要删除该案件？</p>
+	     		 	<span >取消</span>
+	     		 	<span onclick="Task_Removesure()">确定</span>
+	     		 </div>	
+     		</div>
+        <div class="task_Balediv">
+          <span></span>
+          <div>
+            <p>您确定要打包该案件？</p>
+            <span onclick="Task_10600can(this)">取消</span>
+            <span class="fr" onclick="Task_10600sure(this)">确定</span>
+          </div>
+        </div>
+     	</div>
+     	<div class="Task_detailscontent">
+     		<p>案件描述</p>
+     		<textarea name="" id="" disabled="disabled"></textarea>
+        <div class="Task_numcon">
+           <p onclick="Task_ToNote()" class="task_connum">案件多条备注</p>
+           <div class="task_numNote">
+              <span></span>
+              <div class="task_numNoteshow">
+                 <!-- <textarea name="" id="task_Notecon" placeholder="请输入" ></textarea> -->
+
+                  <p>
+                    <span onclick="task_addcon(this)">增加备注</span>
+                    <div class="task_addarea">
+                        <span class="task_addareaup"></span>
+                        <i>备注:(内容长度为300字符以内)</i>
+                        <textarea name="" id="task_Notecon" placeholder="请输入" maxlength="300"></textarea>
+                         <p class="task_addareabtn">
+                            <span onclick="task_addconerror()">取消</span>
+                            <span class="fr" onclick="task_addconsure()">确定</span>
+                         </p>
+                    </div>
+                  </p>
+                  <ul class="task_Noteul">
+                     <li>
+                         <p>
+                          <span>105010008</span>
+                          <img src="img/icon/channel/channeldes.png" alt=""  class="task_conlistremoveimg"/>
+                          <span class="fr">2018-11-01 11:22:22</span> 
+                         
+                         </p>
+                         <p class="task_Noteconta">这事辈wewrfwerwefwe出备注，踏实内你的香气</p>
+                           <div class="task_conlistremove">
+                              <span></span>
+                              <p>您确定删除该备注？</p>
+                               <div class="task_conlistremovebtn">
+                                  <span onclick="task_conimgremove(this)">取消</span>
+                                  <span class="fr" onclick="task_conimgsure(this)">确定</span>
+                               </div>
+                           </div>
+                     </li>
+                      <li>
+                         <p>
+                          <span>105010008</span>
+                          <span class="fr">2018-11-01 11:22:22</span> 
+                         </p>
+                         <p class="task_Noteconta">这事辈wewrfwerwefwe出备注，踏实内你的香气</p>
+                     </li>
+                      <li>
+                         <p>
+                          <span>105010008</span>
+                          <span class="fr">2018-11-01 11:22:22</span> 
+                         </p>
+                         <p class="task_Noteconta">这事辈wewrfwerwefwe出备注，踏实内你的香气</p>
+                     </li>
+                      <li>
+                         <p>
+                          <span>105010008</span>
+                          <span class="fr">2018-11-01 11:22:22</span> 
+                         </p>
+                         <p class="task_Noteconta">这事辈wewrfwerwefwe出备注，踏实内你的香气</p>
+                     </li>
+                      <li>
+                         <p>
+                          <span>105010008</span>
+                          <span class="fr">2018-11-01 11:22:22</span> 
+                         </p>
+                         <p class="task_Noteconta">这事辈wewrfwerwefwe出备注，踏实内你的香气</p>
+                     </li>
+                      <li>
+                         <p>
+                          <span>105010008</span>
+                          <span class="fr">2018-11-01 11:22:22</span> 
+                         </p>
+                         <p class="task_Noteconta">这事辈wewrfwerwefwe出备注，踏实内你的香气</p>
+                     </li>
+                      <li>
+                         <p>
+                          <span>105010008</span>
+                          <span class="fr">2018-11-01 11:22:22</span> 
+                         </p>
+                         <p class="task_Noteconta">这事辈wewrfwerwefwe出备注，踏实内你的香气</p>
+                     </li>
+                     <li>
+                         <p>
+                          <span>105010008</span>
+                          <span class="fr">2018-11-01 11:22:22</span> 
+                         </p>
+                         <p class="task_Noteconta">这事辈wewrfwerwefwe出备注，踏实内你的香气</p>
+                     </li>
+                     <li>
+                         <p>
+                          <span>105010008</span>
+                          <span class="fr">2018-11-01 11:22:22</span> 
+                         </p>
+                         <p class="task_Noteconta">这事辈wewrfwerwefwe出备注，踏实内你的香气</p>
+                     </li>
+                     <li>
+                         <p>
+                          <span>105010008</span>
+                          <span class="fr">2018-11-01 11:22:22</span> 
+                         </p>
+                         <p class="task_Noteconta">这事辈wewrfwerwefwe出备注，踏实内你的香气</p>
+                     </li>
+                     <li>
+                         <p>
+                          <span>105010008</span>
+                          <span class="fr">2018-11-01 11:22:22</span> 
+                         </p>
+                         <p class="task_Noteconta">这事辈wewrfwerwefwe出备注，踏实内你的香气</p>
+                     </li>
+
+                  </ul>
+              </div>
+           </div>
+        </div>
+     		<p class="Task_reporttake">上报记录</p>
+     	</div>
+    
+     	<div class="Task_detailslist">
+     			<div class="Task_detailslist_ul">
+     				<ul></ul>
+     				<div class="task_detailsnext">向下滑动加载更多</div>
+     			</div>
+     			<div class="Task_detailslist_wu">
+     				<h3 class="help_wu">暂无数据</h3>
+     			</div>
+     	</div>
+          <div class="Task_downbtn">
+             <p>
+               <span class="Taskinputall">
+               </span>
+               全选 已选中<i class="tasknumtotal">0</i>条
+             </p>
+             <button onclick="Task_Down()" disabled="disabled">
+                下载
+             </button>
+          </div>
+     </div> 	 
+ <!--创建-->
+     <div class="task_creat task_height">
+     	 <div class="task_cratder">
+     	 	创建案件（添加成员）
+     	 </div>
+     	 <div class="task_search">
+     	 	<span class="search fl"></span>
+     	 	<input type="text" class="task_srachIn" onkeyup="OnKeySearch(this)" id="task_Input" placeholder="搜索" name="TaskIn">
+     	 </div>
+     	 <div class="task_tree">
+     	 	<ul id="Tasktree" class="ztree ul_ztree"></ul>
+     	 	<ul class="User_Alls" id="Task_userall"></ul>
+     	 </div>
+     </div>
+     <div class="task_creatman task_height">
+         <div class="task_creatmantop">已选中</div>
+         <ul class="task_creatlistman" id="task_creatman"></ul>
+     	 <div class="task_creatmanfooter">
+     	 	<span onclick="task_cancel(this)">取消</span>
+     	 	<span class="fr" onclick="task_next(this)">下一步</span>
+     	 </div>
+     </div>
+  <!--创建任务-->
+      <div class="task_creatmsg task_height">
+      	 <div class="task_makename">案件设置</div>
+      	 <div class="task_creatmsgcon">
+      	 	<div class="task_creatmsgnameval fix">
+      	 		<input type="text" id="Task_creatName" placeholder="案件名称">
+      	 	</div>
+      	 	<div class="task_creattext">
+      	 	    <p>案件描述(内容长度为100字符以内)</p>
+      	 		<textarea name="" id="task_wrt" maxlength="100" ></textarea>
+      	 	</div>
+      	 </div>
+      	 <div class="task_creatmsgfooter">
+      	 	 <div class="task_creatmsgprev">
+      	 	 	上一步
+      	 	 </div>
+      	 	 <div class="task_creatmsgfooterse">
+      	 	 	<span onclick="task_createrr(this)">取消</span>
+      	 	 	<span onclick="Task_creatBtn(this)">确认创建</span>
+      	 	 </div>
+      	 </div>
+      </div>
+  <!--上报信息展示-->  
+    <div class="task_reportimg task_height ">
+    	<div class="task_repostimgtop fix">
+    		<p class="task_reportimguser">100210001</p>
+    		<p class="task_reportimgtime">2017-02-03 14:00:00</p>
+    		<ul class="task_reportimgUl">
+    			<li>
+    				<img src="img/icon/newicon/help_location.png" alt="" title="定位">
+    			</li>
+    		</ul>
+    	</div>
+    	<div class="task_repostimg_main">
+    		<div class="task_repostimg_mainimgbg">
+    			 <div class="task_repostimg_mainshadow">
+    			 	<span class="help_level2_imgsicon"></span>
+    			 </div>
+    			 <video width="240" height="240" style="background:black" id="task_MEDIA" src=""><source src=""></video>
+    		</div>
+    		<div class="task_repostimgnum fix">
+    			<ul class="task_repostimgone"></ul>
+    			<ul class="task_repostimgtwo"></ul>
+    			<ul class="task_repostimgthree"></ul>
+    		</div>
+    		<p class="task_repostdetext">这是描述</p>
+    	</div>
+    	<div class="task_repostimgfooter">
+    		关闭
+    	</div>
+    </div>
+
+    <div class="task_height task_reportlinevideo">
+       <div class="task_repostimgtop fix">
+          <p class="task_reportimguser">100210001</p>
+          <p class="task_reportimgtime">2017-02-03 14:00:00</p>
+      </div>
+        <div class="task_linecontainer">
+          
+            <div class="task_repostline_main">
+              <div class="task_repostline_mainimgbg">
+                 <div class="task_repostline_mainshadow">
+                  <span class="help_level2_imgsicon"></span>
+                 </div>
+                 <video width="240" height="240" style="background:black" id="Task_Linevideo" src=""><source src=""></video>
+              </div>
+            </div>
+            <div class="task_reportlineul">
+               <ul class="fix task_reportlinevideoul">
+                 <li class="media_videomore">
+                    <video src="http://112.35.28.140:1980/FileStorage/POC_FILES/mdsvstore/20180417/S124647933U105010008T1523948012648R69785-part1.mp4"  type="video/mp4"></video>
+                    <div class="task_linevideoshaow" >
+                       <span></span>
+                    </div>
+                 </li>
+                
+               </ul>
+            </div>
+            <ul class="task_msgul">  
+               <li class="fix">
+                   <div class="fl">
+                     <img src="img/chat/recording.png" alt="" />
+                     <span>105010002</span>
+                   </div>
+                   <div class="fr">
+                     <span>2018-04-11</span>
+                   </div>
+                </li>
+                <li class="fix">
+                   <div class="fl">
+                     <img src="img/chat/recording.png" alt="" />
+                     <span>105010002</span>
+                   </div>
+                   <div class="fr">
+                     <span>2018-04-11</span>
+                   </div>
+                </li>
+                <li class="fix">
+                   <div class="fl">
+                     <img src="img/chat/recording.png" alt="" />
+                     <span>105010002</span>
+                   </div>
+                   <div class="fr">
+                     <span>2018-04-11</span>
+                   </div>
+                </li>
+                <li class="fix">
+                   <div class="fl">
+                     <img src="img/chat/recording.png" alt="" />
+                     <span>105010002</span>
+                   </div>
+                   <div class="fr">
+                     <span>2018-04-11</span>
+                   </div>
+                </li>
+            </ul>
+     </div>
+      
+
+      
+      <div class="task_reportlineclose">
+          <span>关闭</span>
+      </div>
+    </div>
+   <!--备注详情-->
+    <div class="task_conlisttails task_height">
+        <div class="task_repostimgtop fix">
+             <p class="task_reportimguser">100210001</p>
+             <p class="task_reportimgtime">2017-02-03 14:00:00</p>
+        </div>
+        <div class="task_conlistdeshow">
+           <p>这事备注西安各你哦玩偶尔能够恩偶尔哦个哦34434545454能鹅绒欧恩偶尔给你哦恩用而那个我偶尔泥垢了哪位老哥呢两年给老公呢</p>
+        </div>
+
+
+         <div class="task_conlistdeclose">
+            <span>关闭</span>
+         </div>
+    </div>
+
+    <div class="task_cover task_height">
+    	
+    </div>
+    <div class="task_lookimg" id="task_lookimg">
+    	<span class="task_imgclose">
+    		<img src="img/icon/media/media_close.png" alt="">
+    	</span>
+    	<div class="task_lookimgpt">
+        <span class="task_lookimgleft" onclick="task_lookimgprev(this)"></span>
+    		<img src="" alt="">
+         <span class="task_lookimgright" onclick="task_lookimgnext(this)"></span>
+    	</div>
+    	<div id="TASK_play"></div>
+        <video width="700" height="500" style="background:black" id="task_video"  src=""><source src=""></video>
+    </div>  
+         
+ </div>
+  <script>
+   task_fint();
+    // Task11301();
+ </script>

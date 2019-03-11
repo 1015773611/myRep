@@ -1,0 +1,405 @@
+  
+		<script type="text/javascript" id="spthelp">
+				help._high();
+				help._init();
+				help11411(); 
+				var HelpChoose = 0;
+		    	var Helpnum = document.getElementsByName("HelpInput").length;
+		    	var HelpNull = Helpnum; 
+		</script>
+		<script src="js/lib/mootools-1.2.4-core-yc.txt"></script>
+<div id="station_helper">
+<!-- 和助手第一栏页面 -->
+		<div class="helpsec help_user help_user_borderl ">
+			<div class="secContent">
+				<div class="helpleft_icon help_btn" onclick="small_btn('help_user')"></div>
+				<div class="searArea fix">
+                    <div class="HelpCsearch fix">
+                    	<span class="HelpCsearchs_left fl"></span>
+					     <input type="text" class="HelpCsearchs  fl" placeholder="搜索" onkeyup="OnHKeyMSearch(this)" name="searchHE" id="Helpsearchin">
+                    </div>
+					<span class="choose"><img class="cho-img" src="img/icon/channel/channel_search1.png" alt="select"></span>
+					<div class="choose-sec">
+						<ul class="fix">
+							<li>
+								<a class="helpersb_img">图片</a>
+							</li>
+							<li>
+								<a class="helpersb_video">视频</a>
+							</li>
+							<li>
+								<a class="helpersb_warn">告警</a>
+							</li>
+							<li>
+								<a class="helpersb_radio">广播</a>
+							</li>
+							<li class="lastLi" style="display:none">
+								<a>系统<br/>消息</a>
+							</li>
+						</ul>
+						<span class="choose-icon"><img src="img/icon/pho_up.png"></span>
+						<div class="helpTimetotal">
+							<div class="helpTimeprev">
+								<span class="fl">开始时间</span>
+								<i>
+									<!-- <img src="img/icon/media/media_down.png" alt=""> -->
+								</i>
+								<input type="text" id="HelpTimestart" readonly="readonly">
+							</div>
+							<div class="helpTimenext">
+								<span class="fl">结束时间</span>
+								<i>
+									<!-- <img src="img/icon/media/media_down.png" alt=""> -->
+								</i>
+								<input type="text" id="HelpTimesover" readonly="readonly">
+							</div>
+							<div class="helpTimesearch" onclick="Helpsubmitsearch(this)">
+								搜索
+							</div>
+						</div>
+					</div>
+					<!-- 
+					<span class="date"><img class="date-img" src="img/icon/date.png" alt="date"></span>
+ -->
+					<span style="display:none;" class="date-icon"><img src="img/icon/pho_up.png"></span>
+					<div id="ca" style="display:none;"></div>
+				</div>
+				<div class="itemwrap" onscroll="Pulley()">
+					<div id="loading">
+						<img src="img/loading.gif"  />
+						<p>加载中，请稍等...</p>
+					</div>
+						<div id="loaded">
+						    <!-- <p class="helplista"></p> -->
+							<!-- <div class="today">今天</div>
+							<div class="listItem">
+								<ul>
+									<li>
+										<div class="item fix">
+											<div class="fl fix">
+												<input type="checkbox" name="list" class="fl">
+												<a onclick="help._item(0)" class="itemPhoto"><img src="img/icon/photo_zhuapai.png" alt="photo"></a>
+											</div>
+											<div class="fl itemRight">
+												<p class="">
+													<span class="">王小明</span>
+													<span class="time">9:19</span>
+												</p>
+												<span>无描述</span>
+											</div>
+										</div>
+									</li>
+								</ul>
+							</div>
+							<div class="today">今天</div>
+							<div class="listItem">
+								<ul>
+								</ul>
+							</div>	 -->			
+						</div>
+						<div id="loadeds">		
+						</div>
+				</div>
+
+				<div style="position:relative;" >
+					<div class="itemCount">
+						<!-- <input type="checkbox" name="HelpInputAll" onclick="HelpInputAll(this)"> -->
+						<div class="Help_inputdivall" onclick="HelpInputAll(this)"></div>
+						<span>全选</span>
+						<span class="help_selectallbg">已选中<i class="Helptotal">0</i>条</span>
+					</div>
+					<div class="readed"  ><button class="HelpRead" disabled="true" id="HelpRead" onclick="HelpReadAll(this)">设为已读</button></div>
+					<div id="help-count">
+						<p>近一个月内，您一共处理</p>
+						<div class="fix">
+							<div class="fl"><canvas id="myChart" width="100" height="100"></canvas></div>
+							<ul class="fr">
+								<li><img src="img/icon/userIcon/bg_01.png" /><span>图片：<strong>88</strong></span></li>
+								<li><img src="img/icon/userIcon/bg_02.png" /><span>视频：<strong>44</strong></span></li>
+								<li><img src="img/icon/userIcon/bg_03.png" /><span>广播：<strong>33</strong></span></li>
+								<li><img src="img/icon/userIcon/bg_04.png" /><span>告警和通知：<strong>88</strong></span></li>
+							</ul>
+						</div>
+						<span class="help-total">965</span>
+					</div>
+				</div>
+
+			</div>
+		</div>
+		
+<!--上报图片或视频-->
+		<div class="sec-fun helpImgVideo help_leve2div">
+			<div class="help_leve2_icon help_leftbtn helpmv_btn" onclick="helperBtn('helpImgVideo')"></div>
+			<div class="sec-fun-wrap" style="height:100%;">
+				<div class="sec-space">
+					<div class="sec-fun-top">
+						<div>
+							<span><img class="onlineIcon" src="img/chat/outline.png" ></span>
+							<strong class="name" id="helpimgname"> </strong>
+						</div>
+						<p>  
+						    <span id="helpimgtime">2015-07-23</span>
+						    <span id="helpimgsize">1.5M</span>
+							
+						</p>
+						<ul class="fix helpfour">
+							<li onclick="helpgetpos(this)" id="help_location" title="定位">
+								 <img src="img/icon/newicon/help_location.png"> 
+							</li>
+							<li onclick="HelpGetdown(this)" title="下载">
+								 <img src="img/icon/newicon/help_download.png">
+							</li>
+							<li class="helpforward " title="转发">
+								 <img src="img/icon/newicon/help_share.png" alt="">
+							</li>
+							<li onclick="HelpDelete(this)" title="删除">
+								 <img src="img/icon/newicon/help_deleted.png"> 
+							</li>
+						</ul>
+						<div class="help_level2delete fix">
+                            <span class="help_level2deleteimg">
+                              <img src="img/icon/pho_up.png" alt="">
+                            </span>
+                            <p>确认删除该记录</p>
+                            <span class="help_level2delete1" onclick="HelpDelcancel(this)">取消</span>
+                            <span class="help_level2delete2 fr" onclick="HelpDelsure(this)">确定</span>
+						</div>
+		        <div class="help_level2_share" style="display:none;">
+              <i class="help_level2_imgshare">
+         	 	<img src="img/icon/pho_up.png" alt="">
+         	  </i>
+         	   
+         	  <span class="help_level2_shareno">取消</span>
+         	   <span class="fr" onclick="help_transmit(this)">转发</span>
+         </div>
+					</div>
+				</div>
+				<div class="sec-fun-middle ht1help">
+					<div class="border-1 padd">
+						<div class="fun-contect" id="HelpVide">
+                           <img src="img/meida.png" alt="" id="Help_level2imghshow">
+                           <video width="240" height="150" style="background:black" id="helpvideo"><source src="" type="video/mp4" ></video>
+                          <div class="help_level2_imgshadow" onclick="helplookclearIMG(this)">
+				 	   	  	 <span class="help_level2_imgsicon"></span>
+				 	   	  </div>
+						</div>
+
+						<div class="Help_imgNums fix">
+                            <ul class="fix Help_ulone">
+                              <li>
+                                 <img src="http://112.35.28.140:1980/FileStorage/POC_FILES/user-file/resource/100110000-100111999/100110057/reportR20170726102359286369" alt="">
+                                 <div class="Help_img2shadow">
+                                    <span></span>
+                                 </div>
+                              </li>
+                               <li>
+
+                               </li>
+                               <li>
+
+                               </li>
+                            </ul>
+                            <ul class="fix Help_ultwo">
+                              <li>
+
+                              </li>
+                               <li>
+
+                               </li>
+                               <li>
+                               
+                               </li>
+                            </ul>
+                            <ul class="fix Help_ultree">
+                              <li>
+
+                              </li>
+                               <li>
+
+                               </li>
+                               <li>
+                               
+                               </li>
+                            </ul>
+						</div>
+						<p id="helpimgdetail"> </p>
+					</div>
+					<div class="padd">
+						<span class="note1"></span>
+						<p class="HelpNote">备注:(内容长度为300字符以内) <i class="fr HelpKicon" ><img src="img/icon/media/media_text.png" alt="" onclick="HelpConkeep(this)"> <span onclick="HelpConkeeps(this)">保存</span></i></p>
+						<textarea  id="Helptext" placeholder="无备注" disabled="disabled" maxlength="300"></textarea>
+					</div>
+				</div>
+				<div class="help_saybtnprev">
+					<div class="sec-fun-footer" onclick="Help_Go(this)">
+						<a>发起对讲</a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+<!-- 电子围栏页面 -->
+		<div class="sec-fun helpFence help_leve2div">
+			<div class="help_leve2_icon helpfe_btn" onclick="helperBtn('helpFence')"></div>
+			<div class="sec-space">
+				<div class="sec-fun-top">
+					<div><span><img class="onlineIcon" src="img/chat/outline.png" ></span><strong class="name" id="helpwarnname"></strong></div>
+					<p><span id="help_warntime"></span></p>
+                    <ul class="fix helpfour">
+                        <li onclick="HelpShowPolygon(this)">
+                            <img src="img/icon/newicon/help_location.png" alt="" title="定位" />
+                        </li>
+                    </ul>
+				</div>
+			</div>
+			<div class="sec-fun-middle ht1help">
+				<div class="padd">
+					<div class="line-contect">
+						<p> </p>
+						<p> </p>
+						<p> </p>
+						<p> </p>
+						<p> </p>
+					</div>
+				</div>
+			</div>
+			<div class="sec-fun-footer" onclick="Help_Go(this)">
+				<a>发起对讲</a>
+			</div>
+		</div>
+<!-- 广播页面 -->
+		<div class="sec-fun helpBroadcast help_leve2div">
+			<div class="help_leve2_icon helpbd_btn" onclick="helperBtn('helpBroadcast')"></div>
+			<div class="sec-space1">
+				<div class="sec-fun-top">
+					<div><span><img class="onlineIcon" src="img/chat/outline.png"></span><strong class="name" id="helpradioname"> </strong></div>
+					<p><span id="helpradiotime">2015-07-23</span></p>
+				</div>
+			</div>
+			<div class="sec-fun-middle hthelp">
+				<div class="padd">
+					<div class="brocast-contect">
+						<h3>这是广播</h3>
+						<p>共同推动中德全方位战略伙伴关系取得更好发展, </p>	
+					</div>
+				</div>
+			</div>
+			<div class="sec-fun-footer help_radiobtn" onclick="Help_Go(this)" >
+				 发起对讲
+			</div>
+		</div>
+<!--系统通知页面-->
+		<div class="sec-fun helpNotice">
+			<div class="help_leve2_icon helpnt_btn" onclick="helperBtn('helpNotice')"></div>
+			<div class="sec-space1">
+				<div class="sec-fun-top">
+					<div><strong class="system-name">系统通知</strong></div>
+					<p><span>2015-07-23</span><span>9:30</span></p>
+				</div>
+			</div>
+			<div class="sec-fun-middle ht2">
+				<div class="padd">
+					<div class="system-contect">
+						<p>磁盘空间已经满，您可以清楚部分文件释放磁盘空间。</p>
+					</div>
+				</div>
+			</div>
+			<div class="sec-fun-footer">
+				<a>呼叫</a>
+			</div>
+		</div>
+ 
+ <div class="help_lookimg" draggable="true" id="help_lookimg">
+		<span onclick="help_imgclose(this)">
+			<img src="img/icon/media/media_close.png" alt="">
+		</span>
+		<div class="help_lookimgs">
+            <span class="help_imgnumleft" onclick="help_imgprev(this)"></span>
+			<img src="" alt="">
+            <span class="help_imgnumright" onclick="help_imgnext(this)"></span>
+		</div>
+         <video  width="700" height="500"  style="background-color:black" id="helps_video" controls="controls">
+         	<source src="" type="video/mp4"></source>
+         </video>
+         <div id="player"></div>
+</div>
+
+	  <div class="media_transmit help_transmit1">
+  	 <div class="media_transmittop">
+  	 	转发给
+  	 </div>
+  	 <div class="media_transmitselect">
+  	 	<div class="media_transmitselect1 helpselect fix">
+  	 		<span class="meidia_transmitbg">频道</span>
+  	 		<span>会话</span>
+  	 		<span class="media_transmitselect1member">成员</span>
+  	 	</div>
+  	 </div>
+  	 <div class="media_transmitsearchbox fix">
+  	 	 <span class="fl media_transmitsearchs"></span>
+  	 	 <input type="text" placeholder="搜索" class="fl media_transmitsearch " onkeyup="HelpTrsearch(this)" name="helpIN">
+  	 </div>
+  	 <div class="media_transmitcontaienr">
+	  	 <!--频道--> 
+	  	  <div class="media_channelmain">
+	  	  	 <ul class="media_channelmainul1" id="helpfoCh">
+	  	  	 	<li>
+	  	  	 	    <ul class="media_channelmainul2">
+	  	  	 	   </ul>	
+	  	  	 	</li>
+	  	  	 </ul>
+	  	    <div class="media_channelmianfooter">
+	  	    	<span class="helpCancel">取消</span>
+	  	    	<span class="fr" onclick="helpchanForward('helpfoCh','media_transmit')">确定</span>
+	  	    </div>
+	  	  </div>
+	  	<!--会话-->
+		  	<div class="media_channeltellmain">
+		  		<ul class="media_channeltellmainul1" id="helpLinchat">
+		  			<li>
+		  				<div onclick="mediatellchannellevel2(this)">
+		  				    <input type="checkbox" class="media_channelmainul1pop" name="media_transmit1">
+		  					<i class="media_channelmainul1name">中国第一小组</i>
+		  					 <div class="mediachannelul1level  fr">
+		  					 	<img src="img/icon/channel/channel_select.png" class="fr" alt="">
+		  					 </div>
+		  				</div>
+		  				<ul class="media_channelmainul2">
+		  					<li>
+		  						<div>
+		  							<img src="img/icon/user_cross_online.png" alt="">
+		  							<i>晓明</i>
+		  						</div>
+		  					</li>
+		  				</ul>
+		  			</li>
+		  		</ul>
+		  		<div class="media_tellchannelmianfooter">
+		  			<span class="helpchatcannel">取消</span>
+		  			<span class="fr" onclick="helpchanForward('helpLinchat','media_transmit1')">确定</span>
+		  		</div>
+		  	</div>
+	  <!--成员-->	  
+		  	<div class="media_memberl">
+		  		<ul id="helptree" class="ztree ul_ztree"></ul>
+		  		<ul id="helpAllman" class="User_Alls" ></ul>
+		  	</div>
+		</div>  	
+  </div>
+ <!--成员选中显示-->
+  <div class="media_memberselect" id="help-users">	
+     <div>
+     	已选中
+     </div>
+     <ul class="media_memberselect1" id="help_memberselect1">
+     
+     </ul>
+     <div class="media_memberselectfooter">
+     	<span class="help-usersNo">取消</span>
+     	<span class="fr" onclick="helpforwardTouser()">确定</span>
+     </div>
+  </div>
+</div>
+
+
+

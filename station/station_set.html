@@ -1,0 +1,301 @@
+
+		<script type="text/javascript">
+//			 $(function(){
+				$('.sec').animate({
+					'margin-left':'80px'
+				})
+				loginerGetInfo();
+				more_set_start();
+//        })
+		</script>
+		<script type="text/javascript" src="js/lib/jqueryform.js"></script>
+<div id="station_set">		
+			<div class="sec moreset_border_r">
+			<div class="left_icon more_btn" onclick="small_btnMove()"></div>
+				<div class="moreset_top">
+					<ul>
+						<li>
+							<i class="more_setfont">用户资料</i>
+							<span class="fr">
+								<img src="img/icon/more_set/more_set.png" alt="" class="moreset_img">
+							</span>	
+							<div class="more_set_account">
+								<i>
+									<img src="img/icon/pho_up.png" alt="" >
+								</i>
+								<div class="moreset_ID">
+									用户ID <i class="fr"></i>
+								</div>
+								 <ul class="moreset_list">
+								 	<li>
+								 		<div class="moreset_username">
+								 			<span>
+								 				备注名
+								 			</span>
+								 			<input type="text" id="more_Name" maxlength="15" placeholder="备注名最大长度为15字符">
+								 		</div>
+								 	</li>
+								 	<li>
+								 	   <div class="moreset_mailbox">
+								 			<span>
+								 				邮箱
+								 			</span>
+								 			<input type="text" id="more_email" placeholder="邮箱位数应为6~30个字符">
+								 	   </div>
+								 	</li>
+								 	<li>
+								 	   <div class="moreset_phone">
+								 			<span>
+								 				绑定手机号
+								 			</span>
+								 			<input type="text"  onkeyup="more_phone_11()" value="" id="more_phone" >
+								 	   </div>
+								 	</li>
+								 	<li>
+								 		<div class="moreset_phonecode">
+								 			<span>验证码</span>
+								 			 <input type="text" id="MoreCode">
+								 		</div>
+								 		<i class="moreset_phoneclick moresetCodebg">点此获取短信验证码</i>
+								 	</li>
+								 	<li>
+								 		<div class="moreset_keep" onclick="More_setusers(this)">
+								 			保存
+								 		</div>
+								 	</li>
+								 </ul>
+							</div>
+						</li>
+						<li>
+							用户ID
+							<i class="fr seting_uid"></i>
+
+						</li>
+						<li>
+							备注名
+							<span class="fr seting_name"></span>
+						</li>
+						<li>
+							手机号
+							<i class="fr seting_phone"></i>
+						</li>
+						<li>
+							邮箱
+							<i class="fr seting_email"></i>
+						</li>
+					</ul>
+				</div>
+
+				<div class="more_set_watermark">
+				 	水印设置
+				 	<span class="fr">
+					    <img src="img/icon/more_set/more_set.png" alt=""  class="morewatericon">
+				 	</span>
+				 	<div class="more_set_watermarkshow">
+				 		<span class="more_watermarkshow_pho">
+							<!-- <img src="img/icon/pho_up.png" alt="" > -->
+				 		</span>
+				 		<div class="moreset_watermarkset">
+				 			水印
+				 			<div class="moreset_waterset">
+				 				<div>
+				 					
+				 				</div>
+				 			</div>
+				 		</div>
+			      		 <div class="more_watermark_set">
+			      		   <div class="more_watermark_over">
+			      		   	
+			      		   </div>
+			      		 	<ul class="more_waterimgp">
+			      		 		<li>
+			      		 			<div class="more_water_position">
+			      		 				<i>水印位置</i>
+			      		 				<img src="img/icon/channel/channel_select1.png" alt="">
+			      		 				<span class="fr more_water_positionval">右下</span>
+			      		 				<div class="more_water_position1">
+			      		 					<ul>
+			      		 						<li>
+			      		 							<span>左上</span>
+			      		 						</li>
+			      		 						<li>
+			      		 							<span>
+			      		 								左下
+			      		 							</span>
+			      		 						</li>
+			      		 						<li>
+			      		 							<span>右上</span>
+			      		 						</li>
+			      		 						<li>
+			      		 							<span>右下</span>
+			      		 						</li>
+			      		 					</ul>
+			      		 				</div>
+			      		 			</div>
+			      		 		</li>
+			      		 		<li>
+			      		 			<div class="moreset_water_name">
+			      		 				<i>文字水印</i>
+			      		 				<input type="text" name="" id="watertext" value="" maxlength="20">
+			      		 			</div>
+			      		 		</li>
+			      		 		<li>
+			      		 			<div class="moreset_water_img">
+			      		 				<i>图片水印</i>
+			      		 				 <b class="moreset_waterimgt">请选择图片...</b>
+			      		 				  <img src="img/icon/more_set/close.png" class="moreclearup" alt="" onclick="moreclearup()">
+			      		 				 <form id="form2" method="post" class="fix" enctype="multipart/form-data" >
+					                    	<input id="upload" name="upload" type="file" accept="image/png,image/jpg"  onchange="uploadImage(this.value)"  value="asd" onclick="More_setimgborder()" />
+				                   	    </form>
+				                   	 <!--    <input   placeholder="请选择图片..."  accept="image/png,image" type="file" onchange="uploadImage(this.value)" > -->
+			      		 			</div>
+			      		 		</li>
+			      		 	</ul>
+			      		 	<ul class="watermessage">
+			      		 		<li>
+			      		 			<!-- <input type="checkbox" > -->
+			      		 			<div class="more_set_in"></div>
+			      		 			<i>发起者备注名和ID</i>
+			      		 		</li>
+			      		 		<li>
+			      		 			<!-- <input type="checkbox" > -->
+			      		 			<div class="more_set_in"></div>
+			      		 			<i>拍摄时间</i>
+			      		 		</li>
+			      		 		<li>
+			      		 			<!-- <input type="checkbox" > -->
+			      		 			<div class="more_set_in"></div>
+			      		 			<i>位置信息</i>
+			      		 		</li>
+			      		 	</ul>
+			      		 	<hr>
+			      		 	<ul class="WaterIMIMG">
+			      		 		<li>
+			      		 			<!-- <input type="checkbox" > -->
+			      		 			<div class="more_set_in"></div>
+			      		 			<i>应用于：IM图片消息</i>
+			      		 		</li>
+			      		 		<li>
+			      		 			<!-- <input type="checkbox" > -->
+			      		 			<div class="more_set_in"></div>
+			      		 			<i>应用于：上报图片</i>
+			      		 		</li>
+			      		 		<li>
+			      		 			<!-- <input type="checkbox" > -->
+			      		 			<div class="more_set_in"></div>
+			      		 			<i>应用于：视频抓拍图片</i>
+			      		 		</li>
+			      		 	</ul>
+			      		 	 <div class="moreset_water_keep" onclick="MoreWaterkeep()">
+			      		 	 	保存
+			      		 	 </div>
+			      		 </div>	 		
+				 	</div>		 	
+				 </div>
+<!--账户密码-->		
+                 <div class="moreset_user">
+                 	账户密码
+                 	<span class="fr">
+                 		<img src="img/icon/more_set/more_set.png" alt="" class="moresetwr">
+                 	</span>
+                 	<div class="moreset_usershow">
+                 		<span class="moreset_usershowpho">
+                 			<img src="img/icon/pho_up.png" alt="">
+                 		</span>
+                 		<ul>
+                 			<li>
+                 				<div class="moreset_usernow">
+                 					<i>当前密码</i>
+                 					<input type="password" placeholder="请输入当前密码" maxlength="15" id="moreset_now">
+                 					<span>
+                 						<img src="img/icon/more_set/moreset_biyan.png" alt="">
+                 					</span>
+                 				</div>
+                 			</li>
+                 			<li>
+                 				<div class="moreset_usernow">
+                 					<i>新密码</i>
+                 					<input type="password" name="" placeholder="请输入新密码" id="moreset_new" maxlength="15">
+                 					<span>
+                 						<img src="img/icon/more_set/moreset_biyan.png" alt="">
+                 					</span>
+                 				</div>
+                 			</li>
+                 			<li>
+                 				<div class="moreset_usernow">
+                 					<i>确认密码</i>
+                 					<input type="password" name="" placeholder="请再次输入新密码" id="moreset_news" maxlength="15">
+                 					<span>
+                 						<img src="img/icon/more_set/moreset_biyan.png" alt="">
+                 					</span>
+                 				</div>
+                 				<p class="" style="display:none">密码为8-15位数字和字母或符号组合</p>
+
+                 			</li>
+                 			<p class="Moreset_special">(仅支持的特殊字符：!@#$%^*)</p>
+                 			<!-- <p class="Moreset_errorpsd">当前密码错误</p> -->
+                 			<li>
+                 			    <!-- <div class="moreset_userkeep" onclick="moresetpassword(this)">
+                 					保存
+                 				</div>	 -->
+                 				<button class="moreset_userkeep" onclick="moresetpassword(this)">保存</button>
+                 			</li>
+                 		</ul>
+                 	</div>
+                 </div>		 
+	<!--手册-->	 
+	             <div class="moreset_book">
+	             	用户使用手册
+	             	<span class="fr">
+	             	   <a href="user_book.rar">
+	             		 <img src="img/icon/more_set/more_setdown.png" alt="">
+	             		</a>
+	             	</span>
+	             </div>
+	             <div class="position_return">
+	             	终端位置回传设置
+	             	<a onclick="position_return_f()">
+	             		<img src="img/icon/more_set/Triangle.png" />
+	             	</a>
+	             </div>
+	             <div class="position_return_div hide">		
+	             	<div class="position_return_option chk_c">
+	             		<div class="sps">开关设置</div>
+	             		<label for="man" class="position_return_option_so sp1 chk_c"><span class="radio-bg c_1"></span><input type="radio" id="man" name="option" value="1"/>开启<span class="radio-on"></label>
+	             		<label for="man2" class="position_return_option_so chk_c sps"><span class="radio-bg c_1"></span><input type="radio" id="man2" name="option" value="10"/>强制开启<span class="radio-on"></label>
+	             		<label for="man1" class="position_return_option_so chk_c"><span class="radio-bg c_1"></span><input type="radio" id="man1" name="option" value="0"/>关闭<span class="radio-on"></label>
+	             		
+	             	</div>
+	             	<div class="position_return_x"></div>
+	             	<div class="fugaidiv"></div>
+	             	<div class="position_return_return chk_c">
+	             		<div class="sps">回传时间设置</div>
+	             		<label for="man7" class="chk_c position_return_option_sr"><span class="radio-bg c_2"></span><input type="radio" id="man7" name="time" value="-1"/>高精度模式<span class="radio-on"></span></label>
+	             		<label for="man3" class="sp1 position_return_option_sr chk_c"><span class="radio-bg c_2"></span><input type="radio" id="man3" name="time" value="60"/>1分<span class="radio-on sp2"></span></label>
+	             		<label for="man4" class="sp0 position_return_option_sr chk_c"><span class="radio-bg c_2"></span><input type="radio" id="man4" name="time" value="900"/>15分<span class="radio-on"></span></label>
+	             		<label for="man5" class="sp1 position_return_option_sr chk_c"><span class="radio-bg c_2"></span><input type="radio" id="man5" name="time" value="1800"/>30分<span class="radio-on"></span></label>
+	             		<label for="man6" class="sp1 position_return_option_sr chk_c"><span class="radio-bg c_2"></span><input type="radio" id="man6" name="time" value="3600"/>60分<span class="radio-on"></span></label>
+	             	</div>
+	             </div>
+							 <div class="set_Language_settings">
+								 语言设置
+								 <a onclick="set_Language_settings_f()">
+								 	<img src="img/icon/more_set/Triangle.png" />
+								 </a>
+							 </div>
+							 <div class="set_Language_settings_div hide">
+								 <div class="set_Language_settings_s chk_c">
+									 <label for="lan1" class="set_Language_settings_lan_cn lan_all sp1 chk_c"><span class="radio-bg c_1"></span><input type="radio" id="lan1" name="lan" value="1"/>简体中文<span class="radio-on"></span></label>
+									 <label for="lan2" class="set_Language_settings_lan_en lan_all chk_c sps"><span class="radio-bg c_1"></span><input type="radio" id="lan2" name="lan" value="3"/>English<span class="radio-on"></span></label>
+								 </div>
+							 </div>
+	<!--版本-->
+	             <div class="moreset_version">
+	                <p>企业ID:<strong class="versionID">1002</strong></p>
+	                <p class="morecompanyname"><strong class="loginfirmname">和对讲</strong></p>
+	             	<p class="yidongmoileplatform">移动政企管理调度平台</p>
+	             	<p class="yidongmoile">WEB 版本：V1.0.0</p>
+	             </div>             
+			</div>
+		
+</div>
